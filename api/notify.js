@@ -134,7 +134,7 @@ export default async function handler(req, res) {
             <h2 style="color: #0f172a; font-size: 19px; margin-top: 0; font-weight: 700;">Welcome, ${escapeHtml(user.name || user.email.split('@')[0])}!</h2>
             <p style="color: #475569; line-height: 1.6; font-size: 14px;">Thank you for connecting with Tu Thanh Machinery. When ordering diesel engines and power machinery from our showroom, you are guaranteed:</p>
             <ul style="color: #334155; line-height: 1.8; padding-left: 20px; font-size: 14px;">
-              <li><strong>100% Brand-New Units:</strong> Genuine Kubota, Yanmar, and John Deere power equipment in factory crates.</li>
+              <li><strong>100% Brand-New Units:</strong> Genuine JIADI, Aico Japan, Astramilano, Milano Italia and Dera equipment in factory crates.</li>
               <li><strong>Comprehensive Pre-Test Run:</strong> Oil filled, injector calibrated, and engine run-tested before crate packaging.</li>
               <li><strong>Secured Freight Shipping:</strong> Palletized and shock-proof crated dispatch nationwide and globally.</li>
               <li><strong>24-Month Official Warranty:</strong> Guaranteed spare parts availability and direct video consultation with certified mechanics.</li>

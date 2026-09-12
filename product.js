@@ -88,12 +88,13 @@ function initProductPage() {
   const bcMod = document.getElementById("bcModel");
   if (bcCat) {
     const catMap = {
-      engines: "Diesel Engines",
-      tillers: "Power Tillers",
+      tractors: "Tractors & Tillers",
+      harvesting: "Harvesting",
       pumps: "Water Pumps",
-      marine: "Marine Long-Tails",
-      generators: "Generators",
-      parts: "Parts & Kits"
+      processing: "Feed & Processing",
+      dairy: "Dairy",
+      sprayers: "Sprayers",
+      cutters: "Brush Cutters"
     };
     bcCat.textContent = catMap[currentProduct.category] || "Machinery";
   }
@@ -119,7 +120,10 @@ function initProductPage() {
   if (titleEl) titleEl.textContent = currentProduct.model;
 
   const ratingNum = document.getElementById("productRatingNum");
-  if (ratingNum) ratingNum.textContent = currentProduct.rating;
+  if (ratingNum) ratingNum.textContent = currentProduct.rating || "—";
+
+  const ratingBlock = document.getElementById("productRatingBlock");
+  if (ratingBlock && !currentProduct.reviewsCount) ratingBlock.style.display = "none";
 
   const revCount = document.getElementById("productReviewsCount");
   if (revCount) revCount.textContent = currentProduct.reviewsCount || (currentProduct.reviews || []).length;
@@ -154,13 +158,14 @@ function initProductPage() {
   const quickSpecs = document.getElementById("quickSpecsGrid");
   if (quickSpecs) {
     const specsMap = [
-      { label: "Rated Power", val: currentProduct.hp || "14.0 HP" },
-      { label: "Rated Speed", val: currentProduct.rpm || "2,400 RPM" },
-      { label: "Cooling Tech", val: currentProduct.cooling || "Radiator Fan" },
-      { label: "Starting System", val: currentProduct.starter || "Decompression Crank" },
-      { label: "Displacement", val: currentProduct.displacement || "N/A" },
-      { label: "Net Weight", val: currentProduct.weight || "N/A" }
-    ];
+      { label: "Rated Power", val: currentProduct.hp },
+      { label: "Capacity", val: currentProduct.capacity },
+      { label: "Rated Speed", val: currentProduct.rpm },
+      { label: "Cooling Tech", val: currentProduct.cooling },
+      { label: "Starting System", val: currentProduct.starter },
+      { label: "Displacement", val: currentProduct.displacement },
+      { label: "Net Weight", val: currentProduct.weight }
+    ].filter(s => s.val);
 
     quickSpecs.innerHTML = specsMap.map(s => `
       <div class="qspec-card">
@@ -223,7 +228,7 @@ function renderReviewsSection() {
   if (!container || !currentProduct) return;
 
   const reviews = currentProduct.reviews || [];
-  if (bigAvg) bigAvg.textContent = currentProduct.rating;
+  if (bigAvg) bigAvg.textContent = currentProduct.rating || "—";
   if (countTotal) countTotal.textContent = reviews.length;
 
   if (reviews.length === 0) {
@@ -331,11 +336,15 @@ function renderRelatedEquipment() {
           </div>
         </a>
 
+        ${item.reviewsCount > 0 ? `
         <div class="card-stars-row">
           <span class="stars-gold">★★★★★</span>
           <span class="rating-val">${item.rating}</span>
           <span class="review-count-pill">(${item.reviewsCount})</span>
-        </div>
+        </div>` : `
+        <div class="card-stars-row">
+          <span style="font-size: 11.5px; color: #94A3B8; font-weight: 700;">Be the first to review</span>
+        </div>`}
 
         <div class="flyer-price-row">
           <span class="price-sublabel">Dealer Direct:</span>
@@ -368,7 +377,7 @@ function addCurrentProductToCart() {
       currency: SITE_CURRENCY,
       image: currentProduct.images[0],
       hp: currentProduct.hp,
-      specs: (currentProduct.cooling || '') + " | " + (currentProduct.starter || ''),
+      specs: currentProduct.hp || '',
       quantity: selectedQuantity
     });
   }
@@ -393,7 +402,7 @@ function buyNowExpress() {
       currency: SITE_CURRENCY,
       image: currentProduct.images[0],
       hp: currentProduct.hp,
-      specs: (currentProduct.cooling || '') + " | " + (currentProduct.starter || ''),
+      specs: currentProduct.hp || '',
       quantity: selectedQuantity
     });
   }

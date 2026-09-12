@@ -1,7 +1,7 @@
 # Tu Thanh Machinery 🚜
 
 A premier e-commerce & machinery showroom platform for **Tu Thanh Machinery & Power Equipment**.
-Specializing in genuine Kubota RT horizontal diesel engines, Yanmar TF Direct Injection engines, John Deere USA industrial power packs, 2-wheel walk-behind power tillers, high-volume irrigation pumps, 304 stainless marine long-tail drives, and 12V turnkey electric starter kits.
+Specializing in JIADI walk-behind diesel tractors and maize harvesters, Astramilano high-pressure water pumps, Milano Italia feed choppers and pellet machines, Aico Japan dairy milking equipment and petrol trolley sprayers, and Dera brush cutters.
 
 ---
 
@@ -14,10 +14,12 @@ Specializing in genuine Kubota RT horizontal diesel engines, Yanmar TF Direct In
 
 ## 🌟 Key Features
 
-- **16+ Heavy-Duty Machinery Systems**: Complete technical spec sheets including horsepower (HP), rated RPM, combustion technology (TVCS/Direct Injection), radiator/condenser cooling, displacement, dry weight, and starter type (12V electric or decompression crank).
-- **TikTok Workshop & Dyno Test Spotlight**: Real workshop video demonstrations from TikTok **@nnc.thanhdat2** (404K+ Followers, 3.4M Likes), featuring live engine startup tests, 12V starter conversions, and export wooden crating.
+- **10 Heavy-Duty Machinery Systems**: Complete technical spec sheets including power output (HP or kW), working capacity, transmission/mechanism, cooling, starting system, weight, and recommended duty.
+- **Country-Aware Pricing**: Products carry a native currency and the formatter detects the visitor's country, so a Kenyan visitor sees Kenya Shillings throughout the catalog, cart, checkout, tracking and order invoices.
+- **Categorised Catalog**: Filter chips for Tractors & Tillers, Harvesting, Water Pumps, Feed & Processing, Dairy, Sprayers and Brush Cutters, with live search and price/rating sorting.
+- **TikTok Workshop Spotlight**: Real workshop demonstrations from TikTok **@nnc.thanhdat2** (404K+ Followers, 3.4M Likes), featuring machine run-tests, implement setup and export wooden crating.
 - **Mobile-Optimized 2-Column Catalog Grid**: Compact, modern card view designed for fast smartphone shopping with quantity steppers and quick add-to-cart triggers.
-- **Operator & Mechanic Reviews**: Real field testimonials from commercial farm managers, marine operators, and diesel mechanics.
+- **Operator Reviews**: Field testimonials from farm managers, contractors and machine operators, with a submit-your-own review form on every product page.
 - **Real-Time Freight Tracking Portal**: Multi-parameter search by Order Reference (e.g. `TTM-123456`) or Phone Number with a 5-step visual logistics timeline (Order Received -> Dyno Pre-Test -> Crated & Banded -> Linehaul Freight -> On-Site Inspection).
 - **Automated Order Dispatch Pipeline**:
   - **Telegram Bot**: Instant dispatch alert sent to the shop owner's mobile device with customer info, equipment specs, and total amount.
