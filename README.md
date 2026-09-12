@@ -1,6 +1,6 @@
 # Tu Thanh Machinery 🚜
 
-A premier e-commerce & machinery showroom platform for **Tu Thanh Machinery & Power Equipment (Thanh Dat 2 - Soc Trang)**.
+A premier e-commerce & machinery showroom platform for **Tu Thanh Machinery & Power Equipment**.
 Specializing in genuine Kubota RT horizontal diesel engines, Yanmar TF Direct Injection engines, John Deere USA industrial power packs, 2-wheel walk-behind power tillers, high-volume irrigation pumps, 304 stainless marine long-tail drives, and 12V turnkey electric starter kits.
 
 ---
@@ -41,6 +41,6 @@ Specializing in genuine Kubota RT horizontal diesel engines, Yanmar TF Direct In
 ## 📍 Showroom Location & Contact
 
 - **Business Name**: Tu Thanh Machinery (Thanh Dat 2)
-- **Showroom Address**: 49 Vo Van Kiet, Ward 7, Soc Trang, Vietnam
+- **Showroom Address**: Industrial Area, Nairobi, Kenya
 - **Hotline & WhatsApp**: **+84 918 453 476**
 - **Official TikTok Channel**: [@nnc.thanhdat2](https://www.tiktok.com/@nnc.thanhdat2)

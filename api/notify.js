@@ -69,7 +69,7 @@ export default async function handler(req, res) {
       `• <b>Freight / Wooden Crate Packing:</b> ${order.shipping === 0 ? 'FREE FREIGHT SHIPPING' : formatCurrency(order.shipping)}`,
       `• <b>TOTAL AMOUNT:</b> <b>${formatCurrency(order.total)}</b>`,
       `━━━━━━━━━━━━━━━━━━━━━━━━━━`,
-      `📍 <i>Tu Thanh Machinery — 49 Vo Van Kiet, Soc Trang (Hotline / WhatsApp: +84 918 453 476)</i>`
+      `📍 <i>Tu Thanh Machinery — Industrial Area, Nairobi, Kenya (Hotline / WhatsApp: +84 918 453 476)</i>`
     ].filter(Boolean).join('\n');
 
     // Send Telegram Notification
@@ -153,7 +153,7 @@ export default async function handler(req, res) {
             </div>
           </div>
           <div style="background: #f8fafc; padding: 16px 20px; text-align: center; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 12px;">
-            Tu Thanh Machinery Showroom • 49 Vo Van Kiet, Soc Trang, Vietnam<br>
+            Tu Thanh Machinery Showroom • Industrial Area, Nairobi, Kenya<br>
             TikTok: @nnc.thanhdat2 (404K+ Followers) • WhatsApp: +84 918 453 476
           </div>
         </div>
@@ -300,7 +300,7 @@ function generateInvoiceEmailHtml(order) {
         <!-- Footer -->
         <div style="background: #0f172a; padding: 22px 24px; text-align: center; color: #94a3b8; font-size: 12px; line-height: 1.6;">
           <strong style="color: #f8fafc; font-size: 13px;">TU THANH MACHINERY SHOWROOM &amp; DISTRIBUTION</strong><br>
-          📍 Address: 49 Vo Van Kiet, Ward 7, Soc Trang, Vietnam<br>
+          📍 Address: Industrial Area, Nairobi, Kenya<br>
           📞 Hotline / WhatsApp: <a href="tel:+84918453476" style="color: #4ade80; text-decoration: none; font-weight: bold;">+84 918 453 476</a><br>
           📱 Official TikTok Channel: <b>@nnc.thanhdat2</b> (404,000+ Followers)
         </div>
