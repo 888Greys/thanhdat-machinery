@@ -5,6 +5,13 @@ Chuyên phân phối động cơ diesel chính hãng Kubota RT Thái Lan, Yanmar
 
 ---
 
+## 🚀 Live Site & Repository
+
+- **Production URL**: [https://thanhdat-machinery.vercel.app](https://thanhdat-machinery.vercel.app)
+- **GitHub Repository**: [https://github.com/888Greys/thanhdat-machinery](https://github.com/888Greys/thanhdat-machinery)
+
+---
+
 ## 🌟 Điểm Nổi Bật & Tính Năng
 
 - **Danh mục thiết bị nông cơ hoàn chỉnh (16+ sản phẩm)**: Đầy đủ thông số mã lực (HP), vòng tua (RPM), buồng đốt, hệ thống làm mát két nước/bốc hơi, trọng lượng và kiểu khởi động đề điện / quay tay.
