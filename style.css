@@ -2238,6 +2238,16 @@ button, input, select, textarea {
 .quick-specs-grid { gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
 .qspec-card { border: 0; border-radius: 0; background: #fff; padding: 10px 12px; }
 
+/* Technical specifications should read like a spec sheet, not a grid of cards. */
+#specsSection { padding: 0; border: 0; border-radius: 0; box-shadow: none; background: transparent; }
+#specsSection .section-title-wrap { margin-bottom: 18px; }
+#specsSection .matrix-table-wrap { border: 0; border-radius: 0; overflow: visible; background: transparent; }
+#specsSection .matrix-table { border-collapse: collapse; background: transparent; }
+#specsSection .matrix-table td { padding: 12px 0; border: 0; border-bottom: 1px solid var(--line); background: transparent !important; vertical-align: top; }
+#specsSection .matrix-table tr:last-child td { border-bottom: 0; }
+#specsSection .spec-label-col { width: 31%; padding-right: 24px !important; background: transparent; color: var(--muted); font-size: 12px; }
+#specsSection .spec-val-col { color: var(--ink); font-size: 13px; line-height: 1.45; }
+
 @media (max-width: 768px) {
   .product-page-main { padding-top: 0 !important; }
   .product-page-main .product-breadcrumbs-row { justify-content: flex-start; padding: 12px 0; }
@@ -2259,6 +2269,9 @@ button, input, select, textarea {
   .price-tax-badge { font-size: 9px; }
   .product-long-desc { font-size: 13px; margin-bottom: 16px; }
   .quick-specs-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  #specsSection .matrix-table td { padding: 11px 0; }
+  #specsSection .spec-label-col { width: 36%; padding-right: 14px !important; font-size: 10px; }
+  #specsSection .spec-val-col { font-size: 11.5px; }
 }
 
 /* ========================================================================
