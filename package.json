@@ -1,0 +1,21 @@
+{
+  "name": "thanhdat-machinery",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "dong-co-diesel",
+    "nong-co",
+    "kubota",
+    "yanmar",
+    "john-deere",
+    "may-xoi-dat",
+    "soc-trang"
+  ],
+  "author": "Tư Thành - Nông Cơ Thành Đạt 2",
+  "license": "ISC"
+}
