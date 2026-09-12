@@ -10,8 +10,65 @@ const supabaseClient = (typeof window !== "undefined" && window.supabase)
   ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
   : null;
 
-function formatMoney(amount) {
-  return "$" + Number(amount).toLocaleString("en-US") + " USD";
+// ==========================================================================
+// CURRENCY
+// Every product is priced in its own native `currency` (USD unless stated).
+// The visitor's country decides how prices are displayed, so a Kenyan
+// visitor always sees Kenya Shillings. Update FX_PER_USD.KES when the rate moves.
+// ==========================================================================
+const FX_PER_USD = {
+  USD: 1,
+  KES: 129
+};
+
+const COUNTRY_CURRENCY = {
+  KE: "KES"
+};
+
+const CURRENCY_DISPLAY = {
+  USD: { prefix: "$", suffix: " USD" },
+  KES: { prefix: "KSh ", suffix: "" }
+};
+
+const FREE_FREIGHT_THRESHOLD_USD = 800;
+const FREIGHT_FEE_USD = 45;
+
+function detectVisitorCurrency() {
+  try {
+    const tags = [navigator.language].concat(navigator.languages || []);
+    for (const tag of tags) {
+      const region = String(tag || "").split(/[-_]/)[1];
+      if (region && COUNTRY_CURRENCY[region.toUpperCase()]) {
+        return COUNTRY_CURRENCY[region.toUpperCase()];
+      }
+    }
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+    if (timeZone.indexOf("Africa/Nairobi") === 0) return "KES";
+  } catch (e) {}
+  return "USD";
+}
+
+const SITE_CURRENCY = detectVisitorCurrency();
+
+function toSiteCurrency(amount, fromCurrency) {
+  const from = FX_PER_USD[fromCurrency] ? fromCurrency : "USD";
+  return (Number(amount) / FX_PER_USD[from]) * FX_PER_USD[SITE_CURRENCY];
+}
+
+function formatMoney(amount, currencyCode) {
+  const display = CURRENCY_DISPLAY[SITE_CURRENCY] || CURRENCY_DISPLAY.USD;
+  const value = Math.round(toSiteCurrency(amount, currencyCode || "USD"));
+  return display.prefix + value.toLocaleString("en-US") + display.suffix;
+}
+
+// Cart totals are held in the visitor's currency while freight is priced in USD.
+function freightFeeFor(subtotal) {
+  const subtotalUSD = subtotal / FX_PER_USD[SITE_CURRENCY];
+  return subtotalUSD >= FREE_FREIGHT_THRESHOLD_USD ? 0 : toSiteCurrency(FREIGHT_FEE_USD, "USD");
+}
+
+function freeFreightShortfall(subtotal) {
+  return toSiteCurrency(FREE_FREIGHT_THRESHOLD_USD, "USD") - subtotal;
 }
 
 // 16 Curated Machinery Catalog Items
@@ -564,6 +621,128 @@ const PRODUCTS_DATA = [
     reviews: [
       { id: "r1601", author: "Master Mechanic Alan", location: "Alan's Diesel Repair", rating: 5, date: "3 days ago", title: "Precision factory tolerances", content: "Factory perfect out of the box.", helpful: 20, liked: false }
     ]
+  },
+  {
+    id: 17,
+    brand: "JIADI",
+    model: "JIADI JD14L Walking Diesel Tractor 14HP with Implements (Key Start)",
+    category: "tillers",
+    price: 155000,
+    currency: "KES",
+    badge: "BEST VALUE",
+    badgeType: "badge-blue-star",
+    sku: "TTM-JD-JD14L",
+    hp: "14.0 HP",
+    rpm: "2,200 RPM",
+    rating: 5.0,
+    reviewsCount: 0,
+    cooling: "Water-Cooled Condenser / Radiator",
+    starter: "Electric Key Start + Manual Crank Backup",
+    displacement: "Approx. 850 cc",
+    weight: "Approx. 300 kg",
+    bullets: [
+      "14 HP water-cooled diesel built for heavy farm work and sustained draught loads",
+      "Supplied with the full implement set: disc ploughs, arrow ploughs, rotavators and iron traction wheels",
+      "Gear-drive transmission with multiple forward speeds plus reverse, and key start with manual crank backup"
+    ],
+    specs: {
+      "Brand / Model": "JIADI JD14L",
+      "Engine Type": "4-Stroke, Single-Cylinder Horizontal Water-Cooled Diesel",
+      "Rated Power": "14.0 HP @ 2,200 RPM",
+      "Transmission": "Gear-Driven, Multiple Forward Speeds + Reverse",
+      "Starting System": "Electric Key Start with Manual Crank Backup",
+      "Wheels Supplied": "Rubber Tyres + Iron Traction Wheels",
+      "Implements Supplied": "Disc Ploughs, Arrow Ploughs, Rotavators, Iron Wheels",
+      "Best Suited To": "Heavy farm work",
+      "Warranty": "12-Month Warranty"
+    },
+    images: [
+      "images/jiadi-walking-tractor.jpg"
+    ],
+    description: "The JIADI JD14L is a two-wheel walking diesel tractor built for heavy farm work on small and medium holdings. Its water-cooled 14 HP single-cylinder diesel delivers the low-end torque needed for ploughing, harrowing and trailer transport, and it arrives with a complete implement set — disc ploughs, arrow ploughs, rotavators and iron traction wheels — so it is field-ready on delivery.",
+    reviews: []
+  },
+  {
+    id: 18,
+    brand: "JIADI",
+    model: "JIADI JD16L Walking Diesel Tractor 16HP with Implements (Key Start)",
+    category: "tillers",
+    price: 260000,
+    currency: "KES",
+    badge: "MOST POPULAR",
+    badgeType: "badge-gold-crown",
+    sku: "TTM-JD-JD16L",
+    hp: "16.0 HP",
+    rpm: "2,200 RPM",
+    rating: 5.0,
+    reviewsCount: 0,
+    cooling: "Water-Cooled Condenser / Radiator",
+    starter: "Electric Key Start + Manual Crank Backup",
+    displacement: "Approx. 1,100 cc (ZH1100 Series)",
+    weight: "Approx. 350 kg",
+    bullets: [
+      "16 HP ZH1100-series diesel ploughs 1.5 - 2 acres per hour on roughly 2 litres of diesel per hour",
+      "Approx. 350 kg frame holds traction in hard, compacted soil where lighter petrol tillers bounce",
+      "Ships with disc ploughs, arrow ploughs, rotavators and iron wheels — gear drive with reverse, key start"
+    ],
+    specs: {
+      "Brand / Model": "JIADI JD16L (ZH1100 / JD1100P Engine)",
+      "Engine Type": "4-Stroke, Single-Cylinder Horizontal Water-Cooled Diesel",
+      "Rated Power": "16.0 HP @ 2,200 RPM",
+      "Fuel Consumption": "Approx. 2 Litres of Diesel per Hour",
+      "Working Capacity": "1.5 - 2 Acres per Hour (soil dependent)",
+      "Transmission": "Gear-Driven, Multiple Forward Speeds + Reverse",
+      "Starting System": "Electric Key Start with Manual Crank Backup",
+      "Wheels Supplied": "Rubber Tyres + Iron Traction Wheels",
+      "Implements Supplied": "Disc Ploughs, Arrow Ploughs, Rotavators, Iron Wheels",
+      "Best Suited To": "Heavy-duty farming",
+      "Warranty": "12-Month Warranty"
+    },
+    images: [
+      "images/jiadi-walking-tractor.jpg"
+    ],
+    description: "The JIADI JD16L is a heavy-duty 16 HP walking diesel tractor built for medium to large-scale farming. Its water-cooled ZH1100-series single-cylinder diesel runs on roughly 2 litres per hour while ploughing 1.5 to 2 acres an hour, and the 350 kg frame keeps the traction firm in hard, compacted ground. Gear drive with multiple forward speeds and reverse, delivered with disc ploughs, arrow ploughs, rotavators and iron wheels for ploughing, harrowing and transport.",
+    reviews: []
+  },
+  {
+    id: 19,
+    brand: "JIADI",
+    model: "JIADI JD20L Walking Diesel Tractor 20HP with Implements (Key Start)",
+    category: "tillers",
+    price: 300000,
+    currency: "KES",
+    badge: "HEAVY-DUTY",
+    badgeType: "badge-green-circle",
+    sku: "TTM-JD-JD20L",
+    hp: "20.0 HP",
+    rpm: "2,200 RPM",
+    rating: 5.0,
+    reviewsCount: 0,
+    cooling: "Water-Cooled Condenser / Radiator",
+    starter: "Electric Key Start + Manual Crank Backup",
+    displacement: "Approx. 1,300 cc",
+    weight: "Approx. 420 kg",
+    bullets: [
+      "20 HP water-cooled diesel for heavy-duty cultivation and transport on larger farms",
+      "Gear-drive transmission with multiple forward and reverse speeds hauls loaded trailers over rough ground",
+      "Delivered with disc ploughs, arrow ploughs, rotavators and iron traction wheels, with electric key start"
+    ],
+    specs: {
+      "Brand / Model": "JIADI JD20L",
+      "Engine Type": "4-Stroke, Single-Cylinder Horizontal Water-Cooled Diesel",
+      "Rated Power": "20.0 HP @ 2,200 RPM",
+      "Transmission": "Gear-Driven, Multiple Forward Speeds + Reverse",
+      "Starting System": "Electric Key Start with Manual Crank Backup",
+      "Wheels Supplied": "Rubber Tyres + Iron Traction Wheels",
+      "Implements Supplied": "Disc Ploughs, Arrow Ploughs, Rotavators, Iron Wheels",
+      "Best Suited To": "Large farms and heavy-duty cultivation & transport",
+      "Warranty": "12-Month Warranty"
+    },
+    images: [
+      "images/jiadi-walking-tractor.jpg"
+    ],
+    description: "The JIADI JD20L is the flagship of the walking diesel tractor range, built for heavy-duty cultivation and transport on larger farms. The water-cooled 20 HP single-cylinder diesel holds torque under continuous ploughing and towing loads, while the heavier frame and gear-drive transmission keep the machine planted and composed in demanding soil.",
+    reviews: []
   }
 ];
 
@@ -642,9 +821,9 @@ function getFilteredAndSortedProducts() {
   });
 
   if (currentSort === "price-asc") {
-    list.sort((a, b) => a.price - b.price);
+    list.sort((a, b) => toSiteCurrency(a.price, a.currency) - toSiteCurrency(b.price, b.currency));
   } else if (currentSort === "price-desc") {
-    list.sort((a, b) => b.price - a.price);
+    list.sort((a, b) => toSiteCurrency(b.price, b.currency) - toSiteCurrency(a.price, a.currency));
   } else if (currentSort === "rating-desc") {
     list.sort((a, b) => b.rating - a.rating);
   }
@@ -714,7 +893,7 @@ function renderCatalog() {
 
           <div class="flyer-price-row">
             <span class="price-sublabel">Dealer Direct:</span>
-            <span class="price-main">${formatMoney(item.price)}</span>
+            <span class="price-main">${formatMoney(item.price, item.currency)}</span>
           </div>
 
           <div class="flyer-card-actions">
@@ -765,7 +944,8 @@ function addCardQtyToCart(id) {
       id: prod.id,
       name: prod.model,
       brand: prod.brand,
-      price: prod.price,
+      price: toSiteCurrency(prod.price, prod.currency),
+      currency: SITE_CURRENCY,
       image: prod.images[0],
       hp: prod.hp,
       specs: prod.cooling + " | " + prod.starter,
@@ -846,7 +1026,7 @@ function renderCartDrawer() {
         <div class="cart-item-details">
           <div class="cart-item-brand">${item.brand}</div>
           <div class="cart-item-title">${item.name}</div>
-          <div class="cart-item-price">${formatMoney(item.price)}</div>
+          <div class="cart-item-price">${formatMoney(item.price, item.currency || SITE_CURRENCY)}</div>
           <div class="cart-item-specs">${item.hp || ''}</div>
 
           <div class="cart-item-controls">
@@ -862,18 +1042,18 @@ function renderCartDrawer() {
     `;
   }).join("");
 
-  const shippingFee = (subtotal >= 800 || subtotal === 0) ? 0 : 45;
+  const shippingFee = freightFeeFor(subtotal);
   const total = subtotal + shippingFee;
 
-  if (subtotalEl) subtotalEl.textContent = formatMoney(subtotal);
-  if (totalEl) totalEl.textContent = formatMoney(total);
+  if (subtotalEl) subtotalEl.textContent = formatMoney(subtotal, SITE_CURRENCY);
+  if (totalEl) totalEl.textContent = formatMoney(total, SITE_CURRENCY);
 
   const shippingNote = document.getElementById("shippingNoticeText");
   if (shippingNote) {
-    if (subtotal >= 800) {
+    if (shippingFee === 0) {
       shippingNote.innerHTML = `✅ <b>Free Freight & Wooden Crate Packing</b> applied!`;
     } else {
-      shippingNote.innerHTML = `Add $${800 - subtotal} more for <b>Free Crated Freight Shipping</b>!`;
+      shippingNote.innerHTML = `Add ${formatMoney(freeFreightShortfall(subtotal), SITE_CURRENCY)} more for <b>Free Crated Freight Shipping</b>!`;
     }
   }
 }
@@ -927,18 +1107,18 @@ function renderCheckoutSummary() {
     return `
       <div style="display: flex; justify-content: space-between; font-size: 12.5px; padding: 4px 0; border-bottom: 1px dashed #F1F5F9;">
         <div><b>${item.name}</b> × ${item.quantity}</div>
-        <div style="font-weight: 700;">${formatMoney(itemTotal)}</div>
+        <div style="font-weight: 700;">${formatMoney(itemTotal, SITE_CURRENCY)}</div>
       </div>
     `;
   }).join("");
 
-  const shippingFee = (subtotal >= 800 || subtotal === 0) ? 0 : 45;
+  const shippingFee = freightFeeFor(subtotal);
   const total = subtotal + shippingFee;
 
-  if (subtotalEl) subtotalEl.textContent = formatMoney(subtotal);
-  if (shippingEl) shippingEl.textContent = shippingFee === 0 ? "Free Shipping" : formatMoney(shippingFee);
-  if (totalEl) totalEl.textContent = formatMoney(total);
-  if (qrTotalEl) qrTotalEl.textContent = formatMoney(total);
+  if (subtotalEl) subtotalEl.textContent = formatMoney(subtotal, SITE_CURRENCY);
+  if (shippingEl) shippingEl.textContent = shippingFee === 0 ? "Free Shipping" : formatMoney(shippingFee, SITE_CURRENCY);
+  if (totalEl) totalEl.textContent = formatMoney(total, SITE_CURRENCY);
+  if (qrTotalEl) qrTotalEl.textContent = formatMoney(total, SITE_CURRENCY);
 }
 
 // Handle Order Form Submission
@@ -974,7 +1154,7 @@ async function handleCheckoutSubmit(e) {
   }
 
   let subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-  let shipping = (subtotal >= 800 || subtotal === 0) ? 0 : 45;
+  let shipping = freightFeeFor(subtotal);
   let total = subtotal + shipping;
 
   const orderId = "TTM-" + Math.floor(100000 + Math.random() * 900000);
@@ -984,6 +1164,7 @@ async function handleCheckoutSubmit(e) {
     id: orderId,
     order_number: orderId,
     trackingCode: trackingCode,
+    currency: SITE_CURRENCY,
     customerName,
     customerPhone,
     customerEmail,
@@ -1056,7 +1237,7 @@ function showOrderSuccessModal(order) {
   if (idEl) idEl.textContent = "#" + order.id;
   if (nameEl) nameEl.textContent = order.customerName;
   if (phoneEl) phoneEl.textContent = order.customerPhone;
-  if (totalEl) totalEl.textContent = formatMoney(order.total);
+  if (totalEl) totalEl.textContent = formatMoney(order.total, order.currency || SITE_CURRENCY);
   if (trackCodeEl) trackCodeEl.textContent = order.trackingCode;
 
   modal.classList.add("active");
@@ -1167,7 +1348,7 @@ async function performOrderTracking() {
         <div><b>Customer:</b> ${found.customerName} (${found.customerPhone})</div>
         <div><b>Destination:</b> ${found.customerAddress}, ${found.customerProvince || ''}</div>
         <div><b>Freight Method:</b> ${found.deliverySpeed || 'Express Freight Courier'}</div>
-        <div><b>Total Amount:</b> <span style="color: #15803D; font-weight: 800;">${formatMoney(found.total)}</span></div>
+        <div><b>Total Amount:</b> <span style="color: #15803D; font-weight: 800;">${formatMoney(found.total, found.currency || SITE_CURRENCY)}</span></div>
       </div>
 
       <div class="timeline-stepper">

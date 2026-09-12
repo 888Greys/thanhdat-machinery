@@ -125,7 +125,7 @@ function initProductPage() {
   if (revCount) revCount.textContent = currentProduct.reviewsCount || (currentProduct.reviews || []).length;
 
   const priceEl = document.getElementById("productPriceDisplay");
-  if (priceEl) priceEl.textContent = formatMoney(currentProduct.price);
+  if (priceEl) priceEl.textContent = formatMoney(currentProduct.price, currentProduct.currency);
 
   const descEl = document.getElementById("productDescription");
   if (descEl) descEl.textContent = currentProduct.description;
@@ -339,7 +339,7 @@ function renderRelatedEquipment() {
 
         <div class="flyer-price-row">
           <span class="price-sublabel">Dealer Direct:</span>
-          <span class="price-main">${formatMoney(item.price)}</span>
+          <span class="price-main">${formatMoney(item.price, item.currency)}</span>
         </div>
 
         <div class="flyer-card-actions">
@@ -364,7 +364,8 @@ function addCurrentProductToCart() {
       id: currentProduct.id,
       name: currentProduct.model,
       brand: currentProduct.brand,
-      price: currentProduct.price,
+      price: toSiteCurrency(currentProduct.price, currentProduct.currency),
+      currency: SITE_CURRENCY,
       image: currentProduct.images[0],
       hp: currentProduct.hp,
       specs: (currentProduct.cooling || '') + " | " + (currentProduct.starter || ''),
@@ -388,7 +389,8 @@ function buyNowExpress() {
       id: currentProduct.id,
       name: currentProduct.model,
       brand: currentProduct.brand,
-      price: currentProduct.price,
+      price: toSiteCurrency(currentProduct.price, currentProduct.currency),
+      currency: SITE_CURRENCY,
       image: currentProduct.images[0],
       hp: currentProduct.hp,
       specs: (currentProduct.cooling || '') + " | " + (currentProduct.starter || ''),
@@ -450,7 +452,7 @@ function renderCartDrawer() {
         <div class="cart-item-details">
           <div class="cart-item-brand">${item.brand}</div>
           <div class="cart-item-title">${item.name}</div>
-          <div class="cart-item-price">${formatMoney(item.price)}</div>
+          <div class="cart-item-price">${formatMoney(item.price, item.currency || SITE_CURRENCY)}</div>
           <div class="cart-item-specs">${item.hp || ''}</div>
 
           <div class="cart-item-controls">
@@ -466,8 +468,8 @@ function renderCartDrawer() {
     `;
   }).join("");
 
-  if (subtotalEl) subtotalEl.textContent = formatMoney(subtotal);
-  if (totalEl) totalEl.textContent = formatMoney(subtotal);
+  if (subtotalEl) subtotalEl.textContent = formatMoney(subtotal, SITE_CURRENCY);
+  if (totalEl) totalEl.textContent = formatMoney(subtotal, SITE_CURRENCY);
 }
 
 function modifyCartQty(idx, delta) {
@@ -504,7 +506,7 @@ function openCheckoutModal() {
       return `
         <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #E2E8F0; padding-bottom: 4px;">
           <span>⚙️ <b>${item.name}</b> × ${item.quantity}</span>
-          <b>${formatMoney(item.price * item.quantity)}</b>
+          <b>${formatMoney(item.price * item.quantity, SITE_CURRENCY)}</b>
         </div>
       `;
     }).join("");
@@ -514,9 +516,9 @@ function openCheckoutModal() {
   const totalEl = document.getElementById("checkoutTotalVal");
   const qrTotalEl = document.getElementById("qrTotalDisplay");
 
-  if (subtotalEl) subtotalEl.textContent = formatMoney(subtotal);
-  if (totalEl) totalEl.textContent = formatMoney(subtotal);
-  if (qrTotalEl) qrTotalEl.textContent = formatMoney(subtotal);
+  if (subtotalEl) subtotalEl.textContent = formatMoney(subtotal, SITE_CURRENCY);
+  if (totalEl) totalEl.textContent = formatMoney(subtotal, SITE_CURRENCY);
+  if (qrTotalEl) qrTotalEl.textContent = formatMoney(subtotal, SITE_CURRENCY);
 
   modal.classList.add("active");
 }
@@ -552,6 +554,7 @@ async function handleCheckoutSubmit(e) {
     id: orderId,
     order_number: orderId,
     trackingCode: trackingCode,
+    currency: SITE_CURRENCY,
     customerName: name,
     customerPhone: phone,
     customerEmail: email,
@@ -628,7 +631,7 @@ function showOrderSuccessModal(order) {
   document.getElementById("successTrackingCode").textContent = order.trackingCode;
   document.getElementById("successCustName").textContent = order.customerName;
   document.getElementById("successCustPhone").textContent = order.customerPhone;
-  document.getElementById("successTotalAmount").textContent = formatMoney(order.total);
+  document.getElementById("successTotalAmount").textContent = formatMoney(order.total, order.currency || SITE_CURRENCY);
 
   const modal = document.getElementById("orderSuccessModal");
   if (modal) modal.classList.add("active");
@@ -739,7 +742,7 @@ async function performOrderTracking() {
         <div><b>Customer:</b> ${found.customerName} (${found.customerPhone})</div>
         <div><b>Destination:</b> ${found.customerAddress}, ${found.customerProvince || ''}</div>
         <div><b>Freight Method:</b> ${found.deliverySpeed || 'Express Freight Courier'}</div>
-        <div><b>Total Amount:</b> <span style="color: #15803D; font-weight: 800;">${formatMoney(found.total)}</span></div>
+        <div><b>Total Amount:</b> <span style="color: #15803D; font-weight: 800;">${formatMoney(found.total, found.currency || SITE_CURRENCY)}</span></div>
       </div>
 
       <div class="timeline-stepper">

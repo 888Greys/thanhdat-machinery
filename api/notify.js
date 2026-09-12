@@ -34,14 +34,9 @@ export default async function handler(req, res) {
 
   // 1. ORDER NOTIFICATION
   if (type === 'order' && order) {
-    const formatCurrency = (amount) => {
-      const num = Number(amount || 0);
-      return '$' + num.toLocaleString('en-US') + ' USD';
-    };
-
     // Format Telegram Message
     const itemsText = (order.items || [])
-      .map(item => `  ⚙️ <b>${escapeHtml(item.name)}</b> × ${item.quantity}\n     <i>${item.specs || item.hp || ''}</i> — ${formatCurrency(item.price)}`)
+      .map(item => `  ⚙️ <b>${escapeHtml(item.name)}</b> × ${item.quantity}\n     <i>${item.specs || item.hp || ''}</i> — ${formatCurrency(item.price, item.currency || order.currency)}`)
       .join('\n\n');
 
     const telegramText = [
@@ -65,9 +60,9 @@ export default async function handler(req, res) {
       itemsText,
       ``,
       `💰 <b>FINANCIAL SUMMARY:</b>`,
-      `• <b>Subtotal:</b> ${formatCurrency(order.subtotal)}`,
-      `• <b>Freight / Wooden Crate Packing:</b> ${order.shipping === 0 ? 'FREE FREIGHT SHIPPING' : formatCurrency(order.shipping)}`,
-      `• <b>TOTAL AMOUNT:</b> <b>${formatCurrency(order.total)}</b>`,
+      `• <b>Subtotal:</b> ${formatCurrency(order.subtotal, order.currency)}`,
+      `• <b>Freight / Wooden Crate Packing:</b> ${order.shipping === 0 ? 'FREE FREIGHT SHIPPING' : formatCurrency(order.shipping, order.currency)}`,
+      `• <b>TOTAL AMOUNT:</b> <b>${formatCurrency(order.total, order.currency)}</b>`,
       `━━━━━━━━━━━━━━━━━━━━━━━━━━`,
       `📍 <i>Tu Thanh Machinery — Industrial Area, Nairobi, Kenya (Hotline / WhatsApp: +84 918 453 476)</i>`
     ].filter(Boolean).join('\n');
@@ -145,7 +140,7 @@ export default async function handler(req, res) {
               <li><strong>24-Month Official Warranty:</strong> Guaranteed spare parts availability and direct video consultation with certified mechanics.</li>
             </ul>
             <div style="text-align: center; margin: 30px 0 20px 0;">
-              <a href="https://thanhdat-machinery.vercel.app" style="background: #2e7d32; color: #ffffff; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-block;">Browse Machinery Catalog</a>
+              <a href="https://modernmachinery.vercel.app" style="background: #2e7d32; color: #ffffff; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-block;">Browse Machinery Catalog</a>
             </div>
             <div style="margin-top: 24px; padding: 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; text-align: center;">
               <span style="color: #64748b; font-size: 12px;">Need technical advice or wholesale pricing? Contact us directly: </span>
@@ -193,23 +188,29 @@ function escapeHtml(text) {
     .replace(/'/g, '&#039;');
 }
 
-function generateInvoiceEmailHtml(order) {
-  const formatCurrency = (amount) => {
-    const num = Number(amount || 0);
-    return '$' + num.toLocaleString('en-US') + ' USD';
-  };
+// Order amounts arrive already converted into the customer's currency.
+const CURRENCY_DISPLAY = {
+  USD: { prefix: '$', suffix: ' USD' },
+  KES: { prefix: 'KSh ', suffix: '' }
+};
 
+function formatCurrency(amount, currency) {
+  const display = CURRENCY_DISPLAY[currency] || CURRENCY_DISPLAY.USD;
+  return display.prefix + Number(amount || 0).toLocaleString('en-US') + display.suffix;
+}
+
+function generateInvoiceEmailHtml(order) {
   const itemsHtml = (order.items || []).map(item => `
     <tr style="border-bottom: 1px solid #f1f5f9;">
       <td style="padding: 14px 10px; color: #0f172a; font-weight: 600; font-size: 14px;">
         ${escapeHtml(item.name)}
         <div style="color: #64748b; font-size: 12px; font-weight: normal; margin-top: 2px;">
-          Quantity: ${item.quantity} × ${formatCurrency(item.price)}
+          Quantity: ${item.quantity} × ${formatCurrency(item.price, item.currency || order.currency)}
           ${item.specs ? `<br><span style="color: #047857; font-size: 11px;">⚙️ ${escapeHtml(item.specs)}</span>` : ''}
         </div>
       </td>
       <td style="padding: 14px 10px; color: #1b5e20; font-weight: 700; text-align: right; font-size: 14px;">
-        ${formatCurrency(item.price * item.quantity)}
+        ${formatCurrency(item.price * item.quantity, item.currency || order.currency)}
       </td>
     </tr>
   `).join('');
@@ -275,15 +276,15 @@ function generateInvoiceEmailHtml(order) {
             <table style="width: 100%; font-size: 14px;">
               <tr>
                 <td style="color: #64748b; padding: 4px 0;">Subtotal:</td>
-                <td style="text-align: right; color: #0f172a; font-weight: 600;">${formatCurrency(order.subtotal)}</td>
+                <td style="text-align: right; color: #0f172a; font-weight: 600;">${formatCurrency(order.subtotal, order.currency)}</td>
               </tr>
               <tr>
                 <td style="color: #64748b; padding: 4px 0;">Freight &amp; Crate Handling:</td>
-                <td style="text-align: right; color: #166534; font-weight: 600;">${order.shipping === 0 ? 'Free Freight Shipping' : formatCurrency(order.shipping)}</td>
+                <td style="text-align: right; color: #166534; font-weight: 600;">${order.shipping === 0 ? 'Free Freight Shipping' : formatCurrency(order.shipping, order.currency)}</td>
               </tr>
               <tr style="font-size: 16px; border-top: 1px dashed #cbd5e1;">
                 <td style="color: #0f172a; font-weight: 800; padding: 10px 0 4px 0;">TOTAL:</td>
-                <td style="text-align: right; color: #1b5e20; font-weight: 800; padding: 10px 0 4px 0; font-size: 18px;">${formatCurrency(order.total)}</td>
+                <td style="text-align: right; color: #1b5e20; font-weight: 800; padding: 10px 0 4px 0; font-size: 18px;">${formatCurrency(order.total, order.currency)}</td>
               </tr>
             </table>
           </div>

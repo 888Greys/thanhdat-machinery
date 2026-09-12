@@ -1,6 +1,52 @@
 // Shared Products Catalog Data for Tu Thanh Machinery
-function formatMoney(amount) {
-  return "$" + Number(amount).toLocaleString("en-US") + " USD";
+
+// ==========================================================================
+// CURRENCY
+// Every product is priced in its own native `currency` (USD unless stated).
+// The visitor's country decides how prices are displayed, so a Kenyan
+// visitor always sees Kenya Shillings. One rate constant to keep in mind:
+// update FX_PER_USD.KES when the exchange rate moves.
+// ==========================================================================
+const FX_PER_USD = {
+  USD: 1,
+  KES: 129
+};
+
+const COUNTRY_CURRENCY = {
+  KE: "KES"
+};
+
+const CURRENCY_DISPLAY = {
+  USD: { prefix: "$", suffix: " USD" },
+  KES: { prefix: "KSh ", suffix: "" }
+};
+
+function detectVisitorCurrency() {
+  try {
+    const tags = [navigator.language].concat(navigator.languages || []);
+    for (const tag of tags) {
+      const region = String(tag || "").split(/[-_]/)[1];
+      if (region && COUNTRY_CURRENCY[region.toUpperCase()]) {
+        return COUNTRY_CURRENCY[region.toUpperCase()];
+      }
+    }
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+    if (timeZone.indexOf("Africa/Nairobi") === 0) return "KES";
+  } catch (e) {}
+  return "USD";
+}
+
+const SITE_CURRENCY = detectVisitorCurrency();
+
+function toSiteCurrency(amount, fromCurrency) {
+  const from = FX_PER_USD[fromCurrency] ? fromCurrency : "USD";
+  return (Number(amount) / FX_PER_USD[from]) * FX_PER_USD[SITE_CURRENCY];
+}
+
+function formatMoney(amount, currencyCode) {
+  const display = CURRENCY_DISPLAY[SITE_CURRENCY] || CURRENCY_DISPLAY.USD;
+  const value = Math.round(toSiteCurrency(amount, currencyCode || "USD"));
+  return display.prefix + value.toLocaleString("en-US") + display.suffix;
 }
 
 // 16 Curated Machinery Catalog Items
@@ -553,6 +599,128 @@ const PRODUCTS_DATA = [
     reviews: [
       { id: "r1601", author: "Master Mechanic Alan", location: "Alan's Diesel Repair", rating: 5, date: "3 days ago", title: "Precision factory tolerances", content: "Factory perfect out of the box.", helpful: 20, liked: false }
     ]
+  },
+  {
+    id: 17,
+    brand: "JIADI",
+    model: "JIADI JD14L Walking Diesel Tractor 14HP with Implements (Key Start)",
+    category: "tillers",
+    price: 155000,
+    currency: "KES",
+    badge: "BEST VALUE",
+    badgeType: "badge-blue-star",
+    sku: "TTM-JD-JD14L",
+    hp: "14.0 HP",
+    rpm: "2,200 RPM",
+    rating: 5.0,
+    reviewsCount: 0,
+    cooling: "Water-Cooled Condenser / Radiator",
+    starter: "Electric Key Start + Manual Crank Backup",
+    displacement: "Approx. 850 cc",
+    weight: "Approx. 300 kg",
+    bullets: [
+      "14 HP water-cooled diesel built for heavy farm work and sustained draught loads",
+      "Supplied with the full implement set: disc ploughs, arrow ploughs, rotavators and iron traction wheels",
+      "Gear-drive transmission with multiple forward speeds plus reverse, and key start with manual crank backup"
+    ],
+    specs: {
+      "Brand / Model": "JIADI JD14L",
+      "Engine Type": "4-Stroke, Single-Cylinder Horizontal Water-Cooled Diesel",
+      "Rated Power": "14.0 HP @ 2,200 RPM",
+      "Transmission": "Gear-Driven, Multiple Forward Speeds + Reverse",
+      "Starting System": "Electric Key Start with Manual Crank Backup",
+      "Wheels Supplied": "Rubber Tyres + Iron Traction Wheels",
+      "Implements Supplied": "Disc Ploughs, Arrow Ploughs, Rotavators, Iron Wheels",
+      "Best Suited To": "Heavy farm work",
+      "Warranty": "12-Month Warranty"
+    },
+    images: [
+      "images/jiadi-walking-tractor.jpg"
+    ],
+    description: "The JIADI JD14L is a two-wheel walking diesel tractor built for heavy farm work on small and medium holdings. Its water-cooled 14 HP single-cylinder diesel delivers the low-end torque needed for ploughing, harrowing and trailer transport, and it arrives with a complete implement set — disc ploughs, arrow ploughs, rotavators and iron traction wheels — so it is field-ready on delivery.",
+    reviews: []
+  },
+  {
+    id: 18,
+    brand: "JIADI",
+    model: "JIADI JD16L Walking Diesel Tractor 16HP with Implements (Key Start)",
+    category: "tillers",
+    price: 260000,
+    currency: "KES",
+    badge: "MOST POPULAR",
+    badgeType: "badge-gold-crown",
+    sku: "TTM-JD-JD16L",
+    hp: "16.0 HP",
+    rpm: "2,200 RPM",
+    rating: 5.0,
+    reviewsCount: 0,
+    cooling: "Water-Cooled Condenser / Radiator",
+    starter: "Electric Key Start + Manual Crank Backup",
+    displacement: "Approx. 1,100 cc (ZH1100 Series)",
+    weight: "Approx. 350 kg",
+    bullets: [
+      "16 HP ZH1100-series diesel ploughs 1.5 - 2 acres per hour on roughly 2 litres of diesel per hour",
+      "Approx. 350 kg frame holds traction in hard, compacted soil where lighter petrol tillers bounce",
+      "Ships with disc ploughs, arrow ploughs, rotavators and iron wheels — gear drive with reverse, key start"
+    ],
+    specs: {
+      "Brand / Model": "JIADI JD16L (ZH1100 / JD1100P Engine)",
+      "Engine Type": "4-Stroke, Single-Cylinder Horizontal Water-Cooled Diesel",
+      "Rated Power": "16.0 HP @ 2,200 RPM",
+      "Fuel Consumption": "Approx. 2 Litres of Diesel per Hour",
+      "Working Capacity": "1.5 - 2 Acres per Hour (soil dependent)",
+      "Transmission": "Gear-Driven, Multiple Forward Speeds + Reverse",
+      "Starting System": "Electric Key Start with Manual Crank Backup",
+      "Wheels Supplied": "Rubber Tyres + Iron Traction Wheels",
+      "Implements Supplied": "Disc Ploughs, Arrow Ploughs, Rotavators, Iron Wheels",
+      "Best Suited To": "Heavy-duty farming",
+      "Warranty": "12-Month Warranty"
+    },
+    images: [
+      "images/jiadi-walking-tractor.jpg"
+    ],
+    description: "The JIADI JD16L is a heavy-duty 16 HP walking diesel tractor built for medium to large-scale farming. Its water-cooled ZH1100-series single-cylinder diesel runs on roughly 2 litres per hour while ploughing 1.5 to 2 acres an hour, and the 350 kg frame keeps the traction firm in hard, compacted ground. Gear drive with multiple forward speeds and reverse, delivered with disc ploughs, arrow ploughs, rotavators and iron wheels for ploughing, harrowing and transport.",
+    reviews: []
+  },
+  {
+    id: 19,
+    brand: "JIADI",
+    model: "JIADI JD20L Walking Diesel Tractor 20HP with Implements (Key Start)",
+    category: "tillers",
+    price: 300000,
+    currency: "KES",
+    badge: "HEAVY-DUTY",
+    badgeType: "badge-green-circle",
+    sku: "TTM-JD-JD20L",
+    hp: "20.0 HP",
+    rpm: "2,200 RPM",
+    rating: 5.0,
+    reviewsCount: 0,
+    cooling: "Water-Cooled Condenser / Radiator",
+    starter: "Electric Key Start + Manual Crank Backup",
+    displacement: "Approx. 1,300 cc",
+    weight: "Approx. 420 kg",
+    bullets: [
+      "20 HP water-cooled diesel for heavy-duty cultivation and transport on larger farms",
+      "Gear-drive transmission with multiple forward and reverse speeds hauls loaded trailers over rough ground",
+      "Delivered with disc ploughs, arrow ploughs, rotavators and iron traction wheels, with electric key start"
+    ],
+    specs: {
+      "Brand / Model": "JIADI JD20L",
+      "Engine Type": "4-Stroke, Single-Cylinder Horizontal Water-Cooled Diesel",
+      "Rated Power": "20.0 HP @ 2,200 RPM",
+      "Transmission": "Gear-Driven, Multiple Forward Speeds + Reverse",
+      "Starting System": "Electric Key Start with Manual Crank Backup",
+      "Wheels Supplied": "Rubber Tyres + Iron Traction Wheels",
+      "Implements Supplied": "Disc Ploughs, Arrow Ploughs, Rotavators, Iron Wheels",
+      "Best Suited To": "Large farms and heavy-duty cultivation & transport",
+      "Warranty": "12-Month Warranty"
+    },
+    images: [
+      "images/jiadi-walking-tractor.jpg"
+    ],
+    description: "The JIADI JD20L is the flagship of the walking diesel tractor range, built for heavy-duty cultivation and transport on larger farms. The water-cooled 20 HP single-cylinder diesel holds torque under continuous ploughing and towing loads, while the heavier frame and gear-drive transmission keep the machine planted and composed in demanding soil.",
+    reviews: []
   }
 ];
 
