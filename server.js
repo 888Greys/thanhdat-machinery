@@ -59,7 +59,12 @@ const server = http.createServer(async (req, res) => {
     pathname = '/index.html';
   }
 
-  const filePath = path.join(__dirname, pathname);
+  let filePath = path.join(__dirname, pathname);
+
+  // Check if file exists directly or with .html extension
+  if (!fs.existsSync(filePath) && fs.existsSync(filePath + '.html')) {
+    filePath = filePath + '.html';
+  }
 
   fs.stat(filePath, (err, stats) => {
     if (err || !stats.isFile()) {
