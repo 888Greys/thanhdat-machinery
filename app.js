@@ -682,22 +682,26 @@ function renderCatalog() {
       <div class="flyer-product-card" data-id="${item.id}">
         <span class="flyer-badge ${item.badgeType}">${item.badge}</span>
         
-        <div class="flyer-card-media" onclick="openDetailsModal(${item.id})">
-          <img 
-            src="${item.images[0]}" 
-            alt="${item.brand} ${item.model}" 
-            class="flyer-product-image"
-            loading="lazy"
-          />
-        </div>
+        <a href="product.html?id=${item.id}" class="flyer-card-media-link" title="View ${item.model} Specifications">
+          <div class="flyer-card-media">
+            <img 
+              src="${item.images[0]}" 
+              alt="${item.brand} ${item.model}" 
+              class="flyer-product-image"
+              loading="lazy"
+            />
+          </div>
+        </a>
 
         <div class="flyer-card-info">
-          <div class="flyer-card-title" onclick="openDetailsModal(${item.id})">
-            <span class="brand-bold">${item.brand}</span>
-            <span class="model-line">${item.model}</span>
-          </div>
+          <a href="product.html?id=${item.id}" class="flyer-card-title-link">
+            <div class="flyer-card-title">
+              <span class="brand-bold">${item.brand}</span>
+              <span class="model-line">${item.model}</span>
+            </div>
+          </a>
 
-          <div class="card-stars-row" onclick="openDetailsModal(${item.id})">
+          <div class="card-stars-row">
             <span class="stars-gold">★★★★★</span>
             <span class="rating-val">${item.rating}</span>
             <span class="review-count-pill">(${item.reviewsCount})</span>
@@ -1063,215 +1067,6 @@ function closeSuccessModal() {
 }
 
 // ==========================================================================
-// DETAILS MODAL & REVIEWS
-// ==========================================================================
-let currentDetailProduct = null;
-
-function openDetailsModal(id) {
-  const prod = PRODUCTS_DATA.find(p => p.id === id);
-  if (!prod) return;
-  currentDetailProduct = prod;
-
-  const modal = document.getElementById("detailsModal");
-  if (!modal) return;
-
-  document.getElementById("detailModalTitle").textContent = prod.model;
-  document.getElementById("detailBrandName").textContent = prod.brand;
-  document.getElementById("detailPriceDisplay").textContent = formatMoney(prod.price);
-  document.getElementById("detailHpPill").textContent = prod.hp || "Commercial Spec";
-
-  const mainImg = document.getElementById("detailMainImg");
-  if (mainImg) mainImg.src = prod.images[0];
-
-  const thumbContainer = document.getElementById("detailGalleryThumbs");
-  if (thumbContainer) {
-    thumbContainer.innerHTML = prod.images.map((imgUrl, i) => `
-      <img 
-        src="${imgUrl}" 
-        alt="${prod.model} thumb ${i+1}" 
-        style="width: 58px; height: 58px; object-fit: cover; border-radius: 4px; border: 1.5px solid ${i === 0 ? '#15803D' : 'transparent'}; cursor: pointer;"
-        onclick="switchDetailImage('${imgUrl}', this)"
-      />
-    `).join("");
-  }
-
-  const descEl = document.getElementById("detailDescText");
-  if (descEl) descEl.textContent = prod.description;
-
-  const bulletsEl = document.getElementById("detailBulletsList");
-  if (bulletsEl) {
-    bulletsEl.innerHTML = (prod.bullets || []).map(b => `<li><span class="bullet-dot">✓</span> ${b}</li>`).join("");
-  }
-
-  const specsTbody = document.getElementById("detailSpecsTbody");
-  if (specsTbody) {
-    const entries = Object.entries(prod.specs || {});
-    specsTbody.innerHTML = entries.map(([k, v]) => `
-      <tr>
-        <td style="padding: 8px 12px; font-weight: 700; color: #334155; width: 35%; border-bottom: 1px solid #F1F5F9;">${k}</td>
-        <td style="padding: 8px 12px; color: #475569; border-bottom: 1px solid #F1F5F9;">${v}</td>
-      </tr>
-    `).join("");
-  }
-
-  renderDetailReviews(prod);
-
-  const detailQtyVal = document.getElementById("detailQtyVal");
-  if (detailQtyVal) detailQtyVal.textContent = "1";
-
-  modal.classList.add("active");
-}
-
-function switchDetailImage(url, el) {
-  const mainImg = document.getElementById("detailMainImg");
-  if (mainImg) mainImg.src = url;
-
-  if (el && el.parentElement) {
-    el.parentElement.querySelectorAll("img").forEach(t => t.style.borderColor = "transparent");
-    el.style.borderColor = "#15803D";
-  }
-}
-
-function stepDetailQty(delta) {
-  const valEl = document.getElementById("detailQtyVal");
-  if (!valEl) return;
-  let val = parseInt(valEl.textContent) || 1;
-  val = Math.max(1, Math.min(20, val + delta));
-  valEl.textContent = val;
-}
-
-function addDetailProductToCart() {
-  if (!currentDetailProduct) return;
-  const valEl = document.getElementById("detailQtyVal");
-  const qty = valEl ? parseInt(valEl.textContent) : 1;
-
-  const existing = cart.find(i => i.id === currentDetailProduct.id);
-  if (existing) {
-    existing.quantity += qty;
-  } else {
-    cart.push({
-      id: currentDetailProduct.id,
-      name: currentDetailProduct.model,
-      brand: currentDetailProduct.brand,
-      price: currentDetailProduct.price,
-      image: currentDetailProduct.images[0],
-      hp: currentDetailProduct.hp,
-      specs: currentDetailProduct.cooling + " | " + currentDetailProduct.starter,
-      quantity: qty
-    });
-  }
-
-  saveCart();
-  closeDetailsModal();
-  triggerToast(`Added ${qty} × "${currentDetailProduct.model}" to cart!`);
-  openCart();
-}
-
-function closeDetailsModal() {
-  const modal = document.getElementById("detailsModal");
-  if (modal) modal.classList.remove("active");
-}
-
-function renderDetailReviews(prod) {
-  const listEl = document.getElementById("detailReviewsList");
-  const avgRatingEl = document.getElementById("detailAvgRating");
-  const totalCountEl = document.getElementById("detailTotalReviewsCount");
-
-  if (!listEl) return;
-
-  if (avgRatingEl) avgRatingEl.textContent = prod.rating;
-  if (totalCountEl) totalCountEl.textContent = (prod.reviews || []).length;
-
-  if (!prod.reviews || prod.reviews.length === 0) {
-    listEl.innerHTML = `<p style="color: #64748B; font-size: 14px;">No reviews yet. Be the first operator to leave a review!</p>`;
-    return;
-  }
-
-  listEl.innerHTML = prod.reviews.map(r => `
-    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px;">
-      <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-        <div>
-          <span style="font-weight: 800; font-size: 13px;">${r.author}</span>
-          <span style="font-size: 11.5px; color: #64748B; margin-left: 6px;">📍 ${r.location}</span>
-        </div>
-        <div style="color: #F59E0B; font-size: 12px;">
-          ${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}
-        </div>
-      </div>
-      <div style="font-weight: 700; font-size: 13px; color: #1E293B; margin-bottom: 3px;">${r.title}</div>
-      <p style="font-size: 12.5px; color: #475569; line-height: 1.5; margin-bottom: 8px;">${r.content}</p>
-      <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: #94A3B8;">
-        <span>${r.date}</span>
-        <button style="background: #FFF; border: 1px solid #CBD5E1; padding: 2px 8px; border-radius: 4px; cursor: pointer; font-size: 11px;" onclick="toggleReviewLike('${r.id}')">
-          👍 Helpful (${r.helpful})
-        </button>
-      </div>
-    </div>
-  `).join("");
-}
-
-function toggleReviewLike(revId) {
-  if (!currentDetailProduct) return;
-  const rev = currentDetailProduct.reviews.find(r => r.id === revId);
-  if (!rev) return;
-
-  rev.helpful += rev.liked ? -1 : 1;
-  rev.liked = !rev.liked;
-
-  renderDetailReviews(currentDetailProduct);
-}
-
-// Review Submission
-function handleReviewSubmit(e) {
-  e.preventDefault();
-  if (!currentDetailProduct) return;
-
-  const authorInput = document.getElementById("reviewAuthorInput");
-  const locInput = document.getElementById("reviewLocationInput");
-  const ratingInput = document.getElementById("reviewRatingSelect");
-  const titleInput = document.getElementById("reviewTitleInput");
-  const contentInput = document.getElementById("reviewContentInput");
-
-  if (!authorInput || !contentInput) return;
-
-  const author = authorInput.value.trim();
-  const location = locInput ? locInput.value.trim() : "Commercial Farm";
-  const rating = parseInt(ratingInput ? ratingInput.value : "5");
-  const title = titleInput ? titleInput.value.trim() : "Performance Review";
-  const content = contentInput.value.trim();
-
-  if (!author || !content) {
-    alert("Please enter your name and feedback content!");
-    return;
-  }
-
-  const newReview = {
-    id: "cr-" + Date.now(),
-    productId: currentDetailProduct.id,
-    author: author,
-    location: location,
-    rating: rating,
-    date: "Just now",
-    title: title,
-    content: content,
-    helpful: 1,
-    liked: true
-  };
-
-  currentDetailProduct.reviews.unshift(newReview);
-  currentDetailProduct.reviewsCount = currentDetailProduct.reviews.length;
-  saveCustomReview(newReview);
-
-  authorInput.value = "";
-  contentInput.value = "";
-  if (titleInput) titleInput.value = "";
-
-  renderDetailReviews(currentDetailProduct);
-  renderCatalog();
-  triggerToast("Thank you for submitting your equipment review!");
-}
-
-// ==========================================================================
 // ORDER TRACKING PORTAL
 // ==========================================================================
 function openOrderTrackingModal() {
@@ -1502,16 +1297,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const checkoutForm = document.getElementById("checkoutForm");
   if (checkoutForm) checkoutForm.addEventListener("submit", handleCheckoutSubmit);
-
-  // Details Modal
-  const closeDetailsBtn = document.getElementById("closeDetailsBtn");
-  if (closeDetailsBtn) closeDetailsBtn.addEventListener("click", closeDetailsModal);
-
-  const addDetailBtn = document.getElementById("detailAddToCartBtn");
-  if (addDetailBtn) addDetailBtn.addEventListener("click", addDetailProductToCart);
-
-  const reviewForm = document.getElementById("detailReviewForm");
-  if (reviewForm) reviewForm.addEventListener("submit", handleReviewSubmit);
 
   // Tracking
   const trackingNavBtn = document.getElementById("navTrackingBtn");

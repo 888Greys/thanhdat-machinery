@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tu Thanh Machinery | Heavy-Duty Diesel Engines &amp; Agricultural Equipment</title>
-  <meta name="description" content="Premier authorized distributor of heavy-duty horizontal diesel engines (Kubota, Yanmar, John Deere), walk-behind power tillers, 4.5 inch water pumps, and 304 stainless marine long-tail drives." />
+  <title id="pageTitle">Machinery Details | Tu Thanh Machinery</title>
+  <meta name="description" content="Commercial heavy-duty diesel engines, walk-behind tillers, irrigation pumps, and marine long-tail drives. Authorized Kubota, Yanmar & John Deere." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="style.css" />
   <!-- Supabase JS CDN -->
@@ -32,7 +32,7 @@
   <header class="top-nav-bar">
     <div class="flyer-container top-nav-flex">
       <div class="nav-brand-wrap">
-        <a href="#" class="nav-brand-link">
+        <a href="index.html" class="nav-brand-link">
           <img src="images/logo.png" alt="Tu Thanh Machinery" class="brand-emblem-img" />
           <div class="brand-title-text">
             <span class="brand-primary-name">TU THANH <span>MACHINERY</span></span>
@@ -41,16 +41,16 @@
         </a>
       </div>
 
-      <!-- Live Search Bar -->
+      <!-- Search Bar -->
       <div class="nav-search-wrap">
         <svg class="nav-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
         </svg>
         <input 
           type="text" 
-          id="machinerySearchInput" 
+          id="productSearchInput" 
           class="nav-search-input" 
-          placeholder="Search Kubota RT140, Yanmar TF120, tillers, electric starters..."
+          placeholder="Search Kubota RT140, Yanmar TF120, tillers, pumps..."
         />
       </div>
 
@@ -71,366 +71,297 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
           </svg>
           <span class="nav-btn-label">Cart</span>
-          <span id="cartCountNumber" class="nav-cart-badge">0</span>
+          <span id="cartCountNumber" class="nav-cart-badge" style="display:none;">0</span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Hero Flyer Banner Graphic (8K Showroom Photography) -->
-  <section class="flyer-hero">
-    <div class="hero-banner-image-container">
-      <img 
-        src="images/hero_banner.jpg" 
-        alt="Tu Thanh Machinery — Heavy-Duty Commercial Diesel Equipment Showroom" 
-        class="hero-flyer-bg-img"
-      />
+  <!-- Main Product Detail Page Container -->
+  <main class="flyer-container" style="padding-top: 20px; padding-bottom: 60px;">
+    
+    <!-- Breadcrumb & Back Link -->
+    <div class="product-breadcrumbs-row">
+      <div class="breadcrumbs-list">
+        <a href="index.html">Home</a>
+        <span class="bc-sep">/</span>
+        <a href="index.html">Machinery Catalog</a>
+        <span class="bc-sep">/</span>
+        <span id="bcCategory" class="bc-current">Diesel Engines</span>
+        <span class="bc-sep">/</span>
+        <span id="bcModel" class="bc-current">Engine Details</span>
+      </div>
+      <a href="index.html" class="btn-back-catalog">← Back to All Machinery</a>
     </div>
-  </section>
 
-  <!-- Flyer Category Bar (Matching Flyer Icons & Subtitles) -->
-  <nav class="flyer-category-bar">
-    <div class="flyer-container">
-      <div class="flyer-category-grid">
-        <!-- All Items -->
-        <div class="flyer-cat-item active" data-category="all" title="View all equipment">
-          <svg class="cat-icon-svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-          <div class="cat-text-wrap">
-            <h5>All Machinery</h5>
-            <p>Full Catalog (16)</p>
-          </div>
+    <!-- 2-Column Product Showcase Section -->
+    <div class="product-showcase-grid">
+      
+      <!-- Left Column: Gallery & Proof Badges -->
+      <div class="product-gallery-side">
+        <div class="product-main-view-box">
+          <span id="productBadge" class="flyer-badge badge-gold-crown">BEST SELLER</span>
+          <img id="productMainImg" src="" alt="Machinery unit" class="product-main-img" />
         </div>
 
-        <!-- Diesel Engines -->
-        <div class="flyer-cat-item" data-category="engines" title="Kubota, Yanmar & John Deere">
-          <svg class="cat-icon-svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-          </svg>
-          <div class="cat-text-wrap">
-            <h5>Diesel Engines</h5>
-            <p>Kubota &amp; Yanmar</p>
-          </div>
+        <div id="productGalleryThumbs" class="product-thumbs-strip">
+          <!-- Rendered dynamically by product.js -->
         </div>
 
-        <!-- Tillers -->
-        <div class="flyer-cat-item" data-category="tillers" title="2-Wheel Walking Tractors">
-          <svg class="cat-icon-svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-          </svg>
-          <div class="cat-text-wrap">
-            <h5>Power Tillers</h5>
-            <p>Walk-Behind Tillers</p>
+        <div class="product-proof-badges-grid">
+          <div class="proof-badge-item">
+            <span class="proof-icon">📦</span>
+            <div>
+              <b>100% Brand-New</b>
+              <small>Export timber crate</small>
+            </div>
           </div>
-        </div>
-
-        <!-- Water Pumps -->
-        <div class="flyer-cat-item" data-category="pumps" title="High-Volume Irrigation & Slurry Pumps">
-          <svg class="cat-icon-svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
-          </svg>
-          <div class="cat-text-wrap">
-            <h5>Water Pumps</h5>
-            <p>Irrigation &amp; Slurry</p>
+          <div class="proof-badge-item">
+            <span class="proof-icon">⚙️</span>
+            <div>
+              <b>Dyno Pre-Tested</b>
+              <small>Oil filled &amp; pressure verified</small>
+            </div>
           </div>
-        </div>
-
-        <!-- Marine Drives -->
-        <div class="flyer-cat-item" data-category="marine" title="304 Stainless Marine Long-Tail Kits">
-          <svg class="cat-icon-svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-          </svg>
-          <div class="cat-text-wrap">
-            <h5>Marine Drives</h5>
-            <p>304 SS Long-Tails</p>
+          <div class="proof-badge-item">
+            <span class="proof-icon">🛡️</span>
+            <div>
+              <b>24-Month Warranty</b>
+              <small>Factory service certificate</small>
+            </div>
           </div>
-        </div>
-
-        <!-- Generators -->
-        <div class="flyer-cat-item" data-category="generators" title="Soundproof Diesel Generators">
-          <svg class="cat-icon-svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-          </svg>
-          <div class="cat-text-wrap">
-            <h5>Generators</h5>
-            <p>Soundproof Gensets</p>
-          </div>
-        </div>
-
-        <!-- Parts & Kits -->
-        <div class="flyer-cat-item" data-category="parts" title="Starter Kits, Filters & Replacement Parts">
-          <svg class="cat-icon-svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path>
-          </svg>
-          <div class="cat-text-wrap">
-            <h5>Parts &amp; Kits</h5>
-            <p>E-Starters &amp; Spares</p>
+          <div class="proof-badge-item">
+            <span class="proof-icon">🚚</span>
+            <div>
+              <b>Free Freight Shipping</b>
+              <small>Palletized linehaul delivery</small>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </nav>
 
-  <!-- Main Product Catalog Section -->
-  <main class="flyer-container" style="margin-top: 28px;">
-    <div class="flyer-section-header">
-      <h3 class="featured-title">Heavy Equipment &amp; Diesel Catalog</h3>
-      <div class="flyer-header-script">
-        <span>Factory Authorized</span>
-        <span class="script-divider">|</span>
-        <span>Pre-Delivery Dyno Tested</span>
-        <span class="script-divider">|</span>
-        <span>24-Month Warranty</span>
-        <span class="script-divider">|</span>
-        <span style="cursor: pointer; text-decoration: underline;" onclick="openOrderTrackingModal()">Track Order 📦</span>
+      <!-- Right Column: Purchase & Core Specs -->
+      <div class="product-info-side">
+        
+        <div class="product-brand-tag-row">
+          <span id="productBrandBadge" class="product-brand-pill">Kubota</span>
+          <span id="productHpPill" class="product-hp-pill">14.0 HP</span>
+          <span id="productSkuTag" class="product-sku-pill">SKU: TTM-KUB-RT140</span>
+        </div>
+
+        <h1 id="productTitle" class="product-page-title">Kubota RT140 Plus Radiator Cooled Diesel Engine</h1>
+
+        <!-- Rating Row -->
+        <div class="product-rating-row">
+          <div class="stars-gold" style="font-size: 15px;">★★★★★</div>
+          <b id="productRatingNum">4.9</b>
+          <span class="rating-sep">•</span>
+          <a href="#reviewsSection" class="rating-reviews-link"><span id="productReviewsCount">14</span> verified operator ratings</a>
+          <span class="rating-sep">•</span>
+          <span style="color: #15803D; font-weight: 700;">🟢 In Stock at Showroom</span>
+        </div>
+
+        <!-- Price Card -->
+        <div class="product-price-panel">
+          <div class="price-sub-caption">WHOLESALE DEALER DIRECT PRICE:</div>
+          <div class="price-amount-flex">
+            <span id="productPriceDisplay" class="price-large">$1,060 USD</span>
+            <span class="price-tax-badge">Taxes &amp; Crating Included</span>
+          </div>
+          <div class="price-incentive-line">
+            ✓ Eligible for <b>Free Palletized Freight Linehaul Delivery</b> &amp; Inspection On Delivery (COD).
+          </div>
+        </div>
+
+        <!-- Description -->
+        <p id="productDescription" class="product-long-desc"></p>
+
+        <!-- Quick Specs Matrix Grid -->
+        <div class="quick-specs-grid" id="quickSpecsGrid">
+          <!-- Rendered dynamically -->
+        </div>
+
+        <!-- Bullet Highlights -->
+        <ul id="productBulletsList" class="product-feature-bullets">
+          <!-- Rendered dynamically -->
+        </ul>
+
+        <!-- Add to Cart & Checkout Controls -->
+        <div class="product-purchase-box">
+          <div class="purchase-stepper-row">
+            <span class="qty-label">Order Quantity:</span>
+            <div class="flyer-stepper">
+              <button class="stepper-btn minus" onclick="stepProductQty(-1)">−</button>
+              <span class="stepper-val" id="productQtyVal">1</span>
+              <button class="stepper-btn plus" onclick="stepProductQty(1)">+</button>
+            </div>
+            <span id="stockStatusText" style="font-size: 12px; color: #15803D; font-weight: 700;">✓ Ready for Immediate Workshop Dyno Test</span>
+          </div>
+
+          <div class="purchase-btn-actions">
+            <button id="addToCartMainBtn" class="btn-add-cart-large">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+              <span>ADD TO SHOPPING CART</span>
+            </button>
+
+            <button id="buyNowExpressBtn" class="btn-buynow-large">
+              <span>⚡ BUY NOW / INSTANT FREIGHT CHECKOUT</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Technical Hotline Contact Callout -->
+        <div class="product-hotline-card">
+          <div class="hotline-card-icon">📞</div>
+          <div class="hotline-card-text">
+            <b>Need custom pulley sizing or export crate documentation?</b>
+            <span>Call or WhatsApp Tu Thanh Workshop direct: <a href="tel:+84918453476"><b>+84 918 453 476</b></a></span>
+          </div>
+          <a href="https://wa.me/84918453476" target="_blank" rel="noopener" class="btn-hotline-wa">WhatsApp</a>
+        </div>
+
       </div>
     </div>
 
-    <!-- Catalog Toolbar (Live Counter & Sorting) -->
-    <div class="catalog-toolbar-row">
-      <div class="toolbar-count">
-        Showing <b id="toolbarCountNum">16</b> systems ready for dispatch
-      </div>
-      <div class="toolbar-actions-right">
-        <select id="catalogSortSelect" class="toolbar-select">
-          <option value="default">Sort: Most Popular</option>
-          <option value="price-asc">Price: Low to High</option>
-          <option value="price-desc">Price: High to Low</option>
-          <option value="rating-desc">Highest Customer Rated</option>
-        </select>
-      </div>
-    </div>
-
-    <!-- 4-Column (Desktop) / 2-Column (Mobile) Flyer Catalog Grid -->
-    <div id="catalogGrid" class="flyer-catalog-grid">
-      <!-- Rendered dynamically by app.js -->
-    </div>
-  </main>
-
-  <!-- TikTok Workshop & Real Dyno Testing Spotlight -->
-  <section class="showroom-section">
-    <div class="flyer-container">
-      <div class="section-head-center">
-        <span class="sub-tag">TIKTOK @nnc.thanhdat2 • 404,000+ FOLLOWERS • 3.4M LIKES</span>
-        <h2>REAL WORKSHOP FOOTAGE &amp; LIVE DYNO RUNS</h2>
-        <p>Watch our certified mechanics perform live engine sound tests, 12V starter conversions, and palletized wooden crating before linehaul freight dispatch.</p>
-      </div>
-
-      <div class="tiktok-grid-container">
-        <!-- Video 1 -->
-        <a href="https://www.tiktok.com/@nnc.thanhdat2" target="_blank" rel="noopener" class="tiktok-video-card">
-          <div class="tiktok-thumb-container">
-            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&auto=format&fit=crop&q=80" alt="Kubota RT140 Dyno Test" class="tiktok-thumb-img" />
-            <div class="tiktok-play-btn">▶</div>
-            <span class="tiktok-badge-tag">DYNO RUN TEST</span>
-          </div>
-          <div class="tiktok-card-body">
-            <h4>Live Dyno Run: Kubota RT140 Plus Radiator Engine</h4>
-            <p>Verifying oil pressure, governor response, and exhaust clarity before crating.</p>
-            <span class="tiktok-author-tag">👤 Tu Thanh Workshop • +84 918 453 476</span>
-          </div>
-        </a>
-
-        <!-- Video 2 -->
-        <a href="https://www.tiktok.com/@nnc.thanhdat2" target="_blank" rel="noopener" class="tiktok-video-card">
-          <div class="tiktok-thumb-container">
-            <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=600&auto=format&fit=crop&q=80" alt="12V Electric Starter Upgrade" class="tiktok-thumb-img" />
-            <div class="tiktok-play-btn">▶</div>
-            <span class="tiktok-badge-tag">ELECTRIC START</span>
-          </div>
-          <div class="tiktok-card-body">
-            <h4>12V Electric Starter Conversion on Yanmar TF120</h4>
-            <p>One-touch key start conversion enables effortless starting without hand-crank fatigue.</p>
-            <span class="tiktok-author-tag">👤 Tu Thanh Workshop • +84 918 453 476</span>
-          </div>
-        </a>
-
-        <!-- Video 3 -->
-        <a href="https://www.tiktok.com/@nnc.thanhdat2" target="_blank" rel="noopener" class="tiktok-video-card">
-          <div class="tiktok-thumb-container">
-            <img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=600&auto=format&fit=crop&q=80" alt="Freight Crate Packaging" class="tiktok-thumb-img" />
-            <div class="tiktok-play-btn">▶</div>
-            <span class="tiktok-badge-tag">FREIGHT DISPATCH</span>
-          </div>
-          <div class="tiktok-card-body">
-            <h4>Reinforced Wooden Crating &amp; Linehaul Loading</h4>
-            <p>Every engine is shrink-wrapped, foam-padded, and banded in a solid wooden export crate.</p>
-            <span class="tiktok-author-tag">👤 Tu Thanh Workshop • +84 918 453 476</span>
-          </div>
-        </a>
-
-        <!-- Video 4 -->
-        <a href="https://www.tiktok.com/@nnc.thanhdat2" target="_blank" rel="noopener" class="tiktok-video-card">
-          <div class="tiktok-thumb-container">
-            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&auto=format&fit=crop&q=80" alt="Marine Long-Tail Water Test" class="tiktok-thumb-img" />
-            <div class="tiktok-play-btn">▶</div>
-            <span class="tiktok-badge-tag">MARINE SPEED TEST</span>
-          </div>
-          <div class="tiktok-card-body">
-            <h4>304 Stainless Long-Tail Drive Canal Speed Test</h4>
-            <p>Saltwater-proof stainless shaft with dynamically balanced propeller for smooth glide.</p>
-            <span class="tiktok-author-tag">👤 Tu Thanh Workshop • +84 918 453 476</span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Technical Comparison Matrix Section -->
-  <section class="tech-matrix-section">
-    <div class="flyer-container">
-      <div class="section-head-center">
-        <span class="sub-tag">ENGINEERING SPECIFICATION MATRIX</span>
-        <h2>COMMERCIAL DIESEL ENGINES SPEC SHEET</h2>
-        <p>Compare horsepower, rated RPM, combustion technology, and cooling configurations across genuine Kubota, Yanmar, and John Deere platforms.</p>
+    <!-- Section: Technical Specifications Table -->
+    <section class="product-tabs-section" id="specsSection">
+      <div class="section-title-wrap">
+        <span class="sub-tag">ENGINEERING SPECIFICATION SHEET</span>
+        <h2>FACTORY TECHNICAL SPECIFICATIONS</h2>
+        <p>Manufacturer-calibrated power curves, displacement, cooling tolerances, and operational dimensions.</p>
       </div>
 
       <div class="matrix-table-wrap">
         <table class="matrix-table">
-          <thead>
-            <tr>
-              <th>Engine Model</th>
-              <th>Peak Output</th>
-              <th>Rated RPM</th>
-              <th>Combustion Tech</th>
-              <th>Cooling System</th>
-              <th>Starting System</th>
-              <th>Optimal Application</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><b style="color: #15803D;">Kubota RT140 Plus</b></td>
-              <td><span class="highlight-spec">14.0 HP</span></td>
-              <td>2,400 RPM</td>
-              <td>TVCS Swirl Chamber</td>
-              <td>Forced Radiator</td>
-              <td>Hand Crank / E-Start Ready</td>
-              <td>2-Wheel Tillers, 4.5" Pumps, Long-Tail Boats</td>
-            </tr>
-            <tr>
-              <td><b style="color: #15803D;">Yanmar TF120-DI</b></td>
-              <td><span class="highlight-spec">12.0 HP</span></td>
-              <td>2,400 RPM</td>
-              <td>Direct Injection (DI)</td>
-              <td>Water Radiator with Fan</td>
-              <td>Assisted Decompression Crank</td>
-              <td>Maximum Fuel Economy, Aqua Aeration, Utility Workboats</td>
-            </tr>
-            <tr>
-              <td><b style="color: #15803D;">Kubota RT155 Plus DI</b></td>
-              <td><span class="highlight-spec">15.5 HP</span></td>
-              <td>2,400 RPM</td>
-              <td>High-Pressure Direct Injection</td>
-              <td>Aluminum Honeycomb Radiator</td>
-              <td>12V Electric Key Start</td>
-              <td>Heavy Tillage, Industrial Slurry Dredging, Harsh Climes</td>
-            </tr>
-            <tr>
-              <td><b style="color: #15803D;">Yanmar TF160-DI</b></td>
-              <td><span class="highlight-spec">16.0 HP</span></td>
-              <td>2,400 RPM</td>
-              <td>Direct Injection 845cc</td>
-              <td>High-CFM Blower Radiator</td>
-              <td>Dual Crank &amp; Key Starter</td>
-              <td>3-5 Ton River Cargo Vessels, Multi-Canal Dredging Barges</td>
-            </tr>
-            <tr>
-              <td><b style="color: #15803D;">John Deere 22 HP Industrial</b></td>
-              <td><span class="highlight-spec">22.0 HP</span></td>
-              <td>2,600 RPM</td>
-              <td>Heavy Quad-Port Injection</td>
-              <td>Triple-Core Copper Radiator</td>
-              <td>Heavy Electric Solenoid</td>
-              <td>Continuous 24/7 Stationary Power, 10kVA Gensets, Deep Dredging</td>
-            </tr>
+          <tbody id="specsTableTbody">
+            <!-- Rendered dynamically by product.js -->
           </tbody>
         </table>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Guarantee & Quality Assurance Section -->
-  <section class="guarantee-section" style="background: #FFFFFF; padding: 48px 0; border-top: 1px solid var(--gray-border);">
-    <div class="flyer-container">
-      <div class="guarantee-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
-        <div class="guarantee-box" style="padding: 20px; background: var(--gray-subtle); border-radius: 8px; border: 1px solid var(--gray-border);">
-          <div style="font-size: 28px; margin-bottom: 10px;">📦</div>
-          <h4 style="font-size: 14.5px; font-weight: 800; margin-bottom: 6px;">100% BRAND-NEW CRATES</h4>
-          <p style="font-size: 12.5px; color: var(--text-muted); line-height: 1.45;">Direct from Kubota and Yanmar factory lines with authenticated serial plates and certificate of origin.</p>
-        </div>
-        <div class="guarantee-box" style="padding: 20px; background: var(--gray-subtle); border-radius: 8px; border: 1px solid var(--gray-border);">
-          <div style="font-size: 28px; margin-bottom: 10px;">⚙️</div>
-          <h4 style="font-size: 14.5px; font-weight: 800; margin-bottom: 6px;">CERTIFIED DYNO PRE-TEST</h4>
-          <p style="font-size: 12.5px; color: var(--text-muted); line-height: 1.45;">Technicians fill synthetic oil, inspect valve tolerances, and run a live dyno-test to ensure zero vibration.</p>
-        </div>
-        <div class="guarantee-box" style="padding: 20px; background: var(--gray-subtle); border-radius: 8px; border: 1px solid var(--gray-border);">
-          <div style="font-size: 28px; margin-bottom: 10px;">🚛</div>
-          <h4 style="font-size: 14.5px; font-weight: 800; margin-bottom: 6px;">SECURE FREIGHT CRATING</h4>
-          <p style="font-size: 12.5px; color: var(--text-muted); line-height: 1.45;">Banded in solid reinforced timber export crates and palletized with full transit insurance coverage.</p>
-        </div>
-        <div class="guarantee-box" style="padding: 20px; background: var(--gray-subtle); border-radius: 8px; border: 1px solid var(--gray-border);">
-          <div style="font-size: 28px; margin-bottom: 10px;">🛡️</div>
-          <h4 style="font-size: 14.5px; font-weight: 800; margin-bottom: 6px;">24-MONTH FULL WARRANTY</h4>
-          <p style="font-size: 12.5px; color: var(--text-muted); line-height: 1.45;">Comprehensive manufacturer warranty backed by complete stock of genuine replacement parts.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section class="faq-section">
-    <div class="flyer-container">
-      <div class="section-head-center">
-        <span class="sub-tag">FREQUENTLY ASKED QUESTIONS</span>
-        <h2>EQUIPMENT &amp; FREIGHT SUPPORT</h2>
+    <!-- Section: Certified Dyno Testing & Crating Protocol -->
+    <section class="testing-protocol-section">
+      <div class="section-title-wrap">
+        <span class="sub-tag">QUALITY CONTROL PROTOCOL</span>
+        <h2>CERTIFIED PRE-DELIVERY INSPECTION</h2>
+        <p>Every single engine and machinery system undergoes a rigorous 5-step workshop quality check before linehaul freight loading.</p>
       </div>
 
-      <div class="faq-list-wrap">
-        <details class="faq-details" open>
-          <summary class="faq-summary">
-            <span>1. How are heavy engines and power tillers packaged for freight?</span>
-            <span>▼</span>
-          </summary>
-          <div class="faq-body-text">
-            All equipment is secured to reinforced heat-treated wooden pallets, shrink-wrapped in moisture-barrier plastic, padded with shock-absorbing foam, and encased in a solid timber export crate. All shipments carry full transit insurance.
-          </div>
-        </details>
+      <div class="protocol-steps-grid">
+        <div class="protocol-card">
+          <div class="proto-num">01</div>
+          <h4>Crate Unboxing &amp; Serial Verification</h4>
+          <p>Technicians verify authentic factory serial plates, casting stamps, and official manufacturer certificates of origin.</p>
+        </div>
 
-        <details class="faq-details">
-          <summary class="faq-summary">
-            <span>2. Does the engine arrive pre-serviced with oil and accessories?</span>
-            <span>▼</span>
-          </summary>
-          <div class="faq-body-text">
-            Yes! Every engine shipment includes a complimentary bottle of high-grade diesel engine oil, an emergency mechanic toolkit (spanners, socket wrench, injector maintenance tool), decompression crank handle, fueling funnel, and factory service manuals.
-          </div>
-        </details>
+        <div class="protocol-card">
+          <div class="proto-num">02</div>
+          <h4>Synthetic Oil &amp; Valve Calibration</h4>
+          <p>Engine sump is filled with high-grade diesel lubricant. Valve clearance and fuel injector spray pattern are calibrated.</p>
+        </div>
 
-        <details class="faq-details">
-          <summary class="faq-summary">
-            <span>3. Can I convert a manual hand-crank engine to one-touch electric start?</span>
-            <span>▼</span>
-          </summary>
-          <div class="faq-body-text">
-            Yes! We supply a complete 1-Touch 12V Electric Starter Upgrade Kit comprising a high-torque reduction starter motor, hardened ring gear, mounting bracket, key ignition switch panel, and wiring harness. Installation takes approximately 30 minutes with standard hand tools.
-          </div>
-        </details>
+        <div class="protocol-card">
+          <div class="proto-num">03</div>
+          <h4>Live 30-Minute Dyno Run-Test</h4>
+          <p>Engine is run under simulated load to verify governor response, zero cooling leaks, oil pressure, and smooth balanced RPM.</p>
+        </div>
 
-        <details class="faq-details">
-          <summary class="faq-summary">
-            <span>4. What is your warranty coverage and technical support process?</span>
-            <span>▼</span>
-          </summary>
-          <div class="faq-body-text">
-            All commercial diesel engines carry an official 24-month manufacturer warranty. Our technical engineering team is available 7 days a week via WhatsApp video consultation at <b>+84 918 453 476</b> to assist with installation, pulley sizing, or immediate spare parts dispatch.
-          </div>
-        </details>
+        <div class="protocol-card">
+          <div class="proto-num">04</div>
+          <h4>Timber Crating &amp; Steel Banding</h4>
+          <p>Machinery is shrink-wrapped with moisture-barrier film, padded with foam, and banded in heat-treated timber crates.</p>
+        </div>
+
+        <div class="protocol-card">
+          <div class="proto-num">05</div>
+          <h4>Carrier Dispatch &amp; Escrow Inspection</h4>
+          <p>Palletized crate is loaded on linehaul courier truck. You inspect crate seals and test engine before releasing payment.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Section: Verified Operator Reviews -->
+    <section class="reviews-page-section" id="reviewsSection">
+      <div class="section-title-wrap">
+        <span class="sub-tag">FIELD TESTIMONIALS</span>
+        <h2>VERIFIED OPERATOR &amp; MECHANIC REVIEWS</h2>
+      </div>
+
+      <div class="reviews-split-grid">
+        <!-- Reviews List -->
+        <div class="reviews-list-col">
+          <div class="reviews-score-card">
+            <div class="score-big" id="reviewsAvgBig">4.9</div>
+            <div>
+              <div class="stars-gold" style="font-size: 16px;">★★★★★</div>
+              <div style="font-size: 13px; color: #64748B; margin-top: 2px;">Based on <span id="reviewsCountTotal">14</span> verified equipment inspections</div>
+            </div>
+          </div>
+
+          <div id="productReviewsContainer" class="reviews-flow-list">
+            <!-- Rendered dynamically by product.js -->
+          </div>
+        </div>
+
+        <!-- Add Review Form -->
+        <div class="add-review-col">
+          <div class="write-review-card">
+            <h3>Submit Operator Feedback</h3>
+            <p style="font-size: 12.5px; color: #64748B; margin-bottom: 14px;">Have you operated this machinery in the field? Share your torque, fuel consumption, or starter performance notes.</p>
+            
+            <form id="productReviewForm">
+              <div class="form-group" style="margin-bottom: 10px;">
+                <label style="display:block; font-size: 12px; font-weight: 700; margin-bottom: 4px;">Full Name / Company: *</label>
+                <input type="text" id="revAuthorInput" required placeholder="e.g., Alan Henderson / Midwest Ag" style="width: 100%; padding: 8px 12px; border: 1.5px solid var(--gray-border); border-radius: 6px; font-size: 13px;" />
+              </div>
+
+              <div class="form-group" style="margin-bottom: 10px;">
+                <label style="display:block; font-size: 12px; font-weight: 700; margin-bottom: 4px;">Location / Depot: *</label>
+                <input type="text" id="revLocationInput" required placeholder="e.g., Sacramento, CA" style="width: 100%; padding: 8px 12px; border: 1.5px solid var(--gray-border); border-radius: 6px; font-size: 13px;" />
+              </div>
+
+              <div class="form-group" style="margin-bottom: 10px;">
+                <label style="display:block; font-size: 12px; font-weight: 700; margin-bottom: 4px;">Operator Rating:</label>
+                <select id="revRatingSelect" style="width: 100%; padding: 8px 12px; border: 1.5px solid var(--gray-border); border-radius: 6px; font-size: 13px; font-weight: 700;">
+                  <option value="5">⭐⭐⭐⭐⭐ 5 Stars (Outstanding Performance)</option>
+                  <option value="4">⭐⭐⭐⭐ 4 Stars (Reliable &amp; Powerful)</option>
+                  <option value="3">⭐⭐⭐ 3 Stars (Satisfactory)</option>
+                </select>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 10px;">
+                <label style="display:block; font-size: 12px; font-weight: 700; margin-bottom: 4px;">Review Headline:</label>
+                <input type="text" id="revTitleInput" placeholder="e.g., Flawless torque under continuous tillage load..." style="width: 100%; padding: 8px 12px; border: 1.5px solid var(--gray-border); border-radius: 6px; font-size: 13px;" />
+              </div>
+
+              <div class="form-group" style="margin-bottom: 14px;">
+                <label style="display:block; font-size: 12px; font-weight: 700; margin-bottom: 4px;">Detailed Review: *</label>
+                <textarea id="revContentInput" rows="3" required placeholder="Describe cold start ease, vibration, fuel economy, governor stability..." style="width: 100%; padding: 8px 12px; border: 1.5px solid var(--gray-border); border-radius: 6px; font-size: 13px;"></textarea>
+              </div>
+
+              <button type="submit" class="flyer-add-cart-btn" style="width: 100%; padding: 11px;">SUBMIT VERIFIED REVIEW</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Related Equipment & Attachments -->
+    <section class="related-equipment-section" style="margin-top: 50px;">
+      <div class="section-title-wrap">
+        <span class="sub-tag">RECOMMENDED COMPATIBLE SYSTEMS</span>
+        <h2>MATCHING ATTACHMENTS &amp; MACHINERY</h2>
+      </div>
+
+      <div id="relatedProductsGrid" class="flyer-catalog-grid">
+        <!-- Rendered dynamically by product.js -->
+      </div>
+    </section>
+
+  </main>
 
   <!-- Trust Footer -->
   <footer class="flyer-bottom-trust">
@@ -448,11 +379,11 @@
         <div class="trust-col">
           <h4>MACHINERY</h4>
           <ul>
-            <li><a href="#catalogGrid">Kubota RT Diesel Engines</a></li>
-            <li><a href="#catalogGrid">Yanmar TF Direct Injection</a></li>
-            <li><a href="#catalogGrid">Walk-Behind Power Tillers</a></li>
-            <li><a href="#catalogGrid">Irrigation &amp; Slurry Pumps</a></li>
-            <li><a href="#catalogGrid">304 Stainless Marine Drives</a></li>
+            <li><a href="index.html">Kubota RT Diesel Engines</a></li>
+            <li><a href="index.html">Yanmar TF Direct Injection</a></li>
+            <li><a href="index.html">Walk-Behind Power Tillers</a></li>
+            <li><a href="index.html">Irrigation &amp; Slurry Pumps</a></li>
+            <li><a href="index.html">304 Stainless Marine Drives</a></li>
           </ul>
         </div>
 
@@ -482,7 +413,7 @@
   </footer>
 
   <!-- ========================================================================== -->
-  <!-- MODALS & DRAWERS -->
+  <!-- MODALS & DRAWERS (Cart, Checkout, Success, Tracking) -->
   <!-- ========================================================================== -->
 
   <!-- 1. Shopping Cart Drawer -->
@@ -498,7 +429,7 @@
       </div>
 
       <div id="cartItemsList" class="cart-items-scroll">
-        <!-- Rendered by app.js -->
+        <!-- Rendered by product.js -->
       </div>
 
       <div class="cart-drawer-footer" style="padding: 18px; border-top: 1px solid var(--gray-border); background: var(--gray-subtle);">
@@ -616,7 +547,7 @@
 
               <h4 style="font-size: 13px; font-weight: 900; color: var(--navy-dark); margin-bottom: 8px;">3. ORDERED EQUIPMENT</h4>
               <div id="checkoutOrderReviewList" style="max-height: 140px; overflow-y: auto; margin-bottom: 12px; font-size: 12px; display: flex; flex-direction: column; gap: 6px;">
-                <!-- Rendered by app.js -->
+                <!-- Rendered by product.js -->
               </div>
 
               <div style="background: var(--gray-subtle); border: 1px solid var(--gray-border); border-radius: var(--radius-sm); padding: 12px; margin-bottom: 14px;">
@@ -726,8 +657,8 @@
     </div>
   </div>
 
-  <!-- Shared Catalog Data and Main JavaScript App -->
+  <!-- Shared Data and Dedicated Product Logic -->
   <script src="products-data.js"></script>
-  <script src="app.js"></script>
+  <script src="product.js"></script>
 </body>
 </html>
