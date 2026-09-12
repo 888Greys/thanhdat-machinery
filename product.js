@@ -141,7 +141,7 @@ function initProductPage() {
   if (thumbsContainer) {
     thumbsContainer.innerHTML = currentProduct.images.map((imgSrc, i) => `
       <div class="thumb-item ${i === 0 ? 'active' : ''}" onclick="switchProductImage('${imgSrc}', this)">
-        <img src="${imgSrc}" alt="${currentProduct.model} view ${i + 1}" />
+        <img src="${imgSrc}" alt="${currentProduct.model} view ${i + 1}" onerror="this.onerror=null; this.src='images/hero_banner.jpg';" />
       </div>
     `).join("");
   }
@@ -315,7 +315,7 @@ function renderRelatedEquipment() {
       
       <a href="product.html?id=${item.id}" class="card-link-wrap">
         <div class="flyer-card-media">
-          <img src="${item.images[0]}" alt="${item.brand} ${item.model}" class="flyer-product-image" loading="lazy" />
+          <img src="${item.images[0]}" alt="${item.brand} ${item.model}" class="flyer-product-image" loading="lazy" onerror="this.onerror=null; this.src='images/hero_banner.jpg';" />
         </div>
       </a>
 

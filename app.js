@@ -689,6 +689,7 @@ function renderCatalog() {
               alt="${item.brand} ${item.model}" 
               class="flyer-product-image"
               loading="lazy"
+              onerror="this.onerror=null; this.src='images/hero_banner.jpg';"
             />
           </div>
         </a>

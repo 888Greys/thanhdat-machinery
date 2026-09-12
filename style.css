@@ -2209,3 +2209,151 @@ button, input, select, textarea {
     grid-template-columns: 1fr 1fr !important;
   }
 }
+
+/* ========================================================================
+   2026 SHOWROOM REFINEMENT
+   A quieter visual system: product first, proof second, no visual theatre.
+   ======================================================================== */
+:root {
+  --ink: #17211f;
+  --forest: #1e4d3d;
+  --forest-deep: #14362b;
+  --sand: #f5f2ea;
+  --line: #d9ded8;
+  --muted: #65716d;
+  --navy-dark: var(--ink);
+  --jd-green: var(--forest);
+  --gray-bg: #f7f7f3;
+  --gray-border: var(--line);
+  --gray-subtle: #fbfbf8;
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --shadow-card: 0 1px 2px rgba(20, 40, 31, .06);
+  --shadow-hover: 0 10px 28px rgba(20, 40, 31, .12);
+}
+
+body { color: var(--ink); background: var(--gray-bg); }
+.flyer-container { max-width: 1280px; padding: 0 24px; }
+
+.top-announcement-bar { background: var(--forest-deep); padding: 8px 0; color: #dce5dd; font-size: 12px; }
+.top-announcement-flex { gap: 16px; }
+.top-phone-link { color: #fff; }
+.announcement-right { color: #c9d5cd; }
+
+.top-nav-bar { background: #fff; border-bottom: 1px solid var(--line); box-shadow: none; padding: 15px 0; }
+.brand-emblem-img { width: 40px; height: 40px; border: 0; box-shadow: none; }
+.brand-primary-name { color: var(--ink); font-size: 16px; letter-spacing: .1px; }
+.brand-primary-name span { color: var(--forest); }
+.brand-sub-name { color: var(--muted); font-size: 10px; letter-spacing: .55px; }
+.nav-search-wrap { max-width: 390px; }
+.nav-search-input { color: var(--ink); background: #f3f4ef; border: 1px solid transparent; border-radius: 4px; padding: 10px 14px 10px 36px; }
+.nav-search-input::placeholder { color: #76807c; }
+.nav-search-input:focus { border-color: var(--forest); background: #fff; box-shadow: 0 0 0 3px rgba(30,77,61,.10); }
+.nav-search-icon { color: var(--forest); }
+.nav-right-actions { gap: 8px; }
+.nav-track-btn, .nav-hotline-btn, .nav-cart-btn { border-radius: 4px; padding: 9px 12px; font-size: 12px; }
+.nav-track-btn { color: var(--forest); background: #fff; border-color: var(--line); }
+.nav-hotline-btn { color: #fff; background: var(--forest); border-color: var(--forest); }
+.nav-cart-btn { color: var(--ink); background: #f0f2ed; border-color: #f0f2ed; }
+.nav-cart-badge { background: var(--forest); }
+
+.flyer-hero { padding: 0; }
+.hero-banner-image-container { max-width: none; border: 0; border-radius: 0; box-shadow: none; height: min(560px, 57vw); position: relative; }
+.hero-flyer-bg-img { height: 100%; max-height: none; filter: saturate(.72) contrast(.95) brightness(.66); }
+.hero-banner-image-container::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(12,31,25,.78) 0%, rgba(12,31,25,.34) 49%, rgba(12,31,25,.08) 100%); }
+.hero-copy { position: absolute; z-index: 1; top: 50%; left: max(24px, calc((100% - 1232px) / 2)); transform: translateY(-50%); color: #fff; max-width: 535px; }
+.hero-eyebrow { color: #d8d5aa; font-size: 11px; font-weight: 800; letter-spacing: 1.4px; margin-bottom: 15px; }
+.hero-copy h1 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(40px, 5.1vw, 72px); font-weight: 400; line-height: 1.02; letter-spacing: -.04em; margin-bottom: 18px; }
+.hero-copy > p:not(.hero-eyebrow) { max-width: 410px; font-size: 16px; line-height: 1.55; color: #e6ebe5; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.hero-primary-action, .hero-secondary-action { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; border-radius: 3px; font-size: 13px; font-weight: 750; }
+.hero-primary-action { color: var(--forest-deep); background: #e3dfac; }
+.hero-secondary-action { color: #fff; border: 1px solid rgba(255,255,255,.6); }
+
+.flyer-category-bar { margin: 0; background: #fff; box-shadow: none; border-bottom: 1px solid var(--line); }
+.flyer-category-grid { border: 0; grid-template-columns: repeat(7, 1fr); }
+.flyer-cat-item { min-height: 82px; justify-content: center; border: 0; border-bottom: 2px solid transparent; padding: 13px 8px; }
+.flyer-cat-item:hover { background: #f6f7f3; }
+.flyer-cat-item.active { background: #f6f7f3; border-top: 0; border-bottom-color: var(--forest); }
+.cat-icon-svg { width: 19px; height: 19px; color: var(--forest); }
+.cat-text-wrap h5 { font-size: 12px; font-weight: 750; }
+.cat-text-wrap p { font-size: 10px; }
+
+.flyer-section-header { padding: 50px 0 4px; }
+.featured-title { font-family: Georgia, 'Times New Roman', serif; font-size: 34px; font-weight: 400; letter-spacing: -.02em; text-transform: none; }
+.flyer-header-script { color: var(--muted); font-size: 12px; font-weight: 600; }
+.catalog-toolbar-row { padding: 16px 0 20px; border-bottom: 1px solid var(--line); }
+.toolbar-count { font-size: 12px; letter-spacing: .1px; }
+.toolbar-select { border-radius: 3px; color: var(--ink); padding: 9px 11px; }
+
+.flyer-catalog-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0 72px; }
+.flyer-product-card { padding: 0; border: 1px solid var(--line); border-radius: 4px; box-shadow: none; overflow: hidden; }
+.flyer-product-card:hover { transform: translateY(-3px); border-color: #aab6ae; box-shadow: var(--shadow-hover); }
+.flyer-badge { top: 12px; left: 12px; border: 0; border-radius: 2px; box-shadow: none; background: var(--forest) !important; color: #fff; font-size: 9px; letter-spacing: .7px; }
+.flyer-card-media { height: 210px; margin: 0; border-radius: 0; background: #eceee9; }
+.flyer-product-image { width: 100%; height: 100%; max-height: none; max-width: none; object-fit: cover; }
+.flyer-card-info { padding: 15px 15px 0; }
+.brand-bold { font-size: 10px; color: var(--forest); letter-spacing: .8px; }
+.model-line { height: 43px; margin-top: 4px; font-size: 14px; font-weight: 700; line-height: 1.38; }
+.card-stars-row { margin: 10px 0 13px; font-size: 11px; }
+.stars-gold { color: #b57a14; }
+.flyer-card-bullets { display: none; }
+.flyer-price-row { margin: 0; border-top: 1px solid var(--line); padding: 13px 0; }
+.price-main { color: var(--ink); font-size: 18px; }
+.flyer-card-actions { padding-bottom: 15px; }
+.flyer-stepper { border-radius: 3px; }
+.flyer-add-cart-btn { border-radius: 3px; background: var(--forest); font-size: 12px; }
+.flyer-add-cart-btn:hover { background: var(--forest-deep); }
+
+/* These sections diluted the catalogue with invented-looking content. Keep only useful buying support. */
+.showroom-section, .tech-matrix-section { display: none; }
+.guarantee-section { padding: 54px 0 !important; background: var(--sand) !important; border-color: var(--line) !important; }
+.guarantee-section .flyer-container > div { gap: 0 !important; }
+.guarantee-section .flyer-container > div > div { padding: 0 24px !important; border-right: 1px solid var(--line); text-align: left !important; }
+.guarantee-section .flyer-container > div > div:last-child { border-right: 0; }
+.faq-section { padding: 70px 0 !important; background: #fff !important; }
+.faq-section .section-head-center { text-align: left; margin: 0 0 26px; }
+.faq-section .section-head-center h2 { font-family: Georgia, 'Times New Roman', serif; text-transform: none; font-weight: 400; font-size: 34px; }
+.flyer-bottom-trust { background: var(--forest-deep); }
+
+@media (max-width: 900px) {
+  .flyer-catalog-grid { grid-template-columns: repeat(3, 1fr); }
+  .nav-hotline-btn { display: none; }
+  .hero-banner-image-container { height: 520px; }
+  .flyer-category-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 768px) {
+  .flyer-container { padding: 0 16px; }
+  .top-announcement-bar { font-size: 10px; }
+  .announcement-right, .announcement-divider { display: none; }
+  .top-nav-bar { padding: 10px 0; }
+  .nav-brand-link { gap: 8px; }
+  .brand-emblem-img { width: 34px; height: 34px; }
+  .brand-primary-name { font-size: 13px; }
+  .brand-sub-name { font-size: 8px; }
+  .nav-right-actions { margin-left: auto; }
+  .nav-track-btn { display: none; }
+  .nav-cart-btn { padding: 8px 9px; }
+  .nav-search-wrap { order: 3; width: 100%; max-width: none; }
+  .hero-banner-image-container { height: 470px; }
+  .hero-copy { left: 24px; right: 24px; }
+  .hero-copy h1 { font-size: 46px; }
+  .hero-copy > p:not(.hero-eyebrow) { font-size: 14px; }
+  .flyer-category-grid { display: flex; overflow-x: auto; }
+  .flyer-cat-item { min-width: 150px; min-height: 68px; justify-content: flex-start; }
+  .flyer-section-header { padding-top: 36px; }
+  .featured-title { font-size: 30px; }
+  .flyer-header-script { display: none; }
+  .flyer-catalog-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; margin-bottom: 48px; }
+  .flyer-product-card { padding: 0 !important; }
+  .flyer-card-media { height: 142px !important; }
+  .flyer-card-info { padding: 11px 10px 0; }
+  .model-line { font-size: 12px !important; height: 38px !important; }
+  .card-stars-row { margin: 8px 0 10px; }
+  .price-main { font-size: 15px !important; }
+  .flyer-price-row { padding: 10px 0; }
+  .flyer-add-cart-btn { padding: 9px 6px !important; }
+  .guarantee-section .flyer-container > div { grid-template-columns: 1fr 1fr !important; }
+  .guarantee-section .flyer-container > div > div { padding: 14px !important; }
+}
