@@ -1,5 +1,5 @@
 // ==========================================================================
-// TU THANH MACHINERY
+// FARMMACHINERIES
 // Premier E-Commerce Platform for Farm Machinery & Agricultural Equipment
 // ==========================================================================
 
@@ -13,21 +13,43 @@ const supabaseClient = (typeof window !== "undefined" && window.supabase)
 // ==========================================================================
 // CURRENCY
 // Every product is priced in its own native `currency` (USD unless stated).
-// The visitor's country decides how prices are displayed, so a Kenyan
-// visitor always sees Kenya Shillings. Update FX_PER_USD.KES when the rate moves.
+// The visitor's country decides how prices are displayed, so a Kenyan sees
+// Kenya Shillings, a Ugandan USh, a Tanzanian TSh, and so on across the
+// East African Community. Rates in FX_PER_USD are approximate: review and
+// update them whenever exchange rates move.
 // ==========================================================================
 const FX_PER_USD = {
   USD: 1,
-  KES: 129
+  KES: 129,
+  UGX: 3700,
+  TZS: 2600,
+  RWF: 1400,
+  BIF: 2900
 };
 
 const COUNTRY_CURRENCY = {
-  KE: "KES"
+  KE: "KES",
+  UG: "UGX",
+  TZ: "TZS",
+  RW: "RWF",
+  BI: "BIF"
+};
+
+const CURRENCY_TIMEZONE = {
+  "Africa/Nairobi": "KES",
+  "Africa/Kampala": "UGX",
+  "Africa/Dar_es_Salaam": "TZS",
+  "Africa/Kigali": "RWF",
+  "Africa/Bujumbura": "BIF"
 };
 
 const CURRENCY_DISPLAY = {
   USD: { prefix: "$", suffix: " USD" },
-  KES: { prefix: "KSh ", suffix: "" }
+  KES: { prefix: "KSh ", suffix: "" },
+  UGX: { prefix: "USh ", suffix: "" },
+  TZS: { prefix: "TSh ", suffix: "" },
+  RWF: { prefix: "FRw ", suffix: "" },
+  BIF: { prefix: "FBu ", suffix: "" }
 };
 
 const FREE_FREIGHT_THRESHOLD_USD = 800;
@@ -43,7 +65,7 @@ function detectVisitorCurrency() {
       }
     }
     const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
-    if (timeZone.indexOf("Africa/Nairobi") === 0) return "KES";
+    if (CURRENCY_TIMEZONE[timeZone]) return CURRENCY_TIMEZONE[timeZone];
   } catch (e) {}
   return "USD";
 }
@@ -82,7 +104,7 @@ const PRODUCTS_DATA = [
     currency: "KES",
     badge: "BEST SELLER",
     badgeType: "badge-gold-crown",
-    sku: "TTM-JD-JD16L",
+    sku: "FM-JD-JD16L",
     rating: 0,
     reviewsCount: 0,
     hp: "16.0 HP",
@@ -123,7 +145,7 @@ const PRODUCTS_DATA = [
     currency: "KES",
     badge: "COMPACT POWER",
     badgeType: "badge-blue-star",
-    sku: "TTM-JD-JD10L",
+    sku: "FM-JD-JD10L",
     rating: 0,
     reviewsCount: 0,
     hp: "10.0 HP",
@@ -156,11 +178,11 @@ const PRODUCTS_DATA = [
     brand: "JIADI",
     model: "JD-2000MH Walk-Behind Maize Harvester 16HP (192F Diesel, Key Start)",
     category: "harvesting",
-    price: 239000,
+    price: 203000,
     currency: "KES",
     badge: "HARVEST READY",
     badgeType: "badge-green-circle",
-    sku: "TTM-JD-JD2000MH",
+    sku: "FM-JD-JD2000MH",
     rating: 0,
     reviewsCount: 0,
     hp: "16.0 HP",
@@ -191,11 +213,11 @@ const PRODUCTS_DATA = [
     brand: "Astramilano",
     model: "AMP50H2 High-Pressure Water Pump 2 inch (7.5 HP Petrol)",
     category: "pumps",
-    price: 24500,
+    price: 21000,
     currency: "KES",
     badge: "HIGH PRESSURE",
     badgeType: "badge-blue-star",
-    sku: "TTM-AST-AMP50H2",
+    sku: "FM-AST-AMP50H2",
     rating: 0,
     reviewsCount: 0,
     hp: "7.5 HP Petrol",
@@ -226,11 +248,11 @@ const PRODUCTS_DATA = [
     brand: "Milano Italia",
     model: "MCC-300 High-Speed Chopper 800 - 1,200 kg/hr (7.5 HP)",
     category: "processing",
-    price: 38999,
+    price: 33000,
     currency: "KES",
     badge: "FEED PROCESSING",
     badgeType: "badge-gold-crown",
-    sku: "TTM-MIL-MCC300",
+    sku: "FM-MIL-MCC300",
     rating: 0,
     reviewsCount: 0,
     hp: "7.5 HP Petrol",
@@ -258,11 +280,11 @@ const PRODUCTS_DATA = [
     brand: "Milano Italia",
     model: "PT1500 Pellet Machine with 5HP Motor (100 - 200 kg/hr)",
     category: "processing",
-    price: 75500,
+    price: 64000,
     currency: "KES",
     badge: "PELLET PRESS",
     badgeType: "badge-blue-star",
-    sku: "TTM-MIL-PT1500",
+    sku: "FM-MIL-PT1500",
     rating: 0,
     reviewsCount: 0,
     hp: "5.0 HP Electric Motor",
@@ -293,11 +315,11 @@ const PRODUCTS_DATA = [
     brand: "Aico Japan",
     model: "YDH002 Double Barrel Milking Machine (2 x 25L)",
     category: "dairy",
-    price: 77999,
+    price: 66000,
     currency: "KES",
     badge: "DAIRY PRO",
     badgeType: "badge-green-circle",
-    sku: "TTM-AIC-YDH002",
+    sku: "FM-AIC-YDH002",
     rating: 0,
     reviewsCount: 0,
     hp: "1.1 kW Electric Motor",
@@ -328,11 +350,11 @@ const PRODUCTS_DATA = [
     brand: "Aico Japan",
     model: "AC608 Petrol Trolley Sprayer 60 Litres",
     category: "sprayers",
-    price: 57999,
+    price: 49000,
     currency: "KES",
     badge: "ORCHARD SPRAYER",
     badgeType: "badge-blue-star",
-    sku: "TTM-AIC-AC608",
+    sku: "FM-AIC-AC608",
     rating: 0,
     reviewsCount: 0,
     hp: "8.0 HP Petrol",
@@ -364,11 +386,11 @@ const PRODUCTS_DATA = [
     brand: "Aico Japan",
     model: "AC840PS Trolley Sprayer 8HP with Hose Reel",
     category: "sprayers",
-    price: 31500,
+    price: 27000,
     currency: "KES",
     badge: "ALL-IN-ONE",
     badgeType: "badge-gold-crown",
-    sku: "TTM-AIC-AC840PS",
+    sku: "FM-AIC-AC840PS",
     rating: 0,
     reviewsCount: 0,
     hp: "8.0 HP Petrol",
@@ -400,11 +422,11 @@ const PRODUCTS_DATA = [
     brand: "Dera",
     model: "2-Stroke Brush Cutter (Nylon Head & Metal Blade)",
     category: "cutters",
-    price: 14500,
+    price: 12500,
     currency: "KES",
     badge: "FIELD CLEARING",
     badgeType: "badge-green-circle",
-    sku: "TTM-DER-BC2S",
+    sku: "FM-DER-BC2S",
     rating: 0,
     reviewsCount: 0,
     hp: "1.45 - 1.65 kW (2-Stroke)",
@@ -845,8 +867,8 @@ async function handleCheckoutSubmit(e) {
   let shipping = freightFeeFor(subtotal);
   let total = subtotal + shipping;
 
-  const orderId = "TTM-" + Math.floor(100000 + Math.random() * 900000);
-  const trackingCode = "TTM-FREIGHT-" + orderId.slice(-4);
+  const orderId = "FM-" + Math.floor(100000 + Math.random() * 900000);
+  const trackingCode = "FM-FREIGHT-" + orderId.slice(-4);
 
   const orderData = {
     id: orderId,
@@ -993,7 +1015,7 @@ async function performOrderTracking() {
 
   const query = input.value.trim().toUpperCase().replace(/^#/, "");
   if (!query) {
-    alert("Please enter your Order Reference (e.g., TTM-123456) or Phone Number!");
+    alert("Please enter your Order Reference (e.g., FM-123456) or Phone Number!");
     return;
   }
 
@@ -1016,7 +1038,7 @@ async function performOrderTracking() {
       <div style="text-align: center; padding: 30px 16px; color: #64748B;">
         <div style="font-size: 32px; margin-bottom: 8px;">❌</div>
         <h4>Order "${query}" Not Found</h4>
-        <p style="font-size: 13px;">Please verify your order number or phone. You can also call us directly at <b>+84 918 453 476</b>.</p>
+        <p style="font-size: 13px;">Please verify your order number or phone. You can also call us directly at <b>+254 795 365 461</b>.</p>
       </div>
     `;
     return;
@@ -1089,7 +1111,7 @@ async function performOrderTracking() {
       </div>
 
       <div style="text-align: center; margin-top: 14px;">
-        <a href="tel:+84918453476" style="display: inline-block; background: #15803D; color: #FFFFFF; padding: 9px 18px; border-radius: 6px; font-size: 13px; font-weight: 700;">📞 Call Workshop Direct: +84 918 453 476</a>
+        <a href="tel:+254795365461" style="display: inline-block; background: #15803D; color: #FFFFFF; padding: 9px 18px; border-radius: 6px; font-size: 13px; font-weight: 700;">📞 Call Workshop Direct: +254 795 365 461</a>
       </div>
     </div>
   `;

@@ -1,5 +1,5 @@
 // ==========================================================================
-// TU THANH MACHINERY - DEDICATED PRODUCT PAGE LOGIC
+// FARMMACHINERIES - DEDICATED PRODUCT PAGE LOGIC
 // Handles product data population, gallery, specs, reviews, cart & checkout
 // ==========================================================================
 
@@ -79,9 +79,9 @@ function initProductPage() {
   currentProduct = PRODUCTS_DATA.find(p => p.id === id) || PRODUCTS_DATA[0];
 
   // Document Title
-  document.title = `${currentProduct.model} | Tu Thanh Machinery`;
+  document.title = `${currentProduct.model} | Farmmachineries`;
   const pageTitle = document.getElementById("pageTitle");
-  if (pageTitle) pageTitle.textContent = `${currentProduct.model} | Tu Thanh Machinery`;
+  if (pageTitle) pageTitle.textContent = `${currentProduct.model} | Farmmachineries`;
 
   // Breadcrumbs
   const bcCat = document.getElementById("bcCategory");
@@ -114,7 +114,7 @@ function initProductPage() {
   if (hpPill) hpPill.textContent = currentProduct.hp || "Heavy-Duty Spec";
 
   const skuPill = document.getElementById("productSkuTag");
-  if (skuPill) skuPill.textContent = `SKU: ${currentProduct.sku || 'TTM-DIRECT'}`;
+  if (skuPill) skuPill.textContent = `SKU: ${currentProduct.sku || 'FM-DIRECT'}`;
 
   const titleEl = document.getElementById("productTitle");
   if (titleEl) titleEl.textContent = currentProduct.model;
@@ -555,8 +555,8 @@ async function handleCheckoutSubmit(e) {
     if (r.checked) paymentMethod = r.value;
   }
 
-  const orderId = "TTM-" + Math.floor(100000 + Math.random() * 900000);
-  const trackingCode = "TTM-FREIGHT-" + Math.floor(1000 + Math.random() * 9000);
+  const orderId = "FM-" + Math.floor(100000 + Math.random() * 900000);
+  const trackingCode = "FM-FREIGHT-" + Math.floor(1000 + Math.random() * 9000);
   const totalAmount = cart.reduce((acc, it) => acc + (it.price * it.quantity), 0);
 
   const orderData = {
@@ -708,7 +708,7 @@ async function performOrderTracking() {
 
   const query = input.value.trim().toUpperCase().replace(/^#/, "");
   if (!query) {
-    alert("Please enter your Order Reference (e.g., TTM-123456) or Phone Number!");
+    alert("Please enter your Order Reference (e.g., FM-123456) or Phone Number!");
     return;
   }
 
@@ -731,7 +731,7 @@ async function performOrderTracking() {
       <div style="text-align: center; padding: 30px 16px; color: #64748B;">
         <div style="font-size: 32px; margin-bottom: 8px;">❌</div>
         <h4>Order "${query}" Not Found</h4>
-        <p style="font-size: 13px;">Please verify your order number or phone. You can also call us directly at <b>+84 918 453 476</b>.</p>
+        <p style="font-size: 13px;">Please verify your order number or phone. You can also call us directly at <b>+254 795 365 461</b>.</p>
       </div>
     `;
     return;
@@ -804,7 +804,7 @@ async function performOrderTracking() {
       </div>
 
       <div style="text-align: center; margin-top: 14px;">
-        <a href="tel:+84918453476" style="display: inline-block; background: #15803D; color: #FFFFFF; padding: 9px 18px; border-radius: 6px; font-size: 13px; font-weight: 700;">📞 Call Workshop Direct: +84 918 453 476</a>
+        <a href="tel:+254795365461" style="display: inline-block; background: #15803D; color: #FFFFFF; padding: 9px 18px; border-radius: 6px; font-size: 13px; font-weight: 700;">📞 Call Workshop Direct: +254 795 365 461</a>
       </div>
     </div>
   `;

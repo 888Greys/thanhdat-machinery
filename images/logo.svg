@@ -1,26 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 70" width="340" height="70">
-  <defs>
-    <linearGradient id="jdGreen" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#2e7d32" />
-      <stop offset="100%" stop-color="#1b5e20" />
-    </linearGradient>
-    <linearGradient id="goldAcc" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#facc15" />
-      <stop offset="100%" stop-color="#eab308" />
-    </linearGradient>
-  </defs>
-  <!-- Background Badge -->
-  <rect x="0" y="2" width="66" height="66" rx="14" fill="url(#jdGreen)" stroke="#facc15" stroke-width="2"/>
-  <!-- Tractor / Piston Icon -->
-  <path d="M12 44 L24 44 L30 30 L46 30 L46 22 L36 22 L34 16 L22 16 L22 25 L16 30 L12 44 Z" fill="url(#goldAcc)"/>
-  <circle cx="22" cy="46" r="8" fill="#0f172a" stroke="#ffffff" stroke-width="2.5"/>
-  <circle cx="22" cy="46" r="3" fill="#facc15"/>
-  <circle cx="50" cy="42" r="13" fill="#0f172a" stroke="#ffffff" stroke-width="3"/>
-  <circle cx="50" cy="42" r="5" fill="#facc15"/>
-  <rect x="42" y="14" width="4" height="9" fill="#ffffff"/>
-  
-  <!-- Text Brand -->
-  <text x="80" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="17" font-weight="900" fill="#1b5e20" letter-spacing="0.5">TU THANH MACHINERY</text>
-  <text x="80" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#ca8a04" letter-spacing="1">JOHN DEERE • KUBOTA • YANMAR</text>
-  <text x="80" y="60" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="500" fill="#64748b">Diesel Engines &amp; Power Equipment • 0918 453 476</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Farmmachineries">
+  <rect width="64" height="64" rx="14" fill="#14532d"/>
+  <g fill="#fbbf24">
+    <rect x="34.5" y="9" width="4.5" height="11.5" rx="2.25"/>
+    <path d="M27 20.5h21v16.5H27z"/>
+    <path d="M9 29.5h20v7.5H9z"/>
+  </g>
+  <path d="M31.5 24.5h12.5v8.5H31.5z" fill="#14532d"/>
+  <circle cx="43" cy="43" r="10.5" fill="#14532d" stroke="#fbbf24" stroke-width="4"/>
+  <circle cx="43" cy="43" r="3" fill="#fbbf24"/>
+  <circle cx="18" cy="47" r="6.5" fill="#14532d" stroke="#fbbf24" stroke-width="3.5"/>
+  <circle cx="18" cy="47" r="2" fill="#fbbf24"/>
 </svg>

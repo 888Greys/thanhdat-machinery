@@ -1,6 +1,6 @@
-# Tu Thanh Machinery 🚜
+# Farmmachineries 🚜
 
-A premier e-commerce & machinery showroom platform for **Tu Thanh Machinery & Power Equipment**.
+A premier e-commerce & machinery showroom platform for **Farmmachineries & Power Equipment**.
 Specializing in JIADI walk-behind diesel tractors and maize harvesters, Astramilano high-pressure water pumps, Milano Italia feed choppers and pellet machines, Aico Japan dairy milking equipment and petrol trolley sprayers, and Dera brush cutters.
 
 ---
@@ -20,7 +20,7 @@ Specializing in JIADI walk-behind diesel tractors and maize harvesters, Astramil
 - **TikTok Workshop Spotlight**: Real workshop demonstrations from TikTok **@nnc.thanhdat2** (404K+ Followers, 3.4M Likes), featuring machine run-tests, implement setup and export wooden crating.
 - **Mobile-Optimized 2-Column Catalog Grid**: Compact, modern card view designed for fast smartphone shopping with quantity steppers and quick add-to-cart triggers.
 - **Operator Reviews**: Field testimonials from farm managers, contractors and machine operators, with a submit-your-own review form on every product page.
-- **Real-Time Freight Tracking Portal**: Multi-parameter search by Order Reference (e.g. `TTM-123456`) or Phone Number with a 5-step visual logistics timeline (Order Received -> Dyno Pre-Test -> Crated & Banded -> Linehaul Freight -> On-Site Inspection).
+- **Real-Time Freight Tracking Portal**: Multi-parameter search by Order Reference (e.g. `FM-123456`) or Phone Number with a 5-step visual logistics timeline (Order Received -> Dyno Pre-Test -> Crated & Banded -> Linehaul Freight -> On-Site Inspection).
 - **Automated Order Dispatch Pipeline**:
   - **Telegram Bot**: Instant dispatch alert sent to the shop owner's mobile device with customer info, equipment specs, and total amount.
   - **Resend Email Invoice**: Automatic customer confirmation with itemized equipment list and pre-delivery inspection warranty.
@@ -42,7 +42,7 @@ Specializing in JIADI walk-behind diesel tractors and maize harvesters, Astramil
 
 ## 📍 Showroom Location & Contact
 
-- **Business Name**: Tu Thanh Machinery (Thanh Dat 2)
+- **Business Name**: Farmmachineries
 - **Showroom Address**: Industrial Area, Nairobi, Kenya
-- **Hotline & WhatsApp**: **+84 918 453 476**
+- **Hotline & WhatsApp**: **+254 795 365 461**
 - **Official TikTok Channel**: [@nnc.thanhdat2](https://www.tiktok.com/@nnc.thanhdat2)

@@ -1,5 +1,5 @@
 // Vercel Serverless API Route: /api/notify
-// Handles Telegram notifications and Resend email delivery for Tu Thanh Machinery
+// Handles Telegram notifications and Resend email delivery for Farmmachineries
 
 export default async function handler(req, res) {
   // Set CORS headers
@@ -20,11 +20,11 @@ export default async function handler(req, res) {
   const RESEND_API_KEY = process.env.RESEND_API_KEY;
   const rawSender = process.env.RESEND_SENDER || 'orders@coincash.cash';
   
-  let RESEND_SENDER = 'Tu Thanh Machinery <orders@coincash.cash>';
+  let RESEND_SENDER = 'Farmmachineries <orders@coincash.cash>';
   if (rawSender.includes('@')) {
     const emailMatch = rawSender.match(/<([^>]+)>/);
     const emailOnly = emailMatch ? emailMatch[1].trim() : rawSender.trim();
-    RESEND_SENDER = `Tu Thanh Machinery <${emailOnly}>`;
+    RESEND_SENDER = `Farmmachineries <${emailOnly}>`;
   }
 
   const body = req.body || {};
@@ -40,11 +40,11 @@ export default async function handler(req, res) {
       .join('\n\n');
 
     const telegramText = [
-      `🚜 <b>NEW MACHINERY ORDER — TU THANH MACHINERY</b>`,
+      `🚜 <b>NEW MACHINERY ORDER — FARMMACHINERIES</b>`,
       `━━━━━━━━━━━━━━━━━━━━━━━━━━`,
       `📦 <b>Order ID:</b> <code>#${escapeHtml(order.id)}</code>`,
       `⏳ <b>Status:</b> <b>PENDING (Workshop Inspection & Run-Test)</b>`,
-      `🚚 <b>Freight Tracking Code:</b> <code>${escapeHtml(order.trackingCode || 'TTM-' + order.id.slice(-6))}</code>`,
+      `🚚 <b>Freight Tracking Code:</b> <code>${escapeHtml(order.trackingCode || 'FM-' + order.id.slice(-6))}</code>`,
       `📅 <b>Date:</b> ${new Date().toLocaleString('en-US', { timeZone: 'Asia/Ho_Chi_Minh' })} ICT`,
       ``,
       `👤 <b>CUSTOMER DETAILS:</b>`,
@@ -64,7 +64,7 @@ export default async function handler(req, res) {
       `• <b>Freight / Wooden Crate Packing:</b> ${order.shipping === 0 ? 'FREE FREIGHT SHIPPING' : formatCurrency(order.shipping, order.currency)}`,
       `• <b>TOTAL AMOUNT:</b> <b>${formatCurrency(order.total, order.currency)}</b>`,
       `━━━━━━━━━━━━━━━━━━━━━━━━━━`,
-      `📍 <i>Tu Thanh Machinery — Industrial Area, Nairobi, Kenya (Hotline / WhatsApp: +84 918 453 476)</i>`
+      `📍 <i>Farmmachineries — Industrial Area, Nairobi, Kenya (Hotline / WhatsApp: +254 795 365 461)</i>`
     ].filter(Boolean).join('\n');
 
     // Send Telegram Notification
@@ -100,7 +100,7 @@ export default async function handler(req, res) {
           body: JSON.stringify({
             from: RESEND_SENDER,
             to: [order.customerEmail],
-            subject: `⚙️ Order Confirmation #${order.id} — Tu Thanh Machinery`,
+            subject: `⚙️ Order Confirmation #${order.id} — Farmmachineries`,
             html: emailHtml
           })
         });
@@ -127,12 +127,12 @@ export default async function handler(req, res) {
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff; color: #1e293b; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);">
           <div style="background: #1b5e20; padding: 32px 24px; text-align: center;">
             <div style="font-size: 32px; margin-bottom: 6px;">🚜</div>
-            <h1 style="margin: 0; font-size: 22px; font-weight: 800; color: #ffffff; letter-spacing: 0.5px;">TU THANH MACHINERY</h1>
+            <h1 style="margin: 0; font-size: 22px; font-weight: 800; color: #ffffff; letter-spacing: 0.5px;">FARMMACHINERIES</h1>
             <p style="margin: 6px 0 0 0; color: #fde047; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">Diesel Engines & Agricultural Equipment</p>
           </div>
           <div style="padding: 28px 24px; background: #ffffff;">
             <h2 style="color: #0f172a; font-size: 19px; margin-top: 0; font-weight: 700;">Welcome, ${escapeHtml(user.name || user.email.split('@')[0])}!</h2>
-            <p style="color: #475569; line-height: 1.6; font-size: 14px;">Thank you for connecting with Tu Thanh Machinery. When ordering diesel engines and power machinery from our showroom, you are guaranteed:</p>
+            <p style="color: #475569; line-height: 1.6; font-size: 14px;">Thank you for connecting with Farmmachineries. When ordering diesel engines and power machinery from our showroom, you are guaranteed:</p>
             <ul style="color: #334155; line-height: 1.8; padding-left: 20px; font-size: 14px;">
               <li><strong>100% Brand-New Units:</strong> Genuine JIADI, Aico Japan, Astramilano, Milano Italia and Dera equipment in factory crates.</li>
               <li><strong>Comprehensive Pre-Test Run:</strong> Oil filled, injector calibrated, and engine run-tested before crate packaging.</li>
@@ -144,12 +144,12 @@ export default async function handler(req, res) {
             </div>
             <div style="margin-top: 24px; padding: 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; text-align: center;">
               <span style="color: #64748b; font-size: 12px;">Need technical advice or wholesale pricing? Contact us directly: </span>
-              <a href="tel:+84918453476" style="color: #1b5e20; font-weight: 800; text-decoration: none; font-size: 13px;">+84 918 453 476 (Hotline / WhatsApp)</a>
+              <a href="tel:+254795365461" style="color: #1b5e20; font-weight: 800; text-decoration: none; font-size: 13px;">+254 795 365 461 (Hotline / WhatsApp)</a>
             </div>
           </div>
           <div style="background: #f8fafc; padding: 16px 20px; text-align: center; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 12px;">
-            Tu Thanh Machinery Showroom • Industrial Area, Nairobi, Kenya<br>
-            TikTok: @nnc.thanhdat2 (404K+ Followers) • WhatsApp: +84 918 453 476
+            Farmmachineries Showroom • Industrial Area, Nairobi, Kenya<br>
+            TikTok: @nnc.thanhdat2 (404K+ Followers) • WhatsApp: +254 795 365 461
           </div>
         </div>
       `;
@@ -163,7 +163,7 @@ export default async function handler(req, res) {
         body: JSON.stringify({
           from: RESEND_SENDER,
           to: [user.email],
-          subject: '🚜 Welcome to Tu Thanh Machinery — Account Access Confirmed',
+          subject: '🚜 Welcome to Farmmachineries — Account Access Confirmed',
           html: welcomeHtml
         })
       });
@@ -226,7 +226,7 @@ function generateInvoiceEmailHtml(order) {
         <div style="background: #1b5e20; padding: 32px 24px; text-align: center;">
           <div style="display: inline-block; padding: 4px 14px; background: #fef08a; border: 1px solid #facc15; border-radius: 999px; color: #854d0e; font-size: 11px; font-weight: 800; letter-spacing: 1px; margin-bottom: 12px;">⏳ STATUS: PRE-DISPATCH RUN-TEST UNDERWAY</div>
           <div style="font-size: 28px; margin-bottom: 4px;">🚜</div>
-          <h1 style="margin: 0; font-size: 22px; font-weight: 800; color: #ffffff; letter-spacing: 0.5px;">TU THANH MACHINERY</h1>
+          <h1 style="margin: 0; font-size: 22px; font-weight: 800; color: #ffffff; letter-spacing: 0.5px;">FARMMACHINERIES</h1>
           <p style="margin: 6px 0 0 0; color: #dcfce7; font-size: 13px;">Official Order Receipt &amp; Machinery Inspection Certificate for ${escapeHtml(order.customerName || 'Valued Client')}</p>
         </div>
 
@@ -250,7 +250,7 @@ function generateInvoiceEmailHtml(order) {
             </tr>
             <tr>
               <td style="color: #64748b; font-weight: 700; padding: 4px 0;">Freight Tracking Code:</td>
-              <td style="color: #0f172a; font-weight: 700; font-family: monospace; text-align: right;">${escapeHtml(order.trackingCode || 'TTM-' + order.id.slice(-6))}</td>
+              <td style="color: #0f172a; font-weight: 700; font-family: monospace; text-align: right;">${escapeHtml(order.trackingCode || 'FM-' + order.id.slice(-6))}</td>
             </tr>
             <tr>
               <td style="color: #64748b; font-weight: 700; padding: 4px 0;">Shipping Method:</td>
@@ -300,9 +300,9 @@ function generateInvoiceEmailHtml(order) {
 
         <!-- Footer -->
         <div style="background: #0f172a; padding: 22px 24px; text-align: center; color: #94a3b8; font-size: 12px; line-height: 1.6;">
-          <strong style="color: #f8fafc; font-size: 13px;">TU THANH MACHINERY SHOWROOM &amp; DISTRIBUTION</strong><br>
+          <strong style="color: #f8fafc; font-size: 13px;">FARMMACHINERIES SHOWROOM &amp; DISTRIBUTION</strong><br>
           📍 Address: Industrial Area, Nairobi, Kenya<br>
-          📞 Hotline / WhatsApp: <a href="tel:+84918453476" style="color: #4ade80; text-decoration: none; font-weight: bold;">+84 918 453 476</a><br>
+          📞 Hotline / WhatsApp: <a href="tel:+254795365461" style="color: #4ade80; text-decoration: none; font-weight: bold;">+254 795 365 461</a><br>
           📱 Official TikTok Channel: <b>@nnc.thanhdat2</b> (404,000+ Followers)
         </div>
       </div>

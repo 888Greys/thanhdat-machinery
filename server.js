@@ -88,7 +88,7 @@ const server = http.createServer(async (req, res) => {
 
 function startServer(port) {
   server.listen(port, () => {
-    console.log(`Tu Thanh Machinery local server is LIVE at: http://localhost:${port}`);
+    console.log(`Farmmachineries local server is LIVE at: http://localhost:${port}`);
   }).on('error', (err) => {
     if (err.code === 'EADDRINUSE') {
       console.log(`Port ${port} is in use, trying port ${port + 1}...`);
