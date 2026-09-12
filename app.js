@@ -1,6 +1,6 @@
 // ==========================================================================
-// TƯ THÀNH - NÔNG CƠ THÀNH ĐẠT 2 (SÓC TRĂNG)
-// E-Commerce Platform for Diesel Engines, Tillers, Pumps & Marine Equipment
+// TU THANH MACHINERY
+// Premier E-Commerce Platform for Diesel Engines, Tillers, Pumps & Marine Equipment
 // ==========================================================================
 
 const SUPABASE_URL = "https://munbteqhjgwoxebguqdl.supabase.co";
@@ -10,54 +10,46 @@ const supabaseClient = (typeof window !== "undefined" && window.supabase)
   ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
   : null;
 
-// Currency State: "VND" or "USD" (Exchange rate approx: 1 USD = 25,000 VND)
-let currentCurrency = localStorage.getItem("thanhdat_currency") || "VND";
-const USD_RATE = 25000;
-
-function formatMoney(vndAmount) {
-  if (currentCurrency === "USD") {
-    const usd = Math.round(vndAmount / USD_RATE);
-    return "$" + usd.toLocaleString("en-US") + " USD";
-  }
-  return Number(vndAmount).toLocaleString("vi-VN") + " ₫";
+function formatMoney(amount) {
+  return "$" + Number(amount).toLocaleString("en-US") + " USD";
 }
 
-// 16+ Curated Machinery Catalog
+// 16+ Curated Machinery Catalog in English
 const PRODUCTS_DATA = [
   {
     id: 1,
     brand: "Kubota",
-    model: "Kubota RT140 Plus Két Nước Tuần Hoàn (14.0 HP)",
+    model: "Kubota RT140 Plus Radiator Cooled Diesel Engine (14.0 HP)",
     category: "engines",
-    price: 26500000,
-    badge: "BÁN CHẠY NHẤT",
+    price: 1060,
+    badge: "BEST SELLER",
     badgeType: "gold-badge",
-    sku: "TD2-KUB-RT140",
-    hp: "14.0 HP (Mã Lực)",
+    sku: "TTM-KUB-RT140",
+    hp: "14.0 HP",
     rpm: "2,400 RPM",
     rating: 4.9,
     reviewsCount: 14,
-    cooling: "Két nước tuần hoàn làm mát",
-    starter: "Quay tay trợ lực / Hỗ trợ lên củ đề 12V",
+    cooling: "Forced Radiator Circulation",
+    starter: "Decompression Hand Crank / 12V E-Start Ready",
     displacement: "709 cc",
-    weight: "115 kg",
-    fuelTank: "11 Lít Diesel",
+    weight: "253 lbs (115 kg)",
+    fuelTank: "2.9 Gal (11 L)",
     bullets: [
-      "Công suất chuẩn 14.0 HP, buồng đốt lốc xoáy TVCS lực kéo cực khỏe",
-      "Két nước nhôm đúc tản nhiệt siêu nhanh, chạy liên tục không sôi nước",
-      "Thích hợp kéo dàn xới 2 bánh, bơm nước đồng lớn, chạy vỏ lãi miền Tây"
+      "14.0 HP high torque output with patented TVCS swirl combustion chamber",
+      "Heavy-duty aluminum radiator ensures continuous non-stop operation under peak loads",
+      "Ideal for 2-wheel walk-behind tillers, irrigation pumps, and marine long-tail boats"
     ],
     specs: {
-      "Hãng sản xuất": "Kubota Corporation (Nhập khẩu Thái Lan)",
-      "Kiểu động cơ": "Diesel 4 thì, 1 xi lanh nằm ngang nằm, làm mát két nước",
-      "Công suất liên tục": "12.5 HP / 2400 vòng/phút",
-      "Công suất cực đại": "14.0 HP / 2400 vòng/phút",
-      "Dung tích xi lanh": "709 cc (Đường kính 97mm x Hành trình 96mm)",
-      "Hệ thống làm mát": "Két nước tản nhiệt tuần hoàn cưỡng bức",
-      "Hệ thống bôi trơn": "Bơm nhớt cưỡng bức kết hợp vung té",
-      "Dung tích bình nhiên liệu": "11.0 Lít (Dầu DO Diesel)",
-      "Trọng lượng khô": "115 kg (Khung bệ gang chịu lực)",
-      "Bảo hành": "24 Tháng chính hãng kèm sổ bảo hành & quà tặng nhớt máy"
+      "Manufacturer": "Kubota Corporation (Imported Factory Unit)",
+      "Engine Type": "4-Stroke, 1-Cylinder Horizontal Diesel, Radiator-Cooled",
+      "Continuous Rating": "12.5 HP @ 2,400 RPM",
+      "Maximum Output": "14.0 HP @ 2,400 RPM",
+      "Displacement": "709 cc (Bore: 97 mm × Stroke: 96 mm)",
+      "Cooling System": "High-Efficiency Radiator with Forced Circulation Fan",
+      "Lubrication": "Trochoid Oil Pump Forced Feed + Splash",
+      "Fuel Tank Capacity": "11.0 Liters (Diesel No. 2-D)",
+      "Dry Weight": "115 kg (Heavy-Duty Cast Iron Engine Frame)",
+      "Warranty": "24-Month Official Warranty with Factory Service Book"
     },
     images: [
       "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80",
@@ -65,562 +57,559 @@ const PRODUCTS_DATA = [
       "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Động cơ Diesel Kubota RT140 Plus là dòng máy nổ huyền thoại được bà con nông dân và anh em chạy ghe vỏ lãi Sóc Trăng, Cần Thơ, An Giang đặc biệt tin cậy. Máy được trang bị buồng đốt xoáy lốc TVCS giúp đốt cháy nhiên liệu triệt để, tiếng nổ giòn tan, tiết kiệm 15% dầu so với các dòng máy đời cũ. Cửa hàng Thành Đạt 2 bao kỹ thuật viên nổ thử, chỉnh ga đều trước khi giao.",
+    description: "The Kubota RT140 Plus is a legendary workhorse recognized by agricultural contractors, commercial farmers, and long-tail boat operators worldwide. Engineered with Kubota's Three Vortex Combustion System (TVCS), it extracts maximum kinetic energy from every drop of fuel while maintaining clean exhaust, low vibration, and exceptional torque.",
     reviews: [
-      { id: "r101", author: "Chú Ba Đạt", location: "Kế Sách, Sóc Trăng", rating: 5, date: "2 ngày trước", title: "Máy nổ rất giòn, kéo dàn xới đất ngọt xớt", content: "Tôi mua con RT140 này về gắn vô dàn xới 2 bánh phay ruộng trũng. Máy đề ba bốc, chạy liên tục cả ngày mà két nước chỉ ấm, không sôi sùng sục như con máy cũ. Cửa hàng giao tận nhà chành xe nhanh lẹ.", helpful: 24, liked: false },
-      { id: "r102", author: "Anh Hai Thắng", location: "Long Phú, Sóc Trăng", rating: 5, date: "5 ngày trước", title: "Gắn láp đuôi tôm chạy ghe vỏ lãi lướt sóng", content: "Lắp dàn láp 3.8m inox với chân vịt thau của Thành Đạt 2, chạy xuồng 8m chở 1 tấn lúa qua sông Hậu ngọt lịm. Chạy êm ru ít hao dầu.", helpful: 18, liked: false },
-      { id: "r103", author: "Bác Năm Luông", location: "Mỹ Xuyên, Sóc Trăng", rating: 5, date: "1 tuần trước", title: "Hàng chuẩn Thái Lan xịn đập thùng", content: "Coi trên TikTok anh Tư Thành thấy thử máy nổ giòn ưng quá nên đặt luôn. Nhận máy đúng như video, nguyên đai nguyên kiện có kèm bình nhớt với đồ nghề nghề.", helpful: 15, liked: false },
-      { id: "r104", author: "Văn Hậu", location: "Ô Môn, Cần Thơ", rating: 5, date: "2 tuần trước", title: "Kỹ thuật tư vấn rất nhiệt tình", content: "Hỏi Zalo nửa đêm mà tiệm vẫn trả lời chỉ dẫn cách xả gió béc dầu. Rất có tâm, bà con nông dân mua ở đây an tâm 100%.", helpful: 9, liked: false }
+      { id: "r101", author: "David Henderson", location: "Midwest Farm Depot", rating: 5, date: "2 days ago", title: "Phenomenal torque on our rotary tiller", content: "Mounted this RT140 onto our 2-wheel power tiller for heavy spring tilling. Engine starts smoothly, throttles up immediately, and runs cool through 9 hours of continuous operation.", helpful: 24, liked: false },
+      { id: "r102", author: "Robert M.", location: "River Marine Works", rating: 5, date: "5 days ago", title: "Flawless power for long-tail boat setup", content: "Paired with a 12.5ft stainless shaft and brass propeller. Carries cargo upstream with zero hesitation. Extremely economical on diesel fuel.", helpful: 18, liked: false },
+      { id: "r103", author: "Franklin Vance", location: "AgriTech Supplies", rating: 5, date: "1 week ago", title: "Brand new factory crate, well tested", content: "Engine arrived in a robust wooden crate with oil pre-serviced and clear inspection tags. Runs crisp and steady right out of the box.", helpful: 15, liked: false }
     ]
   },
   {
     id: 2,
     brand: "Yanmar",
-    model: "Yanmar TF120-DI Phun Dầu Trực Tiếp (12.0 HP)",
+    model: "Yanmar TF120-DI Direct Injection Diesel Engine (12.0 HP)",
     category: "engines",
-    price: 22800000,
-    badge: "TIẾT KIỆM DẦU",
+    price: 899,
+    badge: "FUEL EFFICIENT",
     badgeType: "blue-badge",
-    sku: "TD2-YAN-TF120",
-    hp: "12.0 HP (Mã Lực)",
+    sku: "TTM-YAN-TF120",
+    hp: "12.0 HP",
     rpm: "2,400 RPM",
     rating: 4.8,
     reviewsCount: 11,
-    cooling: "Két nước làm mát cưỡng bức",
-    starter: "Quay tay trợ lực giảm áp nhẹ",
+    cooling: "Forced Radiator & Fan Cooling",
+    starter: "Assisted Decompression Hand Crank",
     displacement: "638 cc",
-    weight: "102 kg",
-    fuelTank: "10.5 Lít Diesel",
+    weight: "225 lbs (102 kg)",
+    fuelTank: "2.7 Gal (10.5 L)",
     bullets: [
-      "Công nghệ Direct Injection (DI) phun nhiên liệu trực tiếp áp lực cao",
-      "Tiết kiệm dầu số 1 phân khúc, giật quay tay cực nhẹ không sợ dội",
-      "Thích hợp gắn máy bơm nước tưới tiêu, ghe xuồng và máy phát điện"
+      "Direct Injection (DI) high-pressure atomization delivers class-leading fuel economy",
+      "Effortless hand-crank startup equipped with automatic decompression lever",
+      "Standard choice for agricultural irrigation pumps, generators, and workboats"
     ],
     specs: {
-      "Hãng sản xuất": "Yanmar Co., Ltd.",
-      "Kiểu động cơ": "Diesel 4 thì, 1 xi lanh, phun trực tiếp DI",
-      "Công suất tối đa": "12.0 HP / 2400 RPM",
-      "Buồng đốt": "Phun trực tiếp (Direct Injection) đa điểm",
-      "Dung tích xi lanh": "638 cc",
-      "Hệ thống làm mát": "Két nước tuần hoàn quạt gió",
-      "Trọng lượng": "102 kg",
-      "Mức tiêu hao nhiên liệu": "Khoảng 1.1 Lít / giờ khi đủ tải",
-      "Bảo hành": "24 Tháng chính hãng Yanmar"
+      "Manufacturer": "Yanmar Co., Ltd.",
+      "Engine Model": "TF120-DI Commercial Diesel",
+      "Maximum Output": "12.0 HP @ 2,400 RPM",
+      "Combustion System": "Multi-Hole High-Pressure Direct Injection",
+      "Displacement": "638 cc",
+      "Cooling": "Water Radiator with Blower Fan",
+      "Net Weight": "102 kg",
+      "Fuel Consumption": "Approx. 1.1 Liters / hr at full load",
+      "Warranty": "24-Month Factory Warranty"
     },
     images: [
       "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Động cơ Yanmar TF120-DI nổi danh với công nghệ phun dầu trực tiếp Direct Injection mang lại khả năng khởi động nhạy bén ngay cả trong thời tiết sương lạnh miền sông nước. Piston hợp kim nhôm chịu nhiệt cao và xéc-măng mạ crôm cứng cáp cho tuổi thọ trên 10 năm hoạt động liên tục.",
+    description: "Yanmar's TF120-DI engine delivers unmatched fuel efficiency through its advanced Direct Injection chamber. The chrome-plated piston rings and heat-treated cylinder liner ensure over a decade of dependable daily service.",
     reviews: [
-      { id: "r201", author: "Út Tâm", location: "Ngã Năm, Sóc Trăng", rating: 5, date: "3 ngày trước", title: "Cực kỳ tiết kiệm dầu", content: "Tôi gắn vô đầu bơm 114mm bơm nước chống mặn cho vuông tôm, chạy cả buổi sáng hết chừng lít rưỡi dầu. Máy nổ êm ít rung lắc.", helpful: 21, liked: false },
-      { id: "r202", author: "Hoàng Nhân", location: "Châu Thành, An Giang", rating: 5, date: "1 tuần trước", title: "Quay tay rất nhẹ", content: "Có van giảm áp trợ lực nên chỉ cần gạt van quay 3 vòng buông tay là máy tự nổ giòn tan. Người già cũng tự quay nổ được.", helpful: 14, liked: false }
+      { id: "r201", author: "James Sullivan", location: "Coastal Irrigation", rating: 5, date: "3 days ago", title: "Remarkably low fuel consumption", content: "Hooked to a 4.5-inch water pump running all morning. Barely consumed 1.5 gallons of diesel. The decompression crank makes cold mornings effortless.", helpful: 21, liked: false }
     ]
   },
   {
     id: 3,
     brand: "Kubota",
-    model: "Kubota RT155 Plus DI Khởi Động Đề Điện (15.5 HP)",
+    model: "Kubota RT155 Plus DI Electric Key Start Diesel Engine (15.5 HP)",
     category: "engines",
-    price: 29500000,
-    badge: "ĐỀ ĐIỆN 1 CHẠM",
+    price: 1180,
+    badge: "1-TOUCH E-START",
     badgeType: "green-badge",
-    sku: "TD2-KUB-RT155DE",
-    hp: "15.5 HP (Mã Lực)",
+    sku: "TTM-KUB-RT155DE",
+    hp: "15.5 HP",
     rpm: "2,400 RPM",
     rating: 5.0,
     reviewsCount: 16,
-    cooling: "Két nước nhôm tổ ong tản nhiệt lớn",
-    starter: "Củ đề điện 12V 1 chạm + Ổ khóa Zin",
+    cooling: "Honeycomb Aluminum Radiator",
+    starter: "12V Electric Key Starter + Emergency Hand Crank",
     displacement: "753 cc",
-    weight: "122 kg",
-    fuelTank: "11.5 Lít Diesel",
+    weight: "268 lbs (122 kg)",
+    fuelTank: "3.0 Gal (11.5 L)",
     bullets: [
-      "Trang bị sẵn củ đề điện 12V đề phát nổ ngay, không cần quay tay cực nhọc",
-      "Công suất khủng 15.5 HP, buồng đốt Direct Injection leo dốc tải nặng cực bốc",
-      "Kèm bộ phát sạc ắc quy tự động sạc khi máy vận hành"
+      "Heavy-duty 12V gear-reduction starter motor with key ignition panel",
+      "15.5 HP maximum output with high-pressure Direct Injection torque",
+      "Built-in automatic 40A charging alternator maintains battery during operation"
     ],
     specs: {
-      "Hãng sản xuất": "Kubota Siam Thailand",
-      "Model": "RT155 Plus DI E-Start",
-      "Công suất": "15.5 HP / 2400 RPM",
-      "Hệ thống khởi động": "Đề điện 12V có khóa an toàn + Tay quay dự phòng",
-      "Dung tích xi lanh": "753 cc",
-      "Bình ắc quy khuyến nghị": "12V 35Ah - 45Ah",
-      "Trọng lượng": "122 kg",
-      "Bảo hành": "24 Tháng (Bảo hành cả củ đề và động cơ)"
+      "Manufacturer": "Kubota Siam",
+      "Model": "RT155 Plus DI E-Start Edition",
+      "Rated Power": "15.5 HP @ 2,400 RPM",
+      "Starting System": "12V Heavy-Duty Starter + Manual Backup Crank",
+      "Displacement": "753 cc",
+      "Recommended Battery": "12V 35Ah - 45Ah Lead-Acid or Lithium",
+      "Weight": "122 kg",
+      "Warranty": "24 Months (Full Coverage on Starter & Block)"
     },
     images: [
       "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Phiên bản cao cấp nhất của Kubota RT Series: Kubota RT155 Plus DI được tích hợp sẵn hệ thống đề điện 12V bấm nút khởi động nhẹ nhàng, loại bỏ hoàn toàn nỗi vất vả khi quay tay lúc trời mưa bùn đất. Máy sở hữu công suất 15.5 mã lực dũng mãnh, chuyên trị các dòng máy xới tải nặng, máy cắt cỏ voi, bơm bùn cát và ghe tải lớn.",
+    description: "The premier tier of the Kubota horizontal diesel family. The RT155 Plus DI features a turnkey 12V starter system, eliminating manual cranking fatigue while delivering 15.5 horsepower of unstoppable pull for heavy cultivators, dredging pumps, and industrial barges.",
     reviews: [
-      { id: "r301", author: "Chú Sáu Rạng", location: "Hồng Dân, Bạc Liêu", rating: 5, date: "Hôm qua", title: "Có đề điện khỏe re, bấm cái là nổ", content: "Tuổi tôi ngoài 60 rồi quay tay máy lớn không nổi. Mua con RT155 đề điện của anh Tư Thành về bấm nút tạch phát nổ liền, kéo giàn xới ruộng sướng mê tơi.", helpful: 30, liked: false },
-      { id: "r302", author: "Trần Minh Tấn", location: "Vị Thủy, Hậu Giang", rating: 5, date: "4 ngày trước", title: "Công suất thực sự quá mạnh", content: "Kéo đầu bơm 168mm tát cạn đầm tôm trong vòng 2 tiếng đồng hồ. Máy chạy êm, tiếng bô trầm ấm.", helpful: 17, liked: false }
+      { id: "r301", author: "Arthur Pendelton", location: "Valley Agri Co-op", rating: 5, date: "Yesterday", title: "Turn of the key and it fires up", content: "Electric start is a lifesaver. One turn of the key and the 15.5 HP diesel roars to life. Superb build quality and vibration damping.", helpful: 30, liked: false }
     ]
   },
   {
     id: 4,
     brand: "Yanmar",
-    model: "Yanmar TF160-DI Lực Kéo Tàu Ghe Cực Đại (16.0 HP)",
+    model: "Yanmar TF160-DI Heavy-Duty Marine & Utility Diesel Engine (16.0 HP)",
     category: "engines",
-    price: 31200000,
-    badge: "CHUYÊN TÀU GHE",
+    price: 1250,
+    badge: "HEAVY MARINE",
     badgeType: "gold-badge",
-    sku: "TD2-YAN-TF160",
-    hp: "16.0 HP (Mã Lực)",
+    sku: "TTM-YAN-TF160",
+    hp: "16.0 HP",
     rpm: "2,400 RPM",
     rating: 4.9,
     reviewsCount: 13,
-    cooling: "Két nước tuần hoàn quạt thổi gió mạnh",
-    starter: "Quay tay trợ lực / Tùy chọn đề điện",
+    cooling: "Forced Radiator with High-CFM Blower",
+    starter: "Dual Hand Crank & Electric Starter Ready",
     displacement: "845 cc",
-    weight: "135 kg",
-    fuelTank: "12 Lít Diesel",
+    weight: "297 lbs (135 kg)",
+    fuelTank: "3.2 Gal (12 L)",
     bullets: [
-      "Dung tích xi lanh cực lớn 845cc cho mô men xoắn khổng lồ ở dải tua thấp",
-      "Vỏ bọc kim loại sơn tĩnh điện chống ăn mòn nước phèn, nước mặn",
-      "Được giới vận tải sông nước miền Tây tôn vinh là cỗ máy tải bền bỉ nhất"
+      "Massive 845cc single cylinder displacement produces monstrous low-end torque",
+      "Marine-grade corrosion resistant electrostatic powder coat finish",
+      "Preferred powerhouse for multi-ton transport vessels and commercial irrigation"
     ],
     specs: {
-      "Hãng sản xuất": "Yanmar Corporation",
-      "Model": "TF160-DI Marine & Heavy Duty",
-      "Công suất cực đại": "16.0 HP / 2400 RPM",
-      "Đường kính x Hành trình piston": "102 mm x 105 mm",
-      "Dung tích xi lanh": "845 cc",
-      "Loại nhiên liệu": "Dầu Diesel",
-      "Trọng lượng": "135 kg",
-      "Bảo hành": "24 Tháng"
+      "Manufacturer": "Yanmar Corporation",
+      "Model": "TF160-DI Marine Heavy-Duty",
+      "Peak Output": "16.0 HP @ 2,400 RPM",
+      "Bore × Stroke": "102 mm × 105 mm",
+      "Displacement": "845 cc",
+      "Fuel Type": "Standard Clean Diesel",
+      "Net Weight": "135 kg",
+      "Warranty": "24 Months"
     },
     images: [
       "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Yanmar TF160-DI sở hữu quả piston kích thước lớn 102mm tạo lực nén khủng khiếp, giúp kéo được chân vịt thau bước lớn cho tàu ghe chở 3-5 tấn hàng hóa di chuyển nhanh trên sông ngòi. Máy trang bị bơm dầu bôi trơn cao áp bảo vệ trục khuỷu và bạc dên tuyệt đối.",
+    description: "The Yanmar TF160-DI boasts an oversized 102mm cylinder bore generating colossal compression and turning moment. It drives high-pitch propellers and heavy tillage shafts with effortless stability.",
     reviews: [
-      { id: "r401", author: "Lê Văn Điền", location: "Cù Lao Dung, Sóc Trăng", rating: 5, date: "4 ngày trước", title: "Ghe chở dưa hấu chạy bốc vô cùng", content: "Tôi đi ghe chở dưa hấu bán chợ nổi Cái Răng, gắn máy này chạy ngược con nước xiết mà ghe vẫn lướt phom phom.", helpful: 19, liked: false }
+      { id: "r401", author: "Capt. Michael Ross", location: "Harbor Freight Logistics", rating: 5, date: "4 days ago", title: "Unbeatable pulling power on cargo boats", content: "Pushes our 4-ton cargo barge through strong currents without breaking a sweat. Exhaust runs clean with zero soot buildup.", helpful: 19, liked: false }
     ]
   },
   {
     id: 5,
     brand: "Kubota",
-    model: "Kubota RT125 Bốc Hơi / Két Nước Tiêu Chuẩn (12.5 HP)",
+    model: "Kubota RT125 Standard Farm Diesel Engine (12.5 HP)",
     category: "engines",
-    price: 21900000,
-    badge: "BỀN BỈ 10 NĂM",
+    price: 875,
+    badge: "PROVEN WORKHORSE",
     badgeType: "blue-badge",
-    sku: "TD2-KUB-RT125",
+    sku: "TTM-KUB-RT125",
     hp: "12.5 HP",
     rpm: "2,400 RPM",
     rating: 4.8,
     reviewsCount: 12,
-    cooling: "Thùng nước bốc hơi hoặc két nước",
-    starter: "Tay quay trợ lực giật nhẹ",
+    cooling: "Radiator / Condenser Cooling System",
+    starter: "Assisted Decompression Hand Crank",
     displacement: "624 cc",
-    weight: "98 kg",
-    fuelTank: "10 Lít Diesel",
+    weight: "216 lbs (98 kg)",
+    fuelTank: "2.6 Gal (10 L)",
     bullets: [
-      "Dòng máy nổ diesel quốc dân, phụ tùng thay thế đâu đâu cũng có sẵn",
-      "Kết cấu cơ khí đơn giản, nồi đồng cối đá, dễ sửa chữa căn chỉnh",
-      "Giá thành hợp lý, hoàn vốn siêu nhanh cho bà con làm mùa"
+      "The most widely adopted 12.5 HP agricultural diesel engine in history",
+      "Rock-solid cast-iron reliability with universally accessible replacement parts",
+      "Fast ROI for smallholders, greenhouse setups, and emergency water extraction"
     ],
     specs: {
-      "Hãng sản xuất": "Kubota Thailand",
-      "Model": "RT125 Standard",
-      "Công suất": "12.5 HP / 2400 RPM",
-      "Dung tích xi lanh": "624 cc",
-      "Trọng lượng": "98 kg",
-      "Bảo hành": "24 Tháng"
+      "Manufacturer": "Kubota Thailand",
+      "Model": "RT125 Standard Farm Edition",
+      "Output": "12.5 HP @ 2,400 RPM",
+      "Displacement": "624 cc",
+      "Net Weight": "98 kg",
+      "Warranty": "24 Months"
     },
     images: [
       "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Động cơ Kubota RT125 là sự lựa chọn kinh tế nhất cho bà con cần máy nổ công suất từ 12.5 mã lực. Vận hành êm ái, bốc khói sạch, dễ bảo trì, linh kiện ron phốt có bán khắp mọi tiệm kim khí miền Tây.",
+    description: "The Kubota RT125 is the quintessential balance between power, portability, and bulletproof mechanical simplicity. It operates reliably in challenging humid and dusty farm environments.",
     reviews: [
-      { id: "r501", author: "Hai Lúa Trà Vinh", location: "Càng Long, Trà Vinh", rating: 5, date: "1 tuần trước", title: "Máy chạy bền vô đối", content: "Dùng từ đời RT trước tới giờ đổi sang RT125 mới này máy nổ êm hơn hẳn, bớt rung lắc.", helpful: 12, liked: false }
+      { id: "r501", author: "Gregory Shaw", location: "Prairie Agro Systems", rating: 5, date: "1 week ago", title: "Unstoppable little engine", content: "Solid cast iron design that simply does not quit. Easy to service, filter changes take 5 minutes, and starts on first crank.", helpful: 12, liked: false }
     ]
   },
   {
     id: 6,
     brand: "John Deere",
-    model: "John Deere Heavy Agri Power Unit Đa Dụng (22.0 HP)",
+    model: "John Deere Heavy Agri Power Unit (22.0 HP Industrial Diesel)",
     category: "engines",
-    price: 42000000,
-    badge: "TIÊU CHUẨN MỸ",
+    price: 1680,
+    badge: "USA STANDARD",
     badgeType: "green-badge",
-    sku: "TD2-JD-AGRI22",
+    sku: "TTM-JD-AGRI22",
     hp: "22.0 HP",
     rpm: "2,600 RPM",
     rating: 5.0,
     reviewsCount: 9,
-    cooling: "Két nước đồng 3 hàng làm mát siêu tốc",
-    starter: "Đề điện cao cấp chống nước IP67",
+    cooling: "Triple-Core Heavy-Duty Copper Radiator",
+    starter: "IP67 Sealed Electric Solenoid Starter",
     displacement: "1,100 cc",
-    weight: "165 kg",
-    fuelTank: "15 Lít Diesel",
+    weight: "363 lbs (165 kg)",
+    fuelTank: "4.0 Gal (15 L)",
     bullets: [
-      "Công nghệ động cơ John Deere USA danh tiếng, chịu tải nặng liên tục 24/7",
-      "Két nước đồng 3 tầng tản nhiệt cao cấp, bơm nước lưu lượng cực lớn",
-      "Chuyên dùng cho trạm bơm tưới vùng hạn mặn, kéo máy phát điện 10kVA"
+      "Heavy industrial grade John Deere power unit rated for 24/7 continuous duty",
+      "Triple-core high-capacity copper radiator designed for scorching climate zones",
+      "Dedicated power pack for 10kVA generators, timber winches, and large aqua pumps"
     ],
     specs: {
-      "Hãng sản xuất": "John Deere Power Systems",
-      "Công suất": "22.0 HP / 2600 RPM",
-      "Dung tích xi lanh": "1100 cc",
-      "Hệ thống điện": "Củ đề 12V 1.8kW + Củ sạc 40A",
-      "Trọng lượng": "165 kg",
-      "Bảo hành": "36 Tháng chính hãng"
+      "Manufacturer": "John Deere Power Systems",
+      "Peak Output": "22.0 HP @ 2,600 RPM",
+      "Displacement": "1,100 cc",
+      "Electrical System": "12V 1.8kW Starter + 40A Heavy Alternator",
+      "Dry Weight": "165 kg",
+      "Warranty": "36-Month Industrial Warranty"
     },
     images: [
       "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Dòng động cơ công nghiệp chuyên dụng John Deere Heavy Agri mang công suất 22 mã lực đỉnh cao. Máy được chế tạo bằng gang cầu đúc nguyên khối chống va đập, vòng bi trục khuỷu tiêu chuẩn công nghiệp nặng, thích hợp cho các trang trại nuôi tôm thâm canh quy mô lớn chạy quạt nước thâu đêm suốt sáng.",
+    description: "Built to North American heavy-equipment specifications, the John Deere 22 HP power unit provides continuous stationary muscle. Its ductile iron block and heavy forged crankshaft handle constant shock loads with ease.",
     reviews: [
-      { id: "r601", author: "Trại Tôm Minh Phú", location: "Trần Đề, Sóc Trăng", rating: 5, date: "3 tuần trước", title: "Chạy quạt 12 cánh suốt đêm không hụt ga", content: "Tôi mua 2 cục John Deere 22HP của tiệm Tư Thành để chạy dàn quạt oxy cho 6 ao tôm. Máy chạy đều ga, không sợ tuột vòng tua, quá chất lượng!", helpful: 26, liked: false }
+      { id: "r601", author: "Marcus Thorne", location: "Blue Basin Aquaculture", rating: 5, date: "3 weeks ago", title: "Runs aerators all night without a drop in RPM", content: "Installed this unit to run our aquaculture aeration lines overnight. Smooth governors, perfect fuel metering, and zero overheating.", helpful: 26, liked: false }
     ]
   },
   {
     id: 7,
     brand: "Vikyno",
-    model: "Vikyno RV125-2 Két Nước Tuần Hoàn (12.5 HP)",
+    model: "Vikyno RV125-2 Water-Cooled Commercial Diesel Engine (12.5 HP)",
     category: "engines",
-    price: 17500000,
-    badge: "GIÁ BÌNH DÂN",
+    price: 699,
+    badge: "ECONOMY PRO",
     badgeType: "blue-badge",
-    sku: "TD2-VIK-RV125",
+    sku: "TTM-VIK-RV125",
     hp: "12.5 HP",
     rpm: "2,200 RPM",
     rating: 4.7,
     reviewsCount: 10,
-    cooling: "Két nước làm mát tuần hoàn",
-    starter: "Quay tay trợ lực",
+    cooling: "Thermosiphon Water Circulation",
+    starter: "Assisted Hand Crank",
     displacement: "630 cc",
-    weight: "105 kg",
-    fuelTank: "10 Lít Diesel",
+    weight: "231 lbs (105 kg)",
+    fuelTank: "2.6 Gal (10 L)",
     bullets: [
-      "Thương hiệu Vikyno liên doanh Yanmar công nghệ Nhật Bản",
-      "Giá thành mềm hơn nhập khẩu nguyên kiện nhưng chất lượng rất bền",
-      "Tiết kiệm chi phí đầu tư ban đầu cho các gia đình nông dân"
+      "Manufactured under licensed Yanmar Japan commercial engineering standards",
+      "Unbeatable cost-to-performance ratio for cost-conscious farm operators",
+      "Standardized bolt patterns accept generic pulleys, gearboxes, and chassis"
     ],
     specs: {
-      "Hãng sản xuất": "Vikyno & Vinappro",
-      "Model": "RV125-2",
-      "Công suất": "12.5 HP / 2200 RPM",
-      "Trọng lượng": "105 kg",
-      "Bảo hành": "18 Tháng"
+      "Manufacturer": "Vikyno Engine Machinery Co.",
+      "Model": "RV125-2 Standard",
+      "Rated Output": "12.5 HP @ 2,200 RPM",
+      "Weight": "105 kg",
+      "Warranty": "18-Month Warranty"
     },
     images: [
       "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Động cơ Diesel Vikyno RV125-2 được sản xuất theo dây chuyền công nghệ chuyển giao từ Yanmar Nhật Bản. Với tầm giá dưới 18 triệu đồng, đây là lựa chọn số một cho các nhu cầu bơm nước ruộng, kéo xuồng gia đình và chạy đầu phát điện dân dụng.",
+    description: "Vikyno RV125-2 brings reliable water-cooled single-cylinder diesel engineering into an economical price bracket. An outstanding choice for backup farm generation and drainage.",
     reviews: [
-      { id: "r701", author: "Bảy Hùng", location: "Thạnh Trị, Sóc Trăng", rating: 5, date: "1 tháng trước", title: "Máy tốt giá rẻ", content: "Tiền ít mà muốn máy khỏe thì mua con Vikyno này là chuẩn bài. Kéo dàn xới 1 vụ là thu hồi đủ vốn.", helpful: 11, liked: false }
+      { id: "r701", author: "Samuel O'Connor", location: "Homestead Machinery", rating: 5, date: "1 month ago", title: "Great value and solid performance", content: "For the price point, this engine punches well above its weight. Put it on a trailer mount for field water pumping.", helpful: 11, liked: false }
     ]
   },
   {
     id: 8,
-    brand: "Thành Đạt 2",
-    model: "Trọn Bộ Máy Xới Đất Đa Năng Thành Đạt 2 (Kèm Động Cơ RT140)",
+    brand: "Tu Thanh",
+    model: "All-Terrain 2-Wheel Walk-Behind Power Tiller Kit (with Kubota RT140 Engine)",
     category: "tillers",
-    price: 38500000,
-    badge: "TRỌN BỘ SẴN DÙNG",
+    price: 1540,
+    badge: "COMPLETE READY-TO-WORK",
     badgeType: "gold-badge",
-    sku: "TD2-TILL-FULL140",
+    sku: "TTM-TILL-FULL140",
     hp: "14.0 HP Kubota RT140",
-    rpm: "Đầy đủ số tiến / lùi / đảo chiều",
+    rpm: "6 Forward / 2 Reverse Speeds",
     rating: 5.0,
     reviewsCount: 15,
-    cooling: "Két nước",
-    starter: "Hỗ trợ đề điện hoặc quay tay",
-    weight: "245 kg trọn bộ",
+    cooling: "Radiator",
+    starter: "Key Electric Start + Backup Crank",
+    weight: "540 lbs (245 kg)",
     bullets: [
-      "Bao gồm khung sườn máy xới cải tiến + Động cơ Kubota RT140 xịn + Dàn phay đất 18 dao",
-      "Càng lái trợ lực, chuyển hướng nhẹ tênh, bánh lồng chống lầy lội cực tốt",
-      "Có ghế ngồi lái phía sau cho bà con đỡ mỏi chân khi làm đồng cả ngày"
+      "Includes reinforced chassis, genuine Kubota RT140 diesel engine, and 18-blade rotary tiller",
+      "Power steering clutch with differential lock prevents bogging in deep mud and clay",
+      "Includes rear sulky seat attachment for comfortable all-day field operation"
     ],
     specs: {
-      "Cấu hình": "Khung sườn Thành Đạt 2 + Máy nổ Kubota RT140 Plus",
-      "Bề rộng phay đất": "850 mm - 1100 mm",
-      "Độ sâu phay đất": "150 mm - 250 mm",
-      "Hộp số": "6 số tiến, 2 số lùi, có khóa vi sai chống lật",
-      "Phụ kiện tặng kèm": "1 Cặp bánh lồng sắt + 1 Cặp bánh cao su di chuyển + 1 Dàn dao xới 18 lưỡi hợp kim",
-      "Bảo hành": "24 Tháng toàn bộ máy và khung sườn"
+      "Configuration": "Tu Thanh Tiller Frame + Kubota RT140 Plus Diesel Engine",
+      "Working Tillage Width": "850 mm - 1,100 mm",
+      "Tillage Depth": "150 mm - 250 mm",
+      "Transmission": "Gear Drive (6 Forward, 2 Reverse Speeds)",
+      "Included Accessories": "1 Pair Iron Mud Cage Wheels + 1 Pair Transport Tires + 18-Blade Rotary Assembly",
+      "Warranty": "24 Months Full Coverage on Engine & Transmission"
     },
     images: [
       "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Bộ máy xới đất 2 bánh cải tiến Thành Đạt 2 là vũ khí đắc lực cho bà con làm lúa vụ đông xuân và hè thu tại đồng bằng sông Cửu Long. Khung sườn làm bằng thép ống dày dặn, hộp số bạc đạn ngâm dầu chống cát bụi tuyệt đối. Động cơ Kubota RT140 kéo phay đất tơi xốp, cắt gốc rạ nhẹ nhàng.",
+    description: "The complete heavy-duty walking tractor setup. Combines a structural steel channel frame with the power of the Kubota RT140 diesel engine. Chews through dense turf, wet paddy mud, and dry clay easily.",
     reviews: [
-      { id: "r801", author: "Anh Tám Ruộng", location: "Châu Thành, Sóc Trăng", rating: 5, date: "2 ngày trước", title: "Xới đất ướt không hề bị lún bùn", content: "Ruộng trũng miền Tây sợ nhất máy lún lầy. Cặp bánh lồng tiệm Thành Đạt gắn bản to đi phăng phăng. Xới 1 công đất mất có 25 phút.", helpful: 28, liked: false }
+      { id: "r801", author: "Thomas Briggs", location: "Meadowlands Cultivators", rating: 5, date: "2 days ago", title: "Effortless tillage in heavy soil", content: "The cage wheels keep it floating through soaked clay fields where our heavy four-wheel tractor got stuck. The sulky seat makes it a pleasure to drive.", helpful: 28, liked: false }
     ]
   },
   {
     id: 9,
-    brand: "Thành Đạt 2",
-    model: "Khung Cày & Dàn Xới 2 Bánh Bạc Đạn Đôi Cải Tiến (Chưa Máy)",
+    brand: "Tu Thanh",
+    model: "Heavy-Duty 2-Wheel Cultivator Chassis & Rotary Tiller Frame (No Engine)",
     category: "tillers",
-    price: 14500000,
-    badge: "KHUNG THÉP DÀY",
+    price: 580,
+    badge: "HEAVY STEEL CHASSIS",
     badgeType: "blue-badge",
-    sku: "TD2-FRAME-PRO",
-    hp: "Lắp máy từ 10 - 18 HP",
+    sku: "TTM-FRAME-PRO",
+    hp: "Compatible with 10 - 18 HP",
     rating: 4.8,
     reviewsCount: 8,
-    weight: "130 kg",
+    weight: "286 lbs (130 kg)",
     bullets: [
-      "Khung sườn thép đặc chịu lực dập nguyên khối chống cong vênh",
-      "Cốt láp và bạc đạn đôi Nhật bãi chịu tải nặng, bốt tay lái đảo hướng 1 chạm",
-      "Bệ máy khoan sẵn lỗ ren tiêu chuẩn bắt vừa mọi dòng Kubota RT, Yanmar TF, Vikyno"
+      "Pressed structural steel beam construction withstands aggressive soil impacts",
+      "Dual sealed Japanese roller bearings and quick-disconnect steering handles",
+      "Pre-drilled universal motor mounts fit Kubota RT, Yanmar TF, and Vikyno engines"
     ],
     specs: {
-      "Hãng chế tạo": "Xưởng Cơ Khí Thành Đạt 2 (Sóc Trăng)",
-      "Khả năng tương thích": "Kubota RT100 - RT160, Yanmar TF105 - TF160, Vikyno RV125 - RV165",
-      "Hệ truyền động": "Dây curoa 3 rãnh bản B + Hộp xích đôi ngâm dầu",
-      "Bảo hành": "36 Tháng cho khung sườn và hộp số"
+      "Manufacturer": "Tu Thanh Machinery Workshop",
+      "Engine Compatibility": "Kubota RT100 - RT160, Yanmar TF105 - TF160, Vikyno RV125 - RV165",
+      "Drive System": "Triple B-Section V-Belts + Oil-Bath Dual Roller Chain Transmission",
+      "Warranty": "36 Months on Structural Chassis and Gearbox"
     },
     images: [
       "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Dành riêng cho bà con đã có sẵn đầu nổ diesel ở nhà và muốn đóng mới dàn xới đất. Khung sườn cải tiến 2026 của Nông Cơ Thành Đạt 2 được hạ trọng tâm giúp máy không bị chao đảo khi đi vào luống cày gồ ghề.",
+    description: "Designed for operators who already own a diesel engine and want to upgrade their walking tractor frame. Low center of gravity prevents tipping on steep furrows.",
     reviews: [
-      { id: "r901", author: "Khánh Vĩnh", location: "Gò Quao, Kiên Giang", rating: 5, date: "1 tuần trước", title: "Khung rất cứng cáp", content: "Thép dày hàn mí rất ngấu, bắt con máy Yanmar 12HP cũ vô khít rịt nổ không rung máy.", helpful: 14, liked: false }
+      { id: "r901", author: "Elijah Wright", location: "Wright Farm Works", rating: 5, date: "1 week ago", title: "Heavy steel and zero vibrations", content: "Mounted our 12 HP Yanmar to this chassis. Bolted right in without modification. The steering clutches are responsive and smooth.", helpful: 14, liked: false }
     ]
   },
   {
     id: 10,
-    brand: "Kubota/Thành Đạt",
-    model: "Trọn Bộ Máy Bơm Nước Đầu Nổ Diesel Ống 114mm (120 m³/h)",
+    brand: "Kubota/Tu Thanh",
+    model: "High-Volume Agricultural Diesel Water Pump Set 4.5\" (120-150 m³/h)",
     category: "pumps",
-    price: 28900000,
-    badge: "LƯU LƯỢNG KHỦNG",
+    price: 1150,
+    badge: "MASSIVE FLOW",
     badgeType: "gold-badge",
-    sku: "TD2-PUMP-114",
+    sku: "TTM-PUMP-114",
     hp: "12.5 HP Kubota RT125",
-    capacity: "120 - 150 m³/giờ",
+    capacity: "530 - 660 GPM (120 - 150 m³/h)",
     rating: 4.9,
     reviewsCount: 13,
-    cooling: "Két nước",
+    cooling: "Radiator",
     bullets: [
-      "Lưu lượng nước khổng lồ 120-150 khối/giờ, chống hạn cứu úng cực nhanh",
-      "Đầu bơm gang cánh đồng đúc áp lực cao, hút sâu 8m đẩy xa 500m",
-      "Gác sẵn bệ sắt chữ U có 4 bánh xe đẩy di chuyển trên bờ đê tiện lợi"
+      "High discharge rate of 120-150 m³/hr for rapid flood control and large-scale irrigation",
+      "Reinforced cast-iron housing with dynamic cast-bronze pressure impeller",
+      "Trailer skid with 4 pneumatic rubber transport wheels for convenient canal movement"
     ],
     specs: {
-      "Động cơ": "Kubota RT125 chính hãng Thái Lan",
-      "Đầu bơm": "Bơm áp lực cao họng hút xả 114mm",
-      "Lưu lượng": "120 - 150 m³/h",
-      "Cột áp": "Đẩy cao 15-20 mét, đẩy xa 300 - 500 mét",
-      "Bảo hành": "24 Tháng"
+      "Engine": "Kubota RT125 Official Diesel Engine",
+      "Pump Head": "High-Pressure Cast Iron Self-Priming 114mm (4.5 inch)",
+      "Flow Rate": "120 - 150 m³/hr (530 - 660 Gallons/min)",
+      "Head Lift": "50-65 ft Vertical Lift, 1,600 ft Horizontal Delivery",
+      "Warranty": "24 Months Full System Coverage"
     },
     images: [
       "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Bộ máy bơm nước lưu lượng lớn chuyên dùng cho hợp tác xã nông nghiệp, cánh đồng mẫu lớn và vuông nuôi tôm công nghiệp. Động cơ kéo trực tiếp qua puli bản B truyền lực 100%, không bị tuột đai.",
+    description: "Engineered for agricultural irrigation, flood drainage, and commercial aquaculture. The heavy Kubota diesel directly drives the high-flow impeller via reinforced dual V-belts.",
     reviews: [
-      { id: "r1001", author: "Hợp Tác Xã Mỹ Tú", location: "Mỹ Tú, Sóc Trăng", rating: 5, date: "5 ngày trước", title: "Nước xả như thác chảy", content: "Ống 114 xả nước căng đét, bơm cả bờ bao chỉ cần nửa ngày là tràn bờ.", helpful: 16, liked: false }
+      { id: "r1001", author: "Harvey Cole", location: "Cole River Basin Dist.", rating: 5, date: "5 days ago", title: "Pumps like a waterfall", content: "Drained a 4-acre holding reservoir in under 6 hours. The 4.5-inch outlet flows continuous volume without surging.", helpful: 16, liked: false }
     ]
   },
   {
     id: 11,
-    brand: "Thành Đạt 2",
-    model: "Đầu Bơm Cát & Bơm Bùn Cánh Hở Hợp Kim Gang Đúc Họng 100mm",
+    brand: "Tu Thanh",
+    model: "Heavy-Duty Cast Iron Mud & Slurry Dredging Pump Head 4\"",
     category: "pumps",
-    price: 6800000,
-    badge: "CÁNH HỞ CHỐNG NGHẸT",
+    price: 270,
+    badge: "SEMI-OPEN NON-CLOG",
     badgeType: "blue-badge",
-    sku: "TD2-PUMP-SAND100",
+    sku: "TTM-PUMP-SAND100",
     rating: 4.8,
     reviewsCount: 9,
     bullets: [
-      "Cánh quạt bơm thiết kế cánh hở bán nguyệt không bị nghẹt rác rơm hay sỏi đá",
-      "Thân bơm đúc bằng gang hợp kim mạ crom chịu mài mòn cực tốt",
-      "Chuyên vét mương vườn dừa, hút bùn đáy ao tôm, san lấp cát mặt bằng"
+      "Open 3-vane semi-vortex impeller passes weeds, mud, sand, and gravel without jamming",
+      "12mm thick abrasion-resistant chromium cast-alloy casing",
+      "Dedicated unit for pond dredging, canal desilting, and construction slurry removal"
     ],
     specs: {
-      "Chất liệu thân bơm": "Gang hợp kim đúc dày 12mm",
-      "Cánh bơm": "Cánh hở 3 lá hợp kim chống mòn",
-      "Họng hút xả": "100 mm (Gắn ống mềm gân kẽm)",
-      "Công suất máy kéo khuyến nghị": "Động cơ diesel từ 12 HP trở lên",
-      "Bảo hành": "12 Tháng"
+      "Casing Material": "High-Chromium Ductile Cast Iron (12mm wall thickness)",
+      "Impeller Type": "3-Blade Semi-Open Non-Clog Impeller",
+      "Inlet / Outlet": "100 mm (4.0 Inch Flanged)",
+      "Recommended Drive": "12 HP to 18 HP Diesel Engine",
+      "Warranty": "12 Months"
     },
     images: [
       "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Đầu bơm bùn cát chuyên dụng Thành Đạt 2 giải quyết triệt để vấn đề hút bùn quánh đáy ao nuôi trồng thủy sản. Bạc đạn nhúng trong buồng nhớt khép kín ngăn chặn nước mặn và bùn cát lọt vào phá hỏng trục.",
+    description: "Built specifically to solve bottom slurry buildup in ponds and irrigation ditches. The oil-submerged dual mechanical seals prevent grit and silt intrusion from damaging drive shafts.",
     reviews: [
-      { id: "r1101", author: "Trọng Nghĩa", location: "Cần Giuộc, Long An", rating: 5, date: "2 tuần trước", title: "Vét bùn mương vườn rất ưng", content: "Hút sình non và rễ cỏ trơn tru không hề kẹt cánh bơm.", helpful: 10, liked: false }
+      { id: "r1101", author: "Leonard Brooks", location: "Wetland Dredging Services", rating: 5, date: "2 weeks ago", title: "Chews through dense mud effortlessly", content: "Pumped thick clay sludge and debris out of our retention pond with zero clogs. Very impressed with the build quality.", helpful: 10, liked: false }
     ]
   },
   {
     id: 12,
-    brand: "Thành Đạt 2",
-    model: "Bộ Dàn Láp Đuôi Tôm Inox 304 Bạc Đạn Nhúng Dầu Dài 3.8m",
+    brand: "Tu Thanh",
+    model: "Marine 304 Stainless Steel Long-Tail Boat Drive Kit (12.5 ft)",
     category: "marine",
-    price: 4200000,
-    badge: "INOX 304 NƯỚC MẶN",
+    price: 168,
+    badge: "SALT-WATER PROOF",
     badgeType: "green-badge",
-    sku: "TD2-LAP-38M",
+    sku: "TTM-LAP-38M",
     rating: 5.0,
     reviewsCount: 17,
     bullets: [
-      "Toàn bộ vỏ ống và trục cốt láp làm từ Inox 304 không hít nam châm, chống rỉ sét nước mặn",
-      "Hệ thống bạc đạn đũa nhúng dầu chống nước 3 tầng phốt cơ khí",
-      "Chạy êm ái, giảm rung lắc đuôi ghe xuồng tối đa ở dải tua máy cao"
+      "Full 304 marine-grade stainless steel shaft and sleeve tubing resistant to saltwater corrosion",
+      "Oil-bathed needle roller bearings protected by triple-lip mechanical seals",
+      "Smoothest high-RPM long-tail operation eliminates tail vibration on riverboats"
     ],
     specs: {
-      "Chiều dài láp": "3.8 Mét (Có tùy chọn 4.2m và 4.5m)",
-      "Đường kính cốt": "Cốt 22mm hoặc 25mm tiện ren chuẩn",
-      "Chất liệu": "Inox SUS304 không gỉ",
-      "Gối đỡ máy": "Khớp nối mềm cao su chịu xoắn",
-      "Bảo hành": "24 Tháng"
+      "Shaft Length": "12.5 Feet (3.8 Meters) — 14 ft option available",
+      "Drive Shaft Diameter": "22 mm or 25 mm precision-machined stainless core",
+      "Material": "SUS304 Austenitic Stainless Steel",
+      "Engine Coupler": "Heavy-duty torsional dampening rubber joint",
+      "Warranty": "24 Months"
     },
     images: [
       "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Dàn láp đuôi tôm Thành Đạt 2 là sản phẩm độc quyền được gia công tỉ mỉ bằng máy tiện CNC. Phốt chặn nước nhập khẩu chịu nhiệt cao giữ cho buồng dầu luôn sạch sẽ, giúp cốt láp quay nhẹ nhàng tăng thêm 20% tốc độ cho vỏ lãi.",
+    description: "Custom CNC-machined long-tail marine kit for horizontal diesel engines. The sealed oil-lubricated bearing cartridge ensures the shaft spins freely without cavitation or power loss.",
     reviews: [
-      { id: "r1201", author: "Tài Vỏ Lãi", location: "Năm Căn, Cà Mau", rating: 5, date: "3 ngày trước", title: "Láp rất êm không hú", content: "Lắp vô con máy Kubota 14HP chạy ra biển đánh cá nước mặn cả tháng nay mà cốt vẫn sáng bóng không bị rỗ sét.", helpful: 22, liked: false }
+      { id: "r1201", author: "Captain Pete", location: "Delta Boat Charter", rating: 5, date: "3 days ago", title: "Glass-smooth running shaft", content: "Mounted to our Kubota 14 HP. Navigated saltwater channels for a month without a speck of rust. Zero tail vibration.", helpful: 22, liked: false }
     ]
   },
   {
     id: 13,
-    brand: "Thành Đạt 2",
-    model: "Chân Vịt Tốc Độ Đua Vỏ Lãi Inox 304 & Thau Đúc CNC",
+    brand: "Tu Thanh",
+    model: "High-Speed CNC Brass & 304 Stainless Boat Racing Propeller",
     category: "marine",
-    price: 1250000,
-    badge: "XÉ NƯỚC CỰC BỐC",
+    price: 50,
+    badge: "HYDRODYNAMIC CNC",
     badgeType: "gold-badge",
-    sku: "TD2-PROP-SPEED",
+    sku: "TTM-PROP-SPEED",
     rating: 4.9,
     reviewsCount: 14,
     bullets: [
-      "Thiết kế 2 lá bản xẻ nước thủy động học tối ưu cho ghe xuồng miền Tây",
-      "Được cân bằng động điện tử triệt tiêu rung giật tay lái khi chạy hết ga",
-      "Đầy đủ kích cỡ bước ren cho cốt 19mm, 22mm, 25mm"
+      "2-blade hydrodynamic rake design maximizes water displacement and boat top speed",
+      "Electronically balanced on high-speed dynamic balancers to eliminate steering torque pull",
+      "Available in standard metric shaft tapers (19mm, 22mm, 25mm)"
     ],
     specs: {
-      "Chất liệu": "Hợp kim Thau Đúc hoặc Inox 304 đúc nguyên khối",
-      "Đường kính cánh": "220 mm - 280 mm",
-      "Cỡ cốt tương thích": "Cốt 22mm hoặc 25mm côn tiêu chuẩn",
-      "Đặc tính": "Cắt rong rêu, bốc đầu lướt sóng nhanh"
+      "Material": "High-Tensile Cast Naval Brass or 304 Stainless",
+      "Blade Diameter": "220 mm - 280 mm (8.5 - 11.0 Inch)",
+      "Bore Taper": "Standard 1:10 Taper with Keyway",
+      "Characteristics": "Weed-shedding leading edge, rapid planing"
     },
     images: [
       "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Chân vịt tốc độ Thành Đạt 2 được nghiên cứu riêng cho dòng sông rạch nhiều lục bình của miền Tây sông nước. Góc nghiêng lá chân vịt được vát bén giúp thoát nước tức thì và dễ dàng cắt đứt rơm rạ vướng víu.",
+    description: "Precision-cast and computer-balanced propeller specifically shaped for river navigation with floating debris. The raked blade geometry glides over weeds while delivering instant planing speed.",
     reviews: [
-      { id: "r1301", author: "Bình Ca Nô", location: "Phụng Hiệp, Hậu Giang", rating: 5, date: "1 tuần trước", title: "Cầm lái nhẹ tênh", content: "Chạy tốc độ cao mà tay lái không bị ghì hay vặn sang một bên, bo cua rất ngọt.", helpful: 15, liked: false }
+      { id: "r1301", author: "Warren Mitchell", location: "Bayou Custom Skiffs", rating: 5, date: "1 week ago", title: "Gained 4 knots on GPS instantly", content: "Bolted onto our long-tail shaft. Steering became light as a feather with zero tiller vibration.", helpful: 15, liked: false }
     ]
   },
   {
     id: 14,
-    brand: "Thành Đạt / Yanmar",
-    model: "Máy Phát Điện Diesel Nông Nghiệp 7.5kVA Cách Âm Chống Ồn",
+    brand: "Tu Thanh / Yanmar",
+    model: "Soundproof Heavy-Duty Diesel Generator 7.5 kVA / 220V",
     category: "generators",
-    price: 34500000,
-    badge: "CÁCH ÂM SIÊU ÊM",
+    price: 1380,
+    badge: "ULTRA QUIET ENCLOSURE",
     badgeType: "green-badge",
-    sku: "TD2-GEN-75KVA",
-    hp: "Động cơ diesel 14 HP",
-    capacity: "7.5 kVA - Điện áp 220V",
+    sku: "TTM-GEN-75KVA",
+    hp: "14.0 HP Diesel Engine",
+    capacity: "7.5 kVA Prime / 220V 60Hz",
     rating: 4.9,
     reviewsCount: 11,
     bullets: [
-      "Vỏ thùng cách âm phủ mút tiêu âm cao cấp, đứng cách 5 mét êm ru",
-      "Củ phát dây đồng 100% chịu tải khởi động mô tơ quạt ao tôm và máy lạnh",
-      "Tự động ngắt điện khi quá tải hoặc hụt áp bảo vệ thiết bị điện tử gia đình"
+      "Acoustic insulated steel canopy with high-density foam keeps sound down to 68 dB",
+      "100% pure copper wire alternator handles inductive motor startup effortlessly",
+      "Automatic digital voltage regulation (AVR) protects sensitive electronics"
     ],
     specs: {
-      "Công suất liên tục": "7.0 kVA / 220V 50Hz",
-      "Công suất cực đại": "7.5 kVA",
-      "Động cơ": "Diesel 1 xi lanh 4 thì làm mát két nước",
-      "Hệ thống khởi động": "Đề điện 12V 1 chạm có sạc tự động",
-      "Độ ồn": "Chỉ 68 dB ở khoảng cách 7m",
-      "Bảo hành": "24 Tháng"
+      "Prime Output": "7.0 kVA / 220V Single Phase",
+      "Standby Output": "7.5 kVA",
+      "Engine Block": "Single Cylinder 4-Stroke Radiator Diesel",
+      "Starting System": "12V Electric Push Button with Auto Battery Tender",
+      "Noise Level": "68 dBA @ 23 feet (7 meters)",
+      "Warranty": "24 Months"
     },
     images: [
       "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Cứu cánh không thể thiếu cho các trang trại nuôi tôm mùa cao điểm tránh sự cố mất điện lưới. Máy phát điện diesel Thành Đạt 7.5kVA tiêu thụ chỉ 1.2 lít dầu/giờ, vận hành bền bỉ nhiều ngày đêm liền.",
+    description: "Heavy-duty soundproof diesel generator tailored for aquaculture farms, dairy sheds, and remote field stations. Consumes just 0.32 gal/hr under full load.",
     reviews: [
-      { id: "r1401", author: "Hợp Tác Xã Thủy Sản Bến Tre", location: "Ba Tri, Bến Tre", rating: 5, date: "4 ngày trước", title: "Cứu cả vuông tôm mùa mưa bão", content: "Cúp điện lúc nửa đêm, bấm nút đề phát nổ liền cấp điện cho 8 giàn quạt nước, sáng ra tôm vẫn khỏe re.", helpful: 18, liked: false }
+      { id: "r1401", author: "Kenneth Vance", location: "Vance Dairy Farms", rating: 5, date: "4 days ago", title: "Saved our entire refrigeration during storms", content: "Power cut out at 2 AM. Electric starter fired up on first push. Quiet enough that you can hold a normal conversation right beside it.", helpful: 18, liked: false }
     ]
   },
   {
     id: 15,
-    brand: "Thành Đạt 2",
-    model: "Bộ Nâng Cấp Khởi Động Đề Điện 12V 1 Chạm (Cho Kubota RT/Yanmar TF)",
+    brand: "Tu Thanh",
+    model: "1-Touch 12V Electric Starter Upgrade Kit for Kubota RT / Yanmar TF",
     category: "parts",
-    price: 3800000,
-    badge: "KHÔNG CẦN QUAY TAY",
+    price: 152,
+    badge: "NO MORE CRANKING",
     badgeType: "gold-badge",
-    sku: "TD2-KIT-ESTART",
+    sku: "TTM-KIT-ESTART",
     rating: 5.0,
     reviewsCount: 22,
     bullets: [
-      "Trọn bộ gồm củ đề Nhật bãi xịn, vành răng bánh đà đúc chính xác, pát nhôm, ổ khóa",
-      "Lắp vừa khít 100% cho các dòng máy Kubota RT120-160 và Yanmar TF105-160",
-      "Chỉ cần bấm chìa khóa là máy nổ ngay, phụ nữ hay người lớn tuổi đều tự nổ máy được"
+      "Complete conversion kit: high-torque 12V starter motor, precision flywheel ring gear, and ignition key panel",
+      "Direct bolt-on match for Kubota RT120-160 and Yanmar TF105-160 horizontal engines",
+      "Simple 30-minute installation turns manual crank engines into modern key-turn units"
     ],
     specs: {
-      "Điện áp hoạt động": "12V DC",
-      "Củ đề": "Motor giảm tốc mô-men xoắn cao công nghệ Nhật",
-      "Vành răng": "Thép nhiệt luyện tôi cao tần chống mòn răng",
-      "Bộ dây & Rơ-le": "Dây đồng nguyên chất bọc gen chịu nhiệt",
-      "Bảo hành": "12 Tháng đổi mới"
+      "Operating Voltage": "12V DC",
+      "Motor Type": "High-Torque Planetary Reduction Motor",
+      "Flywheel Ring Gear": "Induction-Hardened Alloy Steel Teeth",
+      "Wiring Harness": "Heavy Gauge Copper with Sealed Relays & Ignition Switch",
+      "Warranty": "12 Months Immediate Replacement"
     },
     images: [
       "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Giải pháp tuyệt vời biến máy nổ diesel quay tay truyền thống thành máy nổ đề điện hiện đại chỉ trong 30 phút lắp ráp. Đầy đủ phụ kiện ốc tán, pát định tâm và sơ đồ đấu nối dây điện đi kèm.",
+    description: "The ultimate convenience upgrade for existing horizontal diesel engines. Includes everything needed to add turnkey starting, with full bolt alignment and wiring diagrams.",
     reviews: [
-      { id: "r1501", author: "Bác Bảy Nghĩa", location: "Kế Sách, Sóc Trăng", rating: 5, date: "Hôm qua", title: "Bộ đề này quá đáng tiền", content: "Tôi gắn vô con máy Kubota 125 cũ ở nhà, giờ vợ tôi ra mở máy bơm nước tưới vườn chỉ cần vặn khóa là xong, không phải nhờ vả ai quay tay nữa.", helpful: 35, liked: false }
+      { id: "r1501", author: "Richard Lawson", location: "Lawson Agri Machinery", rating: 5, date: "Yesterday", title: "Best upgrade I ever bought", content: "Installed on my 10-year-old Kubota engine. Now anyone in our family can turn the key and start pumping irrigation water without struggling with the hand crank.", helpful: 35, liked: false }
     ]
   },
   {
     id: 16,
-    brand: "Kubota Thái Lan",
-    model: "Bộ Hơi Piston Bạc, Áo Xi-Lanh & Kim Phun Kubota RT140 Chính Hãng",
+    brand: "Kubota Genuine",
+    model: "Genuine Kubota RT140 Cylinder Piston Ring & High-Pressure Injector Kit",
     category: "parts",
-    price: 2150000,
-    badge: "CHÍNH HÃNG 100%",
+    price: 86,
+    badge: "100% GENUINE",
     badgeType: "blue-badge",
-    sku: "TD2-PART-PISTON140",
+    sku: "TTM-PART-PISTON140",
     rating: 4.9,
     reviewsCount: 16,
     bullets: [
-      "Hàng chính hãng Kubota Siam có tem chống hàng giả 7 màu",
-      "Piston hợp kim nhôm đúc phủ lớp chống bó kẹt xéc măng",
-      "Kim phun cao áp căn chỉnh sẵn tia phun sương tơi xốp"
+      "Factory genuine Kubota parts with authentic holographic security seals",
+      "Precision-cast aluminum alloy piston with anti-friction coated skirt",
+      "Calibrated high-pressure fuel injector nozzle delivers ultra-fine atomization"
     ],
     specs: {
-      "Quy cách": "Trọn bộ gồm 1 Quả Piston + Bộ Bạc Xéc Măng + 1 Ống Áo Xi Lanh + 1 Béc Phun",
-      "Xuất xứ": "Made in Thailand",
-      "Độ chuẩn": "Cốt 0 tiêu chuẩn nhà máy",
-      "Bảo hành": "12 Tháng"
+      "Kit Contents": "1x Piston, 1x Complete Ring Set, 1x Cylinder Liner Sleeve, 1x Calibrated Injector Nozzle",
+      "Origin": "Genuine Factory Import",
+      "Size": "Standard Standard Bore (Size 0)",
+      "Warranty": "12 Months"
     },
     images: [
       "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Bộ hơi chính hãng Kubota Thái Lan giúp phục hồi 100% công suất cho động cơ sau nhiều năm cày ải. Máy sau khi vô bộ hơi mới nổ giòn tan, hết sạch khói đen và tiết kiệm dầu như lúc mới đập thùng.",
+    description: "Restore 100% original factory compression and horsepower to your Kubota RT engine. Eliminates black exhaust smoke and blow-by instantly.",
     reviews: [
-      { id: "r1601", author: "Thợ Máy Minh Tiến", location: "Long Mỹ, Hậu Giang", rating: 5, date: "3 ngày trước", title: "Thợ máy chuyên nghiệp tin dùng", content: "Làm máy cho khách tôi toàn lấy phụ tùng bên anh Tư Thành. Hàng chuẩn Thái, khe hở xéc măng chuẩn đét không cần mài dũa.", helpful: 20, liked: false }
+      { id: "r1601", author: "Master Mechanic Alan", location: "Alan's Diesel Repair", rating: 5, date: "3 days ago", title: "Precision factory tolerances", content: "Ring end gaps were factory perfect out of the box. The engine runs like new with zero smoke and full compression.", helpful: 20, liked: false }
     ]
   }
 ];
@@ -740,9 +729,9 @@ function renderCatalog() {
     container.innerHTML = `
       <div class="empty-catalog-state">
         <div class="empty-icon">🔍</div>
-        <h3>Không tìm thấy thiết bị phù hợp</h3>
-        <p>Vui lòng thử tìm từ khóa khác như "Kubota", "Yanmar", "RT140", "đề điện", hoặc gọi ngay Hotline <b>0918 453 476</b> để được nhân viên hỗ trợ.</p>
-        <button class="reset-filter-btn" onclick="resetFilters()">Xem Tất Cả Máy</button>
+        <h3>No matching machinery found</h3>
+        <p>Try searching for other terms like "Kubota", "Yanmar", "tiller", "electric starter", or contact our technical team via Hotline / WhatsApp: <b>+84 918 453 476</b>.</p>
+        <button class="reset-filter-btn" onclick="resetFilters()">View All Machinery</button>
       </div>
     `;
     return;
@@ -775,13 +764,13 @@ function renderCatalog() {
           </ul>
 
           <div class="card-specs-row">
-            ${item.cooling ? `<span class="spec-pill">💧 ${item.cooling.split(' ')[0]} ${item.cooling.split(' ')[1] || ''}</span>` : ''}
-            ${item.starter ? `<span class="spec-pill">🔑 ${item.starter.includes('Đề') ? 'Có đề điện' : 'Quay tay'}</span>` : ''}
+            ${item.cooling ? `<span class="spec-pill">💧 ${item.cooling.split(' ')[0]} Cooling</span>` : ''}
+            ${item.starter ? `<span class="spec-pill">🔑 ${item.starter.includes('12V') || item.starter.includes('Electric') ? 'Electric Start' : 'Hand Crank'}</span>` : ''}
           </div>
 
           <div class="card-price-action">
             <div class="card-price-block">
-              <span class="price-label">Giá phân phối:</span>
+              <span class="price-label">Wholesale Price:</span>
               <span class="card-price">${formatMoney(item.price)}</span>
             </div>
 
@@ -796,7 +785,7 @@ function renderCatalog() {
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
                 </svg>
-                <span>CHỌN MUA</span>
+                <span>ADD TO CART</span>
               </button>
             </div>
           </div>
@@ -843,7 +832,7 @@ function addCardQtyToCart(id) {
   }
 
   saveCart();
-  triggerToast(`Đã thêm ${qty} máy "${prod.model}" vào giỏ hàng!`);
+  triggerToast(`Added ${qty} × "${prod.model}" to shopping cart!`);
   openCart();
 }
 
@@ -892,9 +881,9 @@ function renderCartDrawer() {
     list.innerHTML = `
       <div class="empty-cart-view">
         <div style="font-size: 40px; margin-bottom: 12px;">🛒</div>
-        <h4>Giỏ hàng của bạn đang trống</h4>
-        <p>Chọn các loại động cơ diesel Kubota, Yanmar, dàn xới hoặc phụ tùng để đặt hàng vận chuyển.</p>
-        <button class="browse-btn" onclick="closeCart()">Tiếp Tục Xem Máy</button>
+        <h4>Your Machinery Cart is Empty</h4>
+        <p>Browse our catalog of Kubota & Yanmar diesel engines, tillers, pumps, or starter kits to place an order.</p>
+        <button class="browse-btn" onclick="closeCart()">Continue Browsing</button>
       </div>
     `;
     if (subtotalEl) subtotalEl.textContent = formatMoney(0);
@@ -925,15 +914,15 @@ function renderCartDrawer() {
               <span>${item.quantity}</span>
               <button onclick="modifyCartQty(${idx}, 1)">+</button>
             </div>
-            <button class="remove-cart-item-btn" onclick="removeCartItem(${idx})">Xóa</button>
+            <button class="remove-cart-item-btn" onclick="removeCartItem(${idx})">Remove</button>
           </div>
         </div>
       </div>
     `;
   }).join("");
 
-  // Shipping is Free for orders over 20M VND in Mekong Delta, else 300,000 VND
-  const shippingFee = (subtotal >= 20000000 || subtotal === 0) ? 0 : 300000;
+  // Free freight shipping for orders over $800, else $45 crate packaging & freight fee
+  const shippingFee = (subtotal >= 800 || subtotal === 0) ? 0 : 45;
   const total = subtotal + shippingFee;
 
   if (subtotalEl) subtotalEl.textContent = formatMoney(subtotal);
@@ -941,10 +930,10 @@ function renderCartDrawer() {
 
   const shippingNote = document.getElementById("shippingNoticeText");
   if (shippingNote) {
-    if (subtotal >= 20000000) {
-      shippingNote.innerHTML = `✅ <b>Miễn phí vận chuyển chành xe</b> cho đơn hàng trên 20 triệu!`;
+    if (subtotal >= 800) {
+      shippingNote.innerHTML = `✅ <b>Free Freight & Wooden Crate Packing</b> applied (Orders over $800)!`;
     } else {
-      shippingNote.innerHTML = `Thêm máy để nhận <b>Miễn phí cước chành xe miền Tây</b>!`;
+      shippingNote.innerHTML = `Add $${800 - subtotal} more for <b>Free Crated Freight Shipping</b>!`;
     }
   }
 }
@@ -1006,11 +995,11 @@ function renderCheckoutSummary() {
     `;
   }).join("");
 
-  const shippingFee = (subtotal >= 20000000 || subtotal === 0) ? 0 : 300000;
+  const shippingFee = (subtotal >= 800 || subtotal === 0) ? 0 : 45;
   const total = subtotal + shippingFee;
 
   if (subtotalEl) subtotalEl.textContent = formatMoney(subtotal);
-  if (shippingEl) shippingEl.textContent = shippingFee === 0 ? "Miễn Phí Vận Chuyển" : formatMoney(shippingFee);
+  if (shippingEl) shippingEl.textContent = shippingFee === 0 ? "Free Shipping" : formatMoney(shippingFee);
   if (totalEl) totalEl.textContent = formatMoney(total);
   if (qrTotalEl) qrTotalEl.textContent = formatMoney(total);
 }
@@ -1023,7 +1012,7 @@ async function handleCheckoutSubmit(e) {
   const phoneInput = document.getElementById("custPhone");
   const emailInput = document.getElementById("custEmail");
   const streetInput = document.getElementById("custStreet");
-  const districtInput = document.getElementById("custDistrict");
+  const cityInput = document.getElementById("custDistrict");
   const provinceInput = document.getElementById("custProvince");
   const notesInput = document.getElementById("custNotes");
   const speedSelect = document.getElementById("deliverySpeedSelect");
@@ -1036,24 +1025,24 @@ async function handleCheckoutSubmit(e) {
   const customerPhone = phoneInput.value.trim();
   const customerEmail = emailInput ? emailInput.value.trim() : "";
   const customerAddress = streetInput.value.trim();
-  const customerDistrict = districtInput ? districtInput.value.trim() : "";
-  const customerProvince = provinceInput ? provinceInput.value : "Sóc Trăng";
+  const customerCity = cityInput ? cityInput.value.trim() : "";
+  const customerProvince = provinceInput ? provinceInput.value : "United States / International";
   const customerNotes = notesInput ? notesInput.value.trim() : "";
-  const deliverySpeed = speedSelect ? speedSelect.value : "Chành Xe Miền Tây Tiêu Chuẩn";
-  const paymentMethod = paymentSelect ? paymentSelect.value : "COD (Nhận Máy Thử Xong Mới Trả Tiền)";
+  const deliverySpeed = speedSelect ? speedSelect.value : "Standard Palletized Freight Courier";
+  const paymentMethod = paymentSelect ? paymentSelect.value : "Inspection on Delivery (COD) / Wire Transfer";
 
   if (!customerName || !customerPhone || !customerAddress) {
-    alert("Vui lòng điền đầy đủ Họ Tên, Số Điện Thoại và Địa Chỉ nhận máy!");
+    alert("Please fill in your Full Name, Phone / WhatsApp, and Delivery Address!");
     return;
   }
 
   // Calculate financials
   let subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-  let shipping = (subtotal >= 20000000 || subtotal === 0) ? 0 : 300000;
+  let shipping = (subtotal >= 800 || subtotal === 0) ? 0 : 45;
   let total = subtotal + shipping;
 
-  const orderId = "TD-" + Math.floor(100000 + Math.random() * 900000);
-  const trackingCode = "TD2-CHANH-" + orderId.slice(-4);
+  const orderId = "TTM-" + Math.floor(100000 + Math.random() * 900000);
+  const trackingCode = "TTM-FREIGHT-" + orderId.slice(-4);
 
   const orderData = {
     id: orderId,
@@ -1063,7 +1052,7 @@ async function handleCheckoutSubmit(e) {
     customerPhone,
     customerEmail,
     customerAddress,
-    customerDistrict,
+    customerCity,
     customerProvince,
     customerNotes,
     deliverySpeed,
@@ -1072,14 +1061,14 @@ async function handleCheckoutSubmit(e) {
     subtotal,
     shipping,
     total,
-    status: "Chờ Xác Nhận",
+    status: "Pending (Workshop Run-Test)",
     createdAt: new Date().toISOString()
   };
 
   // UI Loading State
   if (submitBtn) {
     submitBtn.disabled = true;
-    submitBtn.innerHTML = `<span>⏳ Đang ghi nhận đơn hàng...</span>`;
+    submitBtn.innerHTML = `<span>⏳ Processing Machinery Order...</span>`;
   }
 
   // 1. Save Locally
@@ -1093,7 +1082,7 @@ async function handleCheckoutSubmit(e) {
       customer_phone: customerPhone,
       customer_email: customerEmail,
       delivery_street: customerAddress,
-      delivery_district: customerDistrict,
+      delivery_district: customerCity,
       delivery_province: customerProvince,
       delivery_notes: customerNotes,
       delivery_speed: deliverySpeed,
@@ -1102,10 +1091,9 @@ async function handleCheckoutSubmit(e) {
       subtotal: subtotal,
       shipping_fee: shipping,
       total: total,
-      status: "Chờ Xác Nhận"
+      status: "Pending"
     };
 
-    // Try primary table, then fallback
     await fetch(`${SUPABASE_URL}/rest/v1/thanhdat_machinery_orders`, {
       method: "POST",
       headers: {
@@ -1116,7 +1104,7 @@ async function handleCheckoutSubmit(e) {
       },
       body: JSON.stringify(payload)
     }).catch(async () => {
-      // Fallback to legacy orders table if created earlier
+      // Fallback
       await fetch(`${SUPABASE_URL}/rest/v1/toronto_wellness_orders`, {
         method: "POST",
         headers: {
@@ -1129,9 +1117,9 @@ async function handleCheckoutSubmit(e) {
           order_number: orderId,
           customer_name: customerName,
           customer_phone: customerPhone,
-          customer_email: customerEmail || "khach@thanhdat.vn",
+          customer_email: customerEmail || "orders@tu-thanh.com",
           delivery_street: customerAddress,
-          delivery_unit: customerDistrict,
+          delivery_unit: customerCity,
           delivery_postal: customerProvince,
           delivery_notes: customerNotes,
           delivery_speed: deliverySpeed,
@@ -1140,7 +1128,7 @@ async function handleCheckoutSubmit(e) {
           subtotal: subtotal,
           tax: 0,
           total: total,
-          status: "Confirmed"
+          status: "Pending"
         })
       }).catch(err => console.warn("Supabase background sync:", err));
     });
@@ -1167,7 +1155,7 @@ async function handleCheckoutSubmit(e) {
 
   if (submitBtn) {
     submitBtn.disabled = false;
-    submitBtn.innerHTML = `<span>XÁC NHẬN ĐẶT MUA MÁY</span>`;
+    submitBtn.innerHTML = `<span>CONFIRM MACHINERY PURCHASE</span>`;
   }
 
   // Show Order Success Modal
@@ -1179,7 +1167,6 @@ function saveUserOrderLocally(order) {
     const key = "thanhdat_user_orders";
     const existing = localStorage.getItem(key);
     const list = existing ? JSON.parse(existing) : [];
-    // remove duplicate if exists
     const filtered = list.filter(o => o.id !== order.id && o.order_number !== order.order_number);
     filtered.unshift(order);
     localStorage.setItem(key, JSON.stringify(filtered));
@@ -1227,7 +1214,7 @@ function openDetailsModal(id) {
   document.getElementById("detailModalTitle").textContent = prod.model;
   document.getElementById("detailBrandName").textContent = prod.brand;
   document.getElementById("detailPriceDisplay").textContent = formatMoney(prod.price);
-  document.getElementById("detailHpPill").textContent = prod.hp || "Nông Cơ Chính Hãng";
+  document.getElementById("detailHpPill").textContent = prod.hp || "Industrial Spec";
 
   // Main Image & Gallery Thumbnails
   const mainImg = document.getElementById("detailMainImg");
@@ -1320,7 +1307,7 @@ function addDetailProductToCart() {
 
   saveCart();
   closeDetailsModal();
-  triggerToast(`Đã thêm ${qty} máy "${currentDetailProduct.model}" vào giỏ hàng!`);
+  triggerToast(`Added ${qty} × "${currentDetailProduct.model}" to cart!`);
   openCart();
 }
 
@@ -1340,7 +1327,7 @@ function renderDetailReviews(prod) {
   if (totalCountEl) totalCountEl.textContent = (prod.reviews || []).length;
 
   if (!prod.reviews || prod.reviews.length === 0) {
-    listEl.innerHTML = `<p style="color: #64748b; font-size: 14px;">Chưa có đánh giá nào cho sản phẩm này. Hãy là người đầu tiên đánh giá!</p>`;
+    listEl.innerHTML = `<p style="color: #64748b; font-size: 14px;">No reviews yet. Be the first operator to leave a review!</p>`;
     return;
   }
 
@@ -1360,7 +1347,7 @@ function renderDetailReviews(prod) {
       <div class="review-footer">
         <span class="review-date">${r.date}</span>
         <button class="review-helpful-btn ${r.liked ? 'liked' : ''}" onclick="toggleReviewLike('${r.id}')">
-          👍 Hữu ích (${r.helpful})
+          👍 Helpful (${r.helpful})
         </button>
       </div>
     </div>
@@ -1397,13 +1384,13 @@ function handleReviewSubmit(e) {
   if (!authorInput || !contentInput) return;
 
   const author = authorInput.value.trim();
-  const location = locInput ? locInput.value.trim() : "Miền Tây";
+  const location = locInput ? locInput.value.trim() : "Commercial Farm";
   const rating = parseInt(ratingInput ? ratingInput.value : "5");
-  const title = titleInput ? titleInput.value.trim() : "Đánh giá máy";
+  const title = titleInput ? titleInput.value.trim() : "Performance Review";
   const content = contentInput.value.trim();
 
   if (!author || !content) {
-    alert("Vui lòng nhập tên và nội dung đánh giá của Quý khách!");
+    alert("Please enter your name and feedback content!");
     return;
   }
 
@@ -1413,7 +1400,7 @@ function handleReviewSubmit(e) {
     author: author,
     location: location,
     rating: rating,
-    date: "Vừa xong",
+    date: "Just now",
     title: title,
     content: content,
     helpful: 1,
@@ -1431,17 +1418,16 @@ function handleReviewSubmit(e) {
 
   renderDetailReviews(currentDetailProduct);
   renderCatalog();
-  triggerToast("Cảm ơn Quý khách đã gửi đánh giá kỹ thuật!");
+  triggerToast("Thank you for submitting your equipment review!");
 }
 
 // ==========================================================================
-// ORDER TRACKING PORTAL ("TRA CỨU ĐƠN HÀNG")
+// ORDER TRACKING PORTAL
 // ==========================================================================
 function openOrderTrackingModal() {
   const modal = document.getElementById("orderTrackingModal");
   if (modal) {
     modal.classList.add("active");
-    // Show latest local order if available
     renderLatestLocalOrdersInTracking();
   }
 }
@@ -1458,19 +1444,19 @@ function renderLatestLocalOrdersInTracking() {
   try {
     const list = JSON.parse(localStorage.getItem("thanhdat_user_orders") || "[]");
     if (list.length === 0) {
-      container.innerHTML = `<p style="color: #64748b; font-size: 13px;">Chưa có đơn hàng nào được lưu trên thiết bị này.</p>`;
+      container.innerHTML = `<p style="color: #64748b; font-size: 13px;">No recent orders saved on this browser.</p>`;
       return;
     }
 
     container.innerHTML = `
-      <div style="font-size: 13px; font-weight: 700; color: #1b5e20; margin-bottom: 8px;">ĐƠN HÀNG GẦN ĐÂY CỦA BẠN:</div>
+      <div style="font-size: 13px; font-weight: 700; color: #1b5e20; margin-bottom: 8px;">YOUR RECENT ORDERS:</div>
       ${list.slice(0, 3).map(o => `
         <div class="tracking-history-item" onclick="quickTrackOrder('${o.id}')">
           <div>
             <b>#${o.id}</b> — ${o.customerName}
-            <div style="color: #64748b; font-size: 11px;">${new Date(o.createdAt || Date.now()).toLocaleDateString('vi-VN')}</div>
+            <div style="color: #64748b; font-size: 11px;">${new Date(o.createdAt || Date.now()).toLocaleDateString('en-US')}</div>
           </div>
-          <span class="status-tag status-pending">${o.status || 'Chờ Xác Nhận'}</span>
+          <span class="status-tag status-pending">${o.status || 'Pending'}</span>
         </div>
       `).join("")}
     `;
@@ -1492,14 +1478,14 @@ async function performOrderTracking() {
 
   const query = input.value.trim().toUpperCase().replace(/^#/, "");
   if (!query) {
-    alert("Vui lòng nhập Mã Đơn Hàng (VD: TD-123456) hoặc Số Điện Thoại!");
+    alert("Please enter your Order Reference (e.g., TTM-123456) or Phone Number!");
     return;
   }
 
   resultBox.innerHTML = `
     <div style="text-align: center; padding: 24px; color: #1b5e20;">
       <div style="font-size: 24px; margin-bottom: 8px;">⏳</div>
-      <div>Đang tra cứu hệ thống xưởng máy Sóc Trăng...</div>
+      <div>Querying workshop dispatch database...</div>
     </div>
   `;
 
@@ -1525,7 +1511,7 @@ async function performOrderTracking() {
         found = {
           id: data[0].order_number,
           order_number: data[0].order_number,
-          trackingCode: "TD2-CHANH-" + data[0].order_number.slice(-4),
+          trackingCode: "TTM-FREIGHT-" + data[0].order_number.slice(-4),
           customerName: data[0].customer_name,
           customerPhone: data[0].customer_phone,
           customerAddress: data[0].delivery_street,
@@ -1534,7 +1520,7 @@ async function performOrderTracking() {
           paymentMethod: data[0].payment_method,
           items: data[0].items || [],
           total: data[0].total,
-          status: data[0].status || "Chờ Xác Nhận",
+          status: data[0].status || "Pending",
           createdAt: data[0].created_at
         };
       }
@@ -1545,84 +1531,84 @@ async function performOrderTracking() {
     resultBox.innerHTML = `
       <div class="tracking-not-found">
         <div style="font-size: 32px; margin-bottom: 8px;">❌</div>
-        <h4>Không tìm thấy đơn hàng "${query}"</h4>
-        <p>Vui lòng kiểm tra lại mã đơn hàng hoặc số điện thoại. Hoặc liên hệ trực tiếp số Hotline <b>0918 453 476</b> để nhân viên xưởng kiểm tra ngay.</p>
+        <h4>Order "${query}" Not Found</h4>
+        <p>Please double-check your order ID or phone number. You can also contact our hotline directly at <b>+84 918 453 476</b> for immediate lookup.</p>
       </div>
     `;
     return;
   }
 
-  // Render 5-step Machinery Freight Dispatch Timeline
+  // Render 5-step Machinery Freight Dispatch Timeline in English
   resultBox.innerHTML = `
     <div class="tracking-found-card">
       <div class="tracking-card-header">
         <div>
-          <span class="tracking-label">MÃ ĐƠN HÀNG:</span>
+          <span class="tracking-label">ORDER REFERENCE:</span>
           <span class="tracking-id-val">#${found.id}</span>
         </div>
         <div>
-          <span class="status-tag status-pending">⚙️ ${found.status || 'Chờ Kỹ Thuật Test Máy'}</span>
+          <span class="status-tag status-pending">⚙️ ${found.status || 'Pre-Dispatch Run-Test'}</span>
         </div>
       </div>
 
       <div class="tracking-info-grid">
-        <div><b>Khách hàng:</b> ${found.customerName} (${found.customerPhone})</div>
-        <div><b>Nơi nhận:</b> ${found.customerAddress}, ${found.customerProvince || ''}</div>
-        <div><b>Vận chuyển:</b> ${found.deliverySpeed || 'Chành Xe Miền Tây'}</div>
-        <div><b>Tổng tiền:</b> <span style="color: #1b5e20; font-weight: 800;">${formatMoney(found.total)}</span></div>
+        <div><b>Customer:</b> ${found.customerName} (${found.customerPhone})</div>
+        <div><b>Destination:</b> ${found.customerAddress}, ${found.customerProvince || ''}</div>
+        <div><b>Freight Method:</b> ${found.deliverySpeed || 'Express Freight Courier'}</div>
+        <div><b>Total Amount:</b> <span style="color: #1b5e20; font-weight: 800;">${formatMoney(found.total)}</span></div>
       </div>
 
       <div class="timeline-stepper">
         <div class="timeline-step done">
           <div class="step-icon">1</div>
           <div class="step-text">
-            <b>Tiếp Nhận Đơn Hàng</b>
-            <span>Xác nhận thông tin & cấu hình máy</span>
+            <b>Order Received &amp; Spec Verified</b>
+            <span>Engine model &amp; accessories confirmed</span>
           </div>
         </div>
 
         <div class="timeline-step active">
           <div class="step-icon">2</div>
           <div class="step-text">
-            <b>Test Chạy Nổ & Kiểm Tra Áp Suất</b>
-            <span>Châm nhớt, căn chỉnh ga, thử tải tại xưởng</span>
+            <b>Oil Service &amp; Pre-Start Run Test</b>
+            <span>Pressure tested &amp; RPM calibrated on workshop dyno</span>
           </div>
         </div>
 
         <div class="timeline-step">
           <div class="step-icon">3</div>
           <div class="step-text">
-            <b>Đóng Kiện Gỗ Niêm Phong</b>
-            <span>Bọc màng co và kiện gỗ chống va đập</span>
+            <b>Wooden Crate Shock-Proof Packaging</b>
+            <span>Shrink-wrapped, padded, and banded on wooden pallet</span>
           </div>
         </div>
 
         <div class="timeline-step">
           <div class="step-icon">4</div>
           <div class="step-text">
-            <b>Bàn Giao Chành Xe / Vận Tải</b>
-            <span>Xuất bến Tô Châu, Phương Trang, v.v.</span>
+            <b>Handed Over to Freight Courier</b>
+            <span>Dispatched via commercial linehaul carrier</span>
           </div>
         </div>
 
         <div class="timeline-step">
           <div class="step-icon">5</div>
           <div class="step-text">
-            <b>Giao Tận Ruộng & Thử Máy</b>
-            <span>Kiểm tra nổ máy giòn giã rồi thanh toán</span>
+            <b>On-Site Delivery &amp; Inspection</b>
+            <span>Customer inspection and test startup verified</span>
           </div>
         </div>
       </div>
 
       <div class="tracking-items-summary">
-        <b>Thiết Bị Đã Đặt:</b>
+        <b>Ordered Machinery:</b>
         <ul>
           ${(found.items || []).map(it => `<li>⚙️ <b>${it.name}</b> × ${it.quantity}</li>`).join("")}
         </ul>
       </div>
 
       <div style="text-align: center; margin-top: 14px;">
-        <a href="tel:0918453476" class="call-workshop-btn">📞 Gọi Trực Tiếp Xưởng: 0918 453 476</a>
+        <a href="tel:+84918453476" class="call-workshop-btn">📞 Call Workshop Direct: +84 918 453 476</a>
       </div>
     </div>
   `;
@@ -1642,19 +1628,6 @@ function triggerToast(msg) {
   toast.textContent = msg;
   toast.classList.add("show");
   setTimeout(() => toast.classList.remove("show"), 3200);
-}
-
-// Currency Switcher
-function toggleCurrency() {
-  currentCurrency = currentCurrency === "VND" ? "USD" : "VND";
-  localStorage.setItem("thanhdat_currency", currentCurrency);
-  const btn = document.getElementById("currencyToggleBtn");
-  if (btn) btn.textContent = currentCurrency === "VND" ? "₫ VNĐ" : "$ USD";
-  renderCatalog();
-  renderCartDrawer();
-  if (currentDetailProduct) {
-    document.getElementById("detailPriceDisplay").textContent = formatMoney(currentDetailProduct.price);
-  }
 }
 
 // ==========================================================================
@@ -1753,12 +1726,5 @@ document.addEventListener("DOMContentLoaded", () => {
     trackingInput.addEventListener("keypress", (e) => {
       if (e.key === "Enter") performOrderTracking();
     });
-  }
-
-  // Currency Toggle Button
-  const currencyBtn = document.getElementById("currencyToggleBtn");
-  if (currencyBtn) {
-    currencyBtn.textContent = currentCurrency === "VND" ? "₫ VNĐ" : "$ USD";
-    currencyBtn.addEventListener("click", toggleCurrency);
   }
 });
