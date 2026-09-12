@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vercel dev",
+    "dev": "node server.js",
+    "start": "node server.js",
     "deploy": "vercel --prod"
   },
   "keywords": [

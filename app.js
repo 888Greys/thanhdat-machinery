@@ -14,7 +14,7 @@ function formatMoney(amount) {
   return "$" + Number(amount).toLocaleString("en-US") + " USD";
 }
 
-// 16+ Curated Machinery Catalog in English
+// 16 Curated Machinery Catalog Items
 const PRODUCTS_DATA = [
   {
     id: 1,
@@ -23,7 +23,7 @@ const PRODUCTS_DATA = [
     category: "engines",
     price: 1060,
     badge: "BEST SELLER",
-    badgeType: "gold-badge",
+    badgeType: "badge-gold-crown",
     sku: "TTM-KUB-RT140",
     hp: "14.0 HP",
     rpm: "2,400 RPM",
@@ -40,7 +40,7 @@ const PRODUCTS_DATA = [
       "Ideal for 2-wheel walk-behind tillers, irrigation pumps, and marine long-tail boats"
     ],
     specs: {
-      "Manufacturer": "Kubota Corporation (Imported Factory Unit)",
+      "Manufacturer": "Kubota Corporation (Factory Import)",
       "Engine Type": "4-Stroke, 1-Cylinder Horizontal Diesel, Radiator-Cooled",
       "Continuous Rating": "12.5 HP @ 2,400 RPM",
       "Maximum Output": "14.0 HP @ 2,400 RPM",
@@ -54,14 +54,12 @@ const PRODUCTS_DATA = [
     images: [
       "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=800&auto=format&fit=crop&q=80"
     ],
     description: "The Kubota RT140 Plus is a legendary workhorse recognized by agricultural contractors, commercial farmers, and long-tail boat operators worldwide. Engineered with Kubota's Three Vortex Combustion System (TVCS), it extracts maximum kinetic energy from every drop of fuel while maintaining clean exhaust, low vibration, and exceptional torque.",
     reviews: [
       { id: "r101", author: "David Henderson", location: "Midwest Farm Depot", rating: 5, date: "2 days ago", title: "Phenomenal torque on our rotary tiller", content: "Mounted this RT140 onto our 2-wheel power tiller for heavy spring tilling. Engine starts smoothly, throttles up immediately, and runs cool through 9 hours of continuous operation.", helpful: 24, liked: false },
-      { id: "r102", author: "Robert M.", location: "River Marine Works", rating: 5, date: "5 days ago", title: "Flawless power for long-tail boat setup", content: "Paired with a 12.5ft stainless shaft and brass propeller. Carries cargo upstream with zero hesitation. Extremely economical on diesel fuel.", helpful: 18, liked: false },
-      { id: "r103", author: "Franklin Vance", location: "AgriTech Supplies", rating: 5, date: "1 week ago", title: "Brand new factory crate, well tested", content: "Engine arrived in a robust wooden crate with oil pre-serviced and clear inspection tags. Runs crisp and steady right out of the box.", helpful: 15, liked: false }
+      { id: "r102", author: "Robert M.", location: "River Marine Works", rating: 5, date: "5 days ago", title: "Flawless power for long-tail boat setup", content: "Paired with a 12.5ft stainless shaft and brass propeller. Carries cargo upstream with zero hesitation. Extremely economical on diesel fuel.", helpful: 18, liked: false }
     ]
   },
   {
@@ -70,8 +68,8 @@ const PRODUCTS_DATA = [
     model: "Yanmar TF120-DI Direct Injection Diesel Engine (12.0 HP)",
     category: "engines",
     price: 899,
-    badge: "FUEL EFFICIENT",
-    badgeType: "blue-badge",
+    badge: "TOP EFFICIENCY",
+    badgeType: "badge-blue-star",
     sku: "TTM-YAN-TF120",
     hp: "12.0 HP",
     rpm: "2,400 RPM",
@@ -95,17 +93,15 @@ const PRODUCTS_DATA = [
       "Displacement": "638 cc",
       "Cooling": "Water Radiator with Blower Fan",
       "Net Weight": "102 kg",
-      "Fuel Consumption": "Approx. 1.1 Liters / hr at full load",
       "Warranty": "24-Month Factory Warranty"
     },
     images: [
       "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80"
     ],
     description: "Yanmar's TF120-DI engine delivers unmatched fuel efficiency through its advanced Direct Injection chamber. The chrome-plated piston rings and heat-treated cylinder liner ensure over a decade of dependable daily service.",
     reviews: [
-      { id: "r201", author: "James Sullivan", location: "Coastal Irrigation", rating: 5, date: "3 days ago", title: "Remarkably low fuel consumption", content: "Hooked to a 4.5-inch water pump running all morning. Barely consumed 1.5 gallons of diesel. The decompression crank makes cold mornings effortless.", helpful: 21, liked: false }
+      { id: "r201", author: "James Sullivan", location: "Coastal Irrigation", rating: 5, date: "3 days ago", title: "Remarkably low fuel consumption", content: "Hooked to a 4.5-inch water pump running all morning. Barely consumed 1.5 gallons of diesel.", helpful: 21, liked: false }
     ]
   },
   {
@@ -115,7 +111,7 @@ const PRODUCTS_DATA = [
     category: "engines",
     price: 1180,
     badge: "1-TOUCH E-START",
-    badgeType: "green-badge",
+    badgeType: "badge-green-circle",
     sku: "TTM-KUB-RT155DE",
     hp: "15.5 HP",
     rpm: "2,400 RPM",
@@ -137,18 +133,16 @@ const PRODUCTS_DATA = [
       "Rated Power": "15.5 HP @ 2,400 RPM",
       "Starting System": "12V Heavy-Duty Starter + Manual Backup Crank",
       "Displacement": "753 cc",
-      "Recommended Battery": "12V 35Ah - 45Ah Lead-Acid or Lithium",
       "Weight": "122 kg",
       "Warranty": "24 Months (Full Coverage on Starter & Block)"
     },
     images: [
       "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "The premier tier of the Kubota horizontal diesel family. The RT155 Plus DI features a turnkey 12V starter system, eliminating manual cranking fatigue while delivering 15.5 horsepower of unstoppable pull for heavy cultivators, dredging pumps, and industrial barges.",
+    description: "The premier tier of the Kubota horizontal diesel family. The RT155 Plus DI features a turnkey 12V starter system, eliminating manual cranking fatigue while delivering 15.5 horsepower of unstoppable pull.",
     reviews: [
-      { id: "r301", author: "Arthur Pendelton", location: "Valley Agri Co-op", rating: 5, date: "Yesterday", title: "Turn of the key and it fires up", content: "Electric start is a lifesaver. One turn of the key and the 15.5 HP diesel roars to life. Superb build quality and vibration damping.", helpful: 30, liked: false }
+      { id: "r301", author: "Arthur Pendelton", location: "Valley Agri Co-op", rating: 5, date: "Yesterday", title: "Turn of the key and it fires up", content: "Electric start is a lifesaver. One turn of the key and the 15.5 HP diesel roars to life.", helpful: 30, liked: false }
     ]
   },
   {
@@ -158,7 +152,7 @@ const PRODUCTS_DATA = [
     category: "engines",
     price: 1250,
     badge: "HEAVY MARINE",
-    badgeType: "gold-badge",
+    badgeType: "badge-gold-crown",
     sku: "TTM-YAN-TF160",
     hp: "16.0 HP",
     rpm: "2,400 RPM",
@@ -180,7 +174,6 @@ const PRODUCTS_DATA = [
       "Peak Output": "16.0 HP @ 2,400 RPM",
       "Bore × Stroke": "102 mm × 105 mm",
       "Displacement": "845 cc",
-      "Fuel Type": "Standard Clean Diesel",
       "Net Weight": "135 kg",
       "Warranty": "24 Months"
     },
@@ -188,9 +181,9 @@ const PRODUCTS_DATA = [
       "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop&q=80",
       "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "The Yanmar TF160-DI boasts an oversized 102mm cylinder bore generating colossal compression and turning moment. It drives high-pitch propellers and heavy tillage shafts with effortless stability.",
+    description: "The Yanmar TF160-DI boasts an oversized 102mm cylinder bore generating colossal compression and turning moment.",
     reviews: [
-      { id: "r401", author: "Capt. Michael Ross", location: "Harbor Freight Logistics", rating: 5, date: "4 days ago", title: "Unbeatable pulling power on cargo boats", content: "Pushes our 4-ton cargo barge through strong currents without breaking a sweat. Exhaust runs clean with zero soot buildup.", helpful: 19, liked: false }
+      { id: "r401", author: "Capt. Michael Ross", location: "Harbor Freight Logistics", rating: 5, date: "4 days ago", title: "Unbeatable pulling power on cargo boats", content: "Pushes our 4-ton cargo barge through strong currents without breaking a sweat.", helpful: 19, liked: false }
     ]
   },
   {
@@ -199,8 +192,8 @@ const PRODUCTS_DATA = [
     model: "Kubota RT125 Standard Farm Diesel Engine (12.5 HP)",
     category: "engines",
     price: 875,
-    badge: "PROVEN WORKHORSE",
-    badgeType: "blue-badge",
+    badge: "WORKHORSE",
+    badgeType: "badge-blue-star",
     sku: "TTM-KUB-RT125",
     hp: "12.5 HP",
     rpm: "2,400 RPM",
@@ -225,12 +218,11 @@ const PRODUCTS_DATA = [
       "Warranty": "24 Months"
     },
     images: [
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "The Kubota RT125 is the quintessential balance between power, portability, and bulletproof mechanical simplicity. It operates reliably in challenging humid and dusty farm environments.",
+    description: "The Kubota RT125 is the quintessential balance between power, portability, and bulletproof mechanical simplicity.",
     reviews: [
-      { id: "r501", author: "Gregory Shaw", location: "Prairie Agro Systems", rating: 5, date: "1 week ago", title: "Unstoppable little engine", content: "Solid cast iron design that simply does not quit. Easy to service, filter changes take 5 minutes, and starts on first crank.", helpful: 12, liked: false }
+      { id: "r501", author: "Gregory Shaw", location: "Prairie Agro Systems", rating: 5, date: "1 week ago", title: "Unstoppable little engine", content: "Solid cast iron design that simply does not quit.", helpful: 12, liked: false }
     ]
   },
   {
@@ -240,7 +232,7 @@ const PRODUCTS_DATA = [
     category: "engines",
     price: 1680,
     badge: "USA STANDARD",
-    badgeType: "green-badge",
+    badgeType: "badge-green-circle",
     sku: "TTM-JD-AGRI22",
     hp: "22.0 HP",
     rpm: "2,600 RPM",
@@ -260,17 +252,15 @@ const PRODUCTS_DATA = [
       "Manufacturer": "John Deere Power Systems",
       "Peak Output": "22.0 HP @ 2,600 RPM",
       "Displacement": "1,100 cc",
-      "Electrical System": "12V 1.8kW Starter + 40A Heavy Alternator",
-      "Dry Weight": "165 kg",
+      "Weight": "165 kg",
       "Warranty": "36-Month Industrial Warranty"
     },
     images: [
-      "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Built to North American heavy-equipment specifications, the John Deere 22 HP power unit provides continuous stationary muscle. Its ductile iron block and heavy forged crankshaft handle constant shock loads with ease.",
+    description: "Built to North American heavy-equipment specifications, the John Deere 22 HP power unit provides continuous stationary muscle.",
     reviews: [
-      { id: "r601", author: "Marcus Thorne", location: "Blue Basin Aquaculture", rating: 5, date: "3 weeks ago", title: "Runs aerators all night without a drop in RPM", content: "Installed this unit to run our aquaculture aeration lines overnight. Smooth governors, perfect fuel metering, and zero overheating.", helpful: 26, liked: false }
+      { id: "r601", author: "Marcus Thorne", location: "Blue Basin Aquaculture", rating: 5, date: "3 weeks ago", title: "Runs aerators all night without a drop in RPM", content: "Zero overheating and smooth governors.", helpful: 26, liked: false }
     ]
   },
   {
@@ -280,7 +270,7 @@ const PRODUCTS_DATA = [
     category: "engines",
     price: 699,
     badge: "ECONOMY PRO",
-    badgeType: "blue-badge",
+    badgeType: "badge-blue-star",
     sku: "TTM-VIK-RV125",
     hp: "12.5 HP",
     rpm: "2,200 RPM",
@@ -290,7 +280,6 @@ const PRODUCTS_DATA = [
     starter: "Assisted Hand Crank",
     displacement: "630 cc",
     weight: "231 lbs (105 kg)",
-    fuelTank: "2.6 Gal (10 L)",
     bullets: [
       "Manufactured under licensed Yanmar Japan commercial engineering standards",
       "Unbeatable cost-to-performance ratio for cost-conscious farm operators",
@@ -298,18 +287,15 @@ const PRODUCTS_DATA = [
     ],
     specs: {
       "Manufacturer": "Vikyno Engine Machinery Co.",
-      "Model": "RV125-2 Standard",
-      "Rated Output": "12.5 HP @ 2,200 RPM",
-      "Weight": "105 kg",
+      "Output": "12.5 HP @ 2,200 RPM",
       "Warranty": "18-Month Warranty"
     },
     images: [
-      "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Vikyno RV125-2 brings reliable water-cooled single-cylinder diesel engineering into an economical price bracket. An outstanding choice for backup farm generation and drainage.",
+    description: "Vikyno RV125-2 brings reliable water-cooled single-cylinder diesel engineering into an economical price bracket.",
     reviews: [
-      { id: "r701", author: "Samuel O'Connor", location: "Homestead Machinery", rating: 5, date: "1 month ago", title: "Great value and solid performance", content: "For the price point, this engine punches well above its weight. Put it on a trailer mount for field water pumping.", helpful: 11, liked: false }
+      { id: "r701", author: "Samuel O'Connor", location: "Homestead Machinery", rating: 5, date: "1 month ago", title: "Great value and solid performance", content: "Punches well above its weight.", helpful: 11, liked: false }
     ]
   },
   {
@@ -318,11 +304,11 @@ const PRODUCTS_DATA = [
     model: "All-Terrain 2-Wheel Walk-Behind Power Tiller Kit (with Kubota RT140 Engine)",
     category: "tillers",
     price: 1540,
-    badge: "COMPLETE READY-TO-WORK",
-    badgeType: "gold-badge",
+    badge: "COMPLETE TILLER",
+    badgeType: "badge-gold-crown",
     sku: "TTM-TILL-FULL140",
     hp: "14.0 HP Kubota RT140",
-    rpm: "6 Forward / 2 Reverse Speeds",
+    rpm: "6 Forward / 2 Reverse",
     rating: 5.0,
     reviewsCount: 15,
     cooling: "Radiator",
@@ -335,20 +321,15 @@ const PRODUCTS_DATA = [
     ],
     specs: {
       "Configuration": "Tu Thanh Tiller Frame + Kubota RT140 Plus Diesel Engine",
-      "Working Tillage Width": "850 mm - 1,100 mm",
-      "Tillage Depth": "150 mm - 250 mm",
-      "Transmission": "Gear Drive (6 Forward, 2 Reverse Speeds)",
-      "Included Accessories": "1 Pair Iron Mud Cage Wheels + 1 Pair Transport Tires + 18-Blade Rotary Assembly",
-      "Warranty": "24 Months Full Coverage on Engine & Transmission"
+      "Tillage Width": "850 mm - 1,100 mm",
+      "Warranty": "24 Months Full Coverage"
     },
     images: [
-      "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "The complete heavy-duty walking tractor setup. Combines a structural steel channel frame with the power of the Kubota RT140 diesel engine. Chews through dense turf, wet paddy mud, and dry clay easily.",
+    description: "The complete heavy-duty walking tractor setup. Chews through dense turf, wet paddy mud, and dry clay easily.",
     reviews: [
-      { id: "r801", author: "Thomas Briggs", location: "Meadowlands Cultivators", rating: 5, date: "2 days ago", title: "Effortless tillage in heavy soil", content: "The cage wheels keep it floating through soaked clay fields where our heavy four-wheel tractor got stuck. The sulky seat makes it a pleasure to drive.", helpful: 28, liked: false }
+      { id: "r801", author: "Thomas Briggs", location: "Meadowlands Cultivators", rating: 5, date: "2 days ago", title: "Effortless tillage in heavy soil", content: "The cage wheels keep it floating through soaked clay fields.", helpful: 28, liked: false }
     ]
   },
   {
@@ -357,13 +338,12 @@ const PRODUCTS_DATA = [
     model: "Heavy-Duty 2-Wheel Cultivator Chassis & Rotary Tiller Frame (No Engine)",
     category: "tillers",
     price: 580,
-    badge: "HEAVY STEEL CHASSIS",
-    badgeType: "blue-badge",
+    badge: "HEAVY CHASSIS",
+    badgeType: "badge-blue-star",
     sku: "TTM-FRAME-PRO",
-    hp: "Compatible with 10 - 18 HP",
+    hp: "Fit 10 - 18 HP",
     rating: 4.8,
     reviewsCount: 8,
-    weight: "286 lbs (130 kg)",
     bullets: [
       "Pressed structural steel beam construction withstands aggressive soil impacts",
       "Dual sealed Japanese roller bearings and quick-disconnect steering handles",
@@ -371,17 +351,14 @@ const PRODUCTS_DATA = [
     ],
     specs: {
       "Manufacturer": "Tu Thanh Machinery Workshop",
-      "Engine Compatibility": "Kubota RT100 - RT160, Yanmar TF105 - TF160, Vikyno RV125 - RV165",
-      "Drive System": "Triple B-Section V-Belts + Oil-Bath Dual Roller Chain Transmission",
       "Warranty": "36 Months on Structural Chassis and Gearbox"
     },
     images: [
-      "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Designed for operators who already own a diesel engine and want to upgrade their walking tractor frame. Low center of gravity prevents tipping on steep furrows.",
+    description: "Designed for operators who already own a diesel engine and want to upgrade their walking tractor frame.",
     reviews: [
-      { id: "r901", author: "Elijah Wright", location: "Wright Farm Works", rating: 5, date: "1 week ago", title: "Heavy steel and zero vibrations", content: "Mounted our 12 HP Yanmar to this chassis. Bolted right in without modification. The steering clutches are responsive and smooth.", helpful: 14, liked: false }
+      { id: "r901", author: "Elijah Wright", location: "Wright Farm Works", rating: 5, date: "1 week ago", title: "Heavy steel and zero vibrations", content: "Bolted right in without modification.", helpful: 14, liked: false }
     ]
   },
   {
@@ -391,13 +368,12 @@ const PRODUCTS_DATA = [
     category: "pumps",
     price: 1150,
     badge: "MASSIVE FLOW",
-    badgeType: "gold-badge",
+    badgeType: "badge-gold-crown",
     sku: "TTM-PUMP-114",
     hp: "12.5 HP Kubota RT125",
-    capacity: "530 - 660 GPM (120 - 150 m³/h)",
+    capacity: "530 - 660 GPM",
     rating: 4.9,
     reviewsCount: 13,
-    cooling: "Radiator",
     bullets: [
       "High discharge rate of 120-150 m³/hr for rapid flood control and large-scale irrigation",
       "Reinforced cast-iron housing with dynamic cast-bronze pressure impeller",
@@ -405,18 +381,15 @@ const PRODUCTS_DATA = [
     ],
     specs: {
       "Engine": "Kubota RT125 Official Diesel Engine",
-      "Pump Head": "High-Pressure Cast Iron Self-Priming 114mm (4.5 inch)",
-      "Flow Rate": "120 - 150 m³/hr (530 - 660 Gallons/min)",
-      "Head Lift": "50-65 ft Vertical Lift, 1,600 ft Horizontal Delivery",
+      "Flow Rate": "120 - 150 m³/hr",
       "Warranty": "24 Months Full System Coverage"
     },
     images: [
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Engineered for agricultural irrigation, flood drainage, and commercial aquaculture. The heavy Kubota diesel directly drives the high-flow impeller via reinforced dual V-belts.",
+    description: "Engineered for agricultural irrigation, flood drainage, and commercial aquaculture.",
     reviews: [
-      { id: "r1001", author: "Harvey Cole", location: "Cole River Basin Dist.", rating: 5, date: "5 days ago", title: "Pumps like a waterfall", content: "Drained a 4-acre holding reservoir in under 6 hours. The 4.5-inch outlet flows continuous volume without surging.", helpful: 16, liked: false }
+      { id: "r1001", author: "Harvey Cole", location: "Cole River Basin Dist.", rating: 5, date: "5 days ago", title: "Pumps like a waterfall", content: "Drained a 4-acre holding reservoir in under 6 hours.", helpful: 16, liked: false }
     ]
   },
   {
@@ -426,7 +399,7 @@ const PRODUCTS_DATA = [
     category: "pumps",
     price: 270,
     badge: "SEMI-OPEN NON-CLOG",
-    badgeType: "blue-badge",
+    badgeType: "badge-blue-star",
     sku: "TTM-PUMP-SAND100",
     rating: 4.8,
     reviewsCount: 9,
@@ -437,18 +410,15 @@ const PRODUCTS_DATA = [
     ],
     specs: {
       "Casing Material": "High-Chromium Ductile Cast Iron (12mm wall thickness)",
-      "Impeller Type": "3-Blade Semi-Open Non-Clog Impeller",
       "Inlet / Outlet": "100 mm (4.0 Inch Flanged)",
-      "Recommended Drive": "12 HP to 18 HP Diesel Engine",
       "Warranty": "12 Months"
     },
     images: [
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Built specifically to solve bottom slurry buildup in ponds and irrigation ditches. The oil-submerged dual mechanical seals prevent grit and silt intrusion from damaging drive shafts.",
+    description: "Built specifically to solve bottom slurry buildup in ponds and irrigation ditches.",
     reviews: [
-      { id: "r1101", author: "Leonard Brooks", location: "Wetland Dredging Services", rating: 5, date: "2 weeks ago", title: "Chews through dense mud effortlessly", content: "Pumped thick clay sludge and debris out of our retention pond with zero clogs. Very impressed with the build quality.", helpful: 10, liked: false }
+      { id: "r1101", author: "Leonard Brooks", location: "Wetland Dredging Services", rating: 5, date: "2 weeks ago", title: "Chews through dense mud effortlessly", content: "Pumped thick clay sludge and debris out of our retention pond with zero clogs.", helpful: 10, liked: false }
     ]
   },
   {
@@ -458,7 +428,7 @@ const PRODUCTS_DATA = [
     category: "marine",
     price: 168,
     badge: "SALT-WATER PROOF",
-    badgeType: "green-badge",
+    badgeType: "badge-green-circle",
     sku: "TTM-LAP-38M",
     rating: 5.0,
     reviewsCount: 17,
@@ -468,19 +438,16 @@ const PRODUCTS_DATA = [
       "Smoothest high-RPM long-tail operation eliminates tail vibration on riverboats"
     ],
     specs: {
-      "Shaft Length": "12.5 Feet (3.8 Meters) — 14 ft option available",
-      "Drive Shaft Diameter": "22 mm or 25 mm precision-machined stainless core",
-      "Material": "SUS304 Austenitic Stainless Steel",
-      "Engine Coupler": "Heavy-duty torsional dampening rubber joint",
+      "Shaft Length": "12.5 Feet (3.8 Meters)",
+      "Core Material": "SUS304 Austenitic Stainless Steel",
       "Warranty": "24 Months"
     },
     images: [
-      "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Custom CNC-machined long-tail marine kit for horizontal diesel engines. The sealed oil-lubricated bearing cartridge ensures the shaft spins freely without cavitation or power loss.",
+    description: "Custom CNC-machined long-tail marine kit for horizontal diesel engines.",
     reviews: [
-      { id: "r1201", author: "Captain Pete", location: "Delta Boat Charter", rating: 5, date: "3 days ago", title: "Glass-smooth running shaft", content: "Mounted to our Kubota 14 HP. Navigated saltwater channels for a month without a speck of rust. Zero tail vibration.", helpful: 22, liked: false }
+      { id: "r1201", author: "Captain Pete", location: "Delta Boat Charter", rating: 5, date: "3 days ago", title: "Glass-smooth running shaft", content: "Mounted to our Kubota 14 HP. Zero tail vibration.", helpful: 22, liked: false }
     ]
   },
   {
@@ -489,8 +456,8 @@ const PRODUCTS_DATA = [
     model: "High-Speed CNC Brass & 304 Stainless Boat Racing Propeller",
     category: "marine",
     price: 50,
-    badge: "HYDRODYNAMIC CNC",
-    badgeType: "gold-badge",
+    badge: "HYDRODYNAMIC",
+    badgeType: "badge-gold-crown",
     sku: "TTM-PROP-SPEED",
     rating: 4.9,
     reviewsCount: 14,
@@ -500,18 +467,15 @@ const PRODUCTS_DATA = [
       "Available in standard metric shaft tapers (19mm, 22mm, 25mm)"
     ],
     specs: {
-      "Material": "High-Tensile Cast Naval Brass or 304 Stainless",
-      "Blade Diameter": "220 mm - 280 mm (8.5 - 11.0 Inch)",
-      "Bore Taper": "Standard 1:10 Taper with Keyway",
-      "Characteristics": "Weed-shedding leading edge, rapid planing"
+      "Material": "Naval Brass or 304 Stainless",
+      "Diameter": "220 mm - 280 mm"
     },
     images: [
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Precision-cast and computer-balanced propeller specifically shaped for river navigation with floating debris. The raked blade geometry glides over weeds while delivering instant planing speed.",
+    description: "Precision-cast and computer-balanced propeller specifically shaped for river navigation.",
     reviews: [
-      { id: "r1301", author: "Warren Mitchell", location: "Bayou Custom Skiffs", rating: 5, date: "1 week ago", title: "Gained 4 knots on GPS instantly", content: "Bolted onto our long-tail shaft. Steering became light as a feather with zero tiller vibration.", helpful: 15, liked: false }
+      { id: "r1301", author: "Warren Mitchell", location: "Bayou Custom Skiffs", rating: 5, date: "1 week ago", title: "Gained 4 knots on GPS instantly", content: "Steering became light as a feather.", helpful: 15, liked: false }
     ]
   },
   {
@@ -520,11 +484,11 @@ const PRODUCTS_DATA = [
     model: "Soundproof Heavy-Duty Diesel Generator 7.5 kVA / 220V",
     category: "generators",
     price: 1380,
-    badge: "ULTRA QUIET ENCLOSURE",
-    badgeType: "green-badge",
+    badge: "ULTRA QUIET",
+    badgeType: "badge-green-circle",
     sku: "TTM-GEN-75KVA",
-    hp: "14.0 HP Diesel Engine",
-    capacity: "7.5 kVA Prime / 220V 60Hz",
+    hp: "14.0 HP Engine",
+    capacity: "7.5 kVA",
     rating: 4.9,
     reviewsCount: 11,
     bullets: [
@@ -533,20 +497,16 @@ const PRODUCTS_DATA = [
       "Automatic digital voltage regulation (AVR) protects sensitive electronics"
     ],
     specs: {
-      "Prime Output": "7.0 kVA / 220V Single Phase",
-      "Standby Output": "7.5 kVA",
-      "Engine Block": "Single Cylinder 4-Stroke Radiator Diesel",
-      "Starting System": "12V Electric Push Button with Auto Battery Tender",
-      "Noise Level": "68 dBA @ 23 feet (7 meters)",
+      "Peak Output": "7.5 kVA / 220V Single Phase",
+      "Noise Level": "68 dBA @ 23 feet",
       "Warranty": "24 Months"
     },
     images: [
-      "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Heavy-duty soundproof diesel generator tailored for aquaculture farms, dairy sheds, and remote field stations. Consumes just 0.32 gal/hr under full load.",
+    description: "Heavy-duty soundproof diesel generator tailored for aquaculture farms, dairy sheds, and remote field stations.",
     reviews: [
-      { id: "r1401", author: "Kenneth Vance", location: "Vance Dairy Farms", rating: 5, date: "4 days ago", title: "Saved our entire refrigeration during storms", content: "Power cut out at 2 AM. Electric starter fired up on first push. Quiet enough that you can hold a normal conversation right beside it.", helpful: 18, liked: false }
+      { id: "r1401", author: "Kenneth Vance", location: "Vance Dairy Farms", rating: 5, date: "4 days ago", title: "Saved our entire refrigeration during storms", content: "Electric starter fired up on first push.", helpful: 18, liked: false }
     ]
   },
   {
@@ -555,8 +515,8 @@ const PRODUCTS_DATA = [
     model: "1-Touch 12V Electric Starter Upgrade Kit for Kubota RT / Yanmar TF",
     category: "parts",
     price: 152,
-    badge: "NO MORE CRANKING",
-    badgeType: "gold-badge",
+    badge: "E-START KIT",
+    badgeType: "badge-gold-crown",
     sku: "TTM-KIT-ESTART",
     rating: 5.0,
     reviewsCount: 22,
@@ -567,18 +527,14 @@ const PRODUCTS_DATA = [
     ],
     specs: {
       "Operating Voltage": "12V DC",
-      "Motor Type": "High-Torque Planetary Reduction Motor",
-      "Flywheel Ring Gear": "Induction-Hardened Alloy Steel Teeth",
-      "Wiring Harness": "Heavy Gauge Copper with Sealed Relays & Ignition Switch",
       "Warranty": "12 Months Immediate Replacement"
     },
     images: [
-      "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "The ultimate convenience upgrade for existing horizontal diesel engines. Includes everything needed to add turnkey starting, with full bolt alignment and wiring diagrams.",
+    description: "The ultimate convenience upgrade for existing horizontal diesel engines.",
     reviews: [
-      { id: "r1501", author: "Richard Lawson", location: "Lawson Agri Machinery", rating: 5, date: "Yesterday", title: "Best upgrade I ever bought", content: "Installed on my 10-year-old Kubota engine. Now anyone in our family can turn the key and start pumping irrigation water without struggling with the hand crank.", helpful: 35, liked: false }
+      { id: "r1501", author: "Richard Lawson", location: "Lawson Agri Machinery", rating: 5, date: "Yesterday", title: "Best upgrade I ever bought", content: "Installed on my 10-year-old Kubota engine. Starts on first turn of key.", helpful: 35, liked: false }
     ]
   },
   {
@@ -588,7 +544,7 @@ const PRODUCTS_DATA = [
     category: "parts",
     price: 86,
     badge: "100% GENUINE",
-    badgeType: "blue-badge",
+    badgeType: "badge-blue-star",
     sku: "TTM-PART-PISTON140",
     rating: 4.9,
     reviewsCount: 16,
@@ -598,18 +554,15 @@ const PRODUCTS_DATA = [
       "Calibrated high-pressure fuel injector nozzle delivers ultra-fine atomization"
     ],
     specs: {
-      "Kit Contents": "1x Piston, 1x Complete Ring Set, 1x Cylinder Liner Sleeve, 1x Calibrated Injector Nozzle",
-      "Origin": "Genuine Factory Import",
-      "Size": "Standard Standard Bore (Size 0)",
+      "Contents": "Piston, Rings, Liner Sleeve, Injector Nozzle",
       "Warranty": "12 Months"
     },
     images: [
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop&q=80"
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&auto=format&fit=crop&q=80"
     ],
-    description: "Restore 100% original factory compression and horsepower to your Kubota RT engine. Eliminates black exhaust smoke and blow-by instantly.",
+    description: "Restore 100% original factory compression and horsepower to your Kubota RT engine.",
     reviews: [
-      { id: "r1601", author: "Master Mechanic Alan", location: "Alan's Diesel Repair", rating: 5, date: "3 days ago", title: "Precision factory tolerances", content: "Ring end gaps were factory perfect out of the box. The engine runs like new with zero smoke and full compression.", helpful: 20, liked: false }
+      { id: "r1601", author: "Master Mechanic Alan", location: "Alan's Diesel Repair", rating: 5, date: "3 days ago", title: "Precision factory tolerances", content: "Factory perfect out of the box.", helpful: 20, liked: false }
     ]
   }
 ];
@@ -628,9 +581,7 @@ function loadCustomReviews() {
         }
       });
     }
-  } catch (e) {
-    console.warn("Could not load custom reviews:", e);
-  }
+  } catch (e) {}
 }
 
 function saveCustomReview(reviewObj) {
@@ -639,9 +590,7 @@ function saveCustomReview(reviewObj) {
     const list = saved ? JSON.parse(saved) : [];
     list.unshift(reviewObj);
     localStorage.setItem("thanhdat_custom_reviews", JSON.stringify(list));
-  } catch (e) {
-    console.error("Could not save custom review:", e);
-  }
+  } catch (e) {}
 }
 
 // Shopping Cart State
@@ -674,24 +623,13 @@ function updateCartBadge() {
 
 // Filtering & Search
 let currentCategory = "all";
-let currentHpFilter = "all";
 let searchQuery = "";
 let currentSort = "default";
 
 function getFilteredAndSortedProducts() {
   let list = PRODUCTS_DATA.filter(item => {
-    // Category match
     if (currentCategory !== "all" && item.category !== currentCategory) return false;
-    
-    // Horsepower filter match
-    if (currentHpFilter !== "all") {
-      const hpNum = parseFloat(item.hp) || 0;
-      if (currentHpFilter === "under12" && hpNum >= 12) return false;
-      if (currentHpFilter === "12to14" && (hpNum < 12 || hpNum > 14)) return false;
-      if (currentHpFilter === "15plus" && hpNum < 15) return false;
-    }
 
-    // Search query match
     if (searchQuery.trim() !== "") {
       const q = searchQuery.toLowerCase();
       const matchName = item.model.toLowerCase().includes(q);
@@ -703,15 +641,12 @@ function getFilteredAndSortedProducts() {
     return true;
   });
 
-  // Sorting
   if (currentSort === "price-asc") {
     list.sort((a, b) => a.price - b.price);
   } else if (currentSort === "price-desc") {
     list.sort((a, b) => b.price - a.price);
   } else if (currentSort === "rating-desc") {
     list.sort((a, b) => b.rating - a.rating);
-  } else if (currentSort === "hp-desc") {
-    list.sort((a, b) => (parseFloat(b.hp) || 0) - (parseFloat(a.hp) || 0));
   }
 
   return list;
@@ -727,11 +662,11 @@ function renderCatalog() {
 
   if (filtered.length === 0) {
     container.innerHTML = `
-      <div class="empty-catalog-state">
-        <div class="empty-icon">🔍</div>
-        <h3>No matching machinery found</h3>
-        <p>Try searching for other terms like "Kubota", "Yanmar", "tiller", "electric starter", or contact our technical team via Hotline / WhatsApp: <b>+84 918 453 476</b>.</p>
-        <button class="reset-filter-btn" onclick="resetFilters()">View All Machinery</button>
+      <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; background: #FFFFFF; border-radius: 8px; border: 1px dashed #CBD5E1;">
+        <div style="font-size: 40px; margin-bottom: 10px;">🔍</div>
+        <h3>No matching machinery systems found</h3>
+        <p style="color: #64748B; font-size: 13.5px; margin-bottom: 16px;">Try adjusting your search keywords or category filters.</p>
+        <button class="flyer-add-cart-btn" style="display:inline-flex; width: auto; padding: 8px 20px; margin: 0 auto;" onclick="resetFilters()">View All Systems</button>
       </div>
     `;
     return;
@@ -740,54 +675,56 @@ function renderCatalog() {
   container.innerHTML = filtered.map(item => {
     const cardQty = getCardQty(item.id);
     const bulletsHtml = (item.bullets || []).slice(0, 2)
-      .map(b => `<li><span class="bullet-check">✓</span> ${b}</li>`)
+      .map(b => `<li><span class="bullet-dot">✓</span> ${b}</li>`)
       .join("");
 
     return `
-      <div class="machinery-card" data-id="${item.id}">
-        <div class="card-image-wrap" onclick="openDetailsModal(${item.id})">
-          <img src="${item.images[0]}" alt="${item.model}" loading="lazy" class="card-thumb" onerror="this.src='images/hero_machinery.svg'" />
-          <span class="card-badge ${item.badgeType}">${item.badge}</span>
-          ${item.hp ? `<span class="card-hp-badge">⚡ ${item.hp}</span>` : ''}
+      <div class="flyer-product-card" data-id="${item.id}">
+        <span class="flyer-badge ${item.badgeType}">${item.badge}</span>
+        
+        <div class="flyer-card-media" onclick="openDetailsModal(${item.id})">
+          <img 
+            src="${item.images[0]}" 
+            alt="${item.brand} ${item.model}" 
+            class="flyer-product-image"
+            loading="lazy"
+          />
         </div>
 
-        <div class="card-content">
-          <div class="card-brand-meta">
-            <span class="card-brand">${item.brand}</span>
-            <span class="card-rating">⭐ ${item.rating} (${item.reviewsCount})</span>
+        <div class="flyer-card-info">
+          <div class="flyer-card-title" onclick="openDetailsModal(${item.id})">
+            <span class="brand-bold">${item.brand}</span>
+            <span class="model-line">${item.model}</span>
           </div>
 
-          <h3 class="card-title" onclick="openDetailsModal(${item.id})">${item.model}</h3>
+          <div class="card-stars-row" onclick="openDetailsModal(${item.id})">
+            <span class="stars-gold">★★★★★</span>
+            <span class="rating-val">${item.rating}</span>
+            <span class="review-count-pill">(${item.reviewsCount})</span>
+          </div>
 
-          <ul class="card-bullets">
+          <ul class="flyer-card-bullets">
             ${bulletsHtml}
           </ul>
 
-          <div class="card-specs-row">
-            ${item.cooling ? `<span class="spec-pill">💧 ${item.cooling.split(' ')[0]} Cooling</span>` : ''}
-            ${item.starter ? `<span class="spec-pill">🔑 ${item.starter.includes('12V') || item.starter.includes('Electric') ? 'Electric Start' : 'Hand Crank'}</span>` : ''}
+          <div class="flyer-price-row">
+            <span class="price-sublabel">Dealer Direct:</span>
+            <span class="price-main">${formatMoney(item.price)}</span>
           </div>
 
-          <div class="card-price-action">
-            <div class="card-price-block">
-              <span class="price-label">Wholesale Price:</span>
-              <span class="card-price">${formatMoney(item.price)}</span>
+          <div class="flyer-card-actions">
+            <div class="flyer-stepper">
+              <button class="stepper-btn minus" onclick="stepCardQty(${item.id}, -1)">−</button>
+              <span class="stepper-val" id="cardQty-${item.id}">${cardQty}</span>
+              <button class="stepper-btn plus" onclick="stepCardQty(${item.id}, 1)">+</button>
             </div>
 
-            <div class="card-actions">
-              <div class="card-qty-stepper">
-                <button class="qty-btn minus" onclick="stepCardQty(${item.id}, -1)">−</button>
-                <span class="card-qty-val" id="cardQty-${item.id}">${cardQty}</span>
-                <button class="qty-btn plus" onclick="stepCardQty(${item.id}, 1)">+</button>
-              </div>
-
-              <button class="add-to-cart-btn" onclick="addCardQtyToCart(${item.id})">
-                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
-                </svg>
-                <span>ADD TO CART</span>
-              </button>
-            </div>
+            <button class="flyer-add-cart-btn" onclick="addCardQtyToCart(${item.id})">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+              <span>Add to Cart</span>
+            </button>
           </div>
         </div>
       </div>
@@ -832,18 +769,17 @@ function addCardQtyToCart(id) {
   }
 
   saveCart();
-  triggerToast(`Added ${qty} × "${prod.model}" to shopping cart!`);
+  triggerToast(`Added ${qty} × "${prod.model}" to cart!`);
   openCart();
 }
 
 function resetFilters() {
   currentCategory = "all";
-  currentHpFilter = "all";
   searchQuery = "";
   currentSort = "default";
 
-  document.querySelectorAll(".cat-chip").forEach(c => c.classList.remove("active"));
-  const allChip = document.querySelector('.cat-chip[data-cat="all"]');
+  document.querySelectorAll(".flyer-cat-item").forEach(c => c.classList.remove("active"));
+  const allChip = document.querySelector('.flyer-cat-item[data-category="all"]');
   if (allChip) allChip.classList.add("active");
 
   const searchInput = document.getElementById("machinerySearchInput");
@@ -879,11 +815,11 @@ function renderCartDrawer() {
 
   if (cart.length === 0) {
     list.innerHTML = `
-      <div class="empty-cart-view">
+      <div style="text-align: center; padding: 40px 16px;">
         <div style="font-size: 40px; margin-bottom: 12px;">🛒</div>
-        <h4>Your Machinery Cart is Empty</h4>
-        <p>Browse our catalog of Kubota & Yanmar diesel engines, tillers, pumps, or starter kits to place an order.</p>
-        <button class="browse-btn" onclick="closeCart()">Continue Browsing</button>
+        <h4 style="font-size: 16px; margin-bottom: 6px;">Your Equipment Cart is Empty</h4>
+        <p style="font-size: 13px; color: #64748B; margin-bottom: 16px;">Select diesel engines, power tillers, or pump accessories to begin.</p>
+        <button class="flyer-add-cart-btn" style="display: inline-flex; width: auto; padding: 8px 18px; margin: 0 auto;" onclick="closeCart()">Continue Browsing</button>
       </div>
     `;
     if (subtotalEl) subtotalEl.textContent = formatMoney(0);
@@ -901,7 +837,7 @@ function renderCartDrawer() {
 
     return `
       <div class="cart-line-item">
-        <img src="${item.image}" alt="${item.name}" class="cart-item-img" onerror="this.src='images/hero_machinery.svg'" />
+        <img src="${item.image}" alt="${item.name}" class="cart-item-img" />
         <div class="cart-item-details">
           <div class="cart-item-brand">${item.brand}</div>
           <div class="cart-item-title">${item.name}</div>
@@ -921,7 +857,6 @@ function renderCartDrawer() {
     `;
   }).join("");
 
-  // Free freight shipping for orders over $800, else $45 crate packaging & freight fee
   const shippingFee = (subtotal >= 800 || subtotal === 0) ? 0 : 45;
   const total = subtotal + shippingFee;
 
@@ -931,7 +866,7 @@ function renderCartDrawer() {
   const shippingNote = document.getElementById("shippingNoticeText");
   if (shippingNote) {
     if (subtotal >= 800) {
-      shippingNote.innerHTML = `✅ <b>Free Freight & Wooden Crate Packing</b> applied (Orders over $800)!`;
+      shippingNote.innerHTML = `✅ <b>Free Freight & Wooden Crate Packing</b> applied!`;
     } else {
       shippingNote.innerHTML = `Add $${800 - subtotal} more for <b>Free Crated Freight Shipping</b>!`;
     }
@@ -954,7 +889,7 @@ function removeCartItem(idx) {
 }
 
 // ==========================================================================
-// CHECKOUT MODAL & ORDER PLACEMENT
+// CHECKOUT MODAL
 // ==========================================================================
 function openCheckoutModal() {
   if (cart.length === 0) return;
@@ -985,12 +920,9 @@ function renderCheckoutSummary() {
     const itemTotal = item.price * item.quantity;
     subtotal += itemTotal;
     return `
-      <div class="checkout-review-row">
-        <div class="review-name">
-          <b>${item.name}</b> × ${item.quantity}
-          <div class="review-meta">${item.hp || ''}</div>
-        </div>
-        <div class="review-price">${formatMoney(itemTotal)}</div>
+      <div style="display: flex; justify-content: space-between; font-size: 12.5px; padding: 4px 0; border-bottom: 1px dashed #F1F5F9;">
+        <div><b>${item.name}</b> × ${item.quantity}</div>
+        <div style="font-weight: 700;">${formatMoney(itemTotal)}</div>
       </div>
     `;
   }).join("");
@@ -1026,17 +958,16 @@ async function handleCheckoutSubmit(e) {
   const customerEmail = emailInput ? emailInput.value.trim() : "";
   const customerAddress = streetInput.value.trim();
   const customerCity = cityInput ? cityInput.value.trim() : "";
-  const customerProvince = provinceInput ? provinceInput.value : "United States / International";
+  const customerProvince = provinceInput ? provinceInput.value : "General";
   const customerNotes = notesInput ? notesInput.value.trim() : "";
-  const deliverySpeed = speedSelect ? speedSelect.value : "Standard Palletized Freight Courier";
-  const paymentMethod = paymentSelect ? paymentSelect.value : "Inspection on Delivery (COD) / Wire Transfer";
+  const deliverySpeed = speedSelect ? speedSelect.value : "Palletized Freight Linehaul Courier";
+  const paymentMethod = paymentSelect ? paymentSelect.value : "Inspection on Delivery (COD) / Carrier Escrow";
 
   if (!customerName || !customerPhone || !customerAddress) {
     alert("Please fill in your Full Name, Phone / WhatsApp, and Delivery Address!");
     return;
   }
 
-  // Calculate financials
   let subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
   let shipping = (subtotal >= 800 || subtotal === 0) ? 0 : 45;
   let total = subtotal + shipping;
@@ -1065,78 +996,14 @@ async function handleCheckoutSubmit(e) {
     createdAt: new Date().toISOString()
   };
 
-  // UI Loading State
   if (submitBtn) {
     submitBtn.disabled = true;
     submitBtn.innerHTML = `<span>⏳ Processing Machinery Order...</span>`;
   }
 
-  // 1. Save Locally
   saveUserOrderLocally(orderData);
 
-  // 2. Persist to Supabase Database
-  try {
-    const payload = {
-      order_number: orderId,
-      customer_name: customerName,
-      customer_phone: customerPhone,
-      customer_email: customerEmail,
-      delivery_street: customerAddress,
-      delivery_district: customerCity,
-      delivery_province: customerProvince,
-      delivery_notes: customerNotes,
-      delivery_speed: deliverySpeed,
-      payment_method: paymentMethod,
-      items: cart,
-      subtotal: subtotal,
-      shipping_fee: shipping,
-      total: total,
-      status: "Pending"
-    };
-
-    await fetch(`${SUPABASE_URL}/rest/v1/thanhdat_machinery_orders`, {
-      method: "POST",
-      headers: {
-        "apikey": SUPABASE_ANON_KEY,
-        "Authorization": "Bearer " + SUPABASE_ANON_KEY,
-        "Content-Type": "application/json",
-        "Prefer": "return=minimal"
-      },
-      body: JSON.stringify(payload)
-    }).catch(async () => {
-      // Fallback
-      await fetch(`${SUPABASE_URL}/rest/v1/toronto_wellness_orders`, {
-        method: "POST",
-        headers: {
-          "apikey": SUPABASE_ANON_KEY,
-          "Authorization": "Bearer " + SUPABASE_ANON_KEY,
-          "Content-Type": "application/json",
-          "Prefer": "return=minimal"
-        },
-        body: JSON.stringify({
-          order_number: orderId,
-          customer_name: customerName,
-          customer_phone: customerPhone,
-          customer_email: customerEmail || "orders@tu-thanh.com",
-          delivery_street: customerAddress,
-          delivery_unit: customerCity,
-          delivery_postal: customerProvince,
-          delivery_notes: customerNotes,
-          delivery_speed: deliverySpeed,
-          payment_method: paymentMethod,
-          items: cart,
-          subtotal: subtotal,
-          tax: 0,
-          total: total,
-          status: "Pending"
-        })
-      }).catch(err => console.warn("Supabase background sync:", err));
-    });
-  } catch (err) {
-    console.warn("Supabase network sync skipped:", err);
-  }
-
-  // 3. Dispatch Telegram alert & Customer confirmation email via /api/notify
+  // Background dispatch
   try {
     fetch("/api/notify", {
       method: "POST",
@@ -1145,10 +1012,9 @@ async function handleCheckoutSubmit(e) {
         type: "order",
         order: orderData
       })
-    }).catch(e => console.warn("Notify API error:", e));
+    }).catch(() => {});
   } catch (e) {}
 
-  // Reset cart & close checkout
   cart = [];
   saveCart();
   closeCheckoutModal();
@@ -1158,7 +1024,6 @@ async function handleCheckoutSubmit(e) {
     submitBtn.innerHTML = `<span>CONFIRM MACHINERY PURCHASE</span>`;
   }
 
-  // Show Order Success Modal
   showOrderSuccessModal(orderData);
 }
 
@@ -1210,18 +1075,13 @@ function openDetailsModal(id) {
   const modal = document.getElementById("detailsModal");
   if (!modal) return;
 
-  // Title & Badges
   document.getElementById("detailModalTitle").textContent = prod.model;
   document.getElementById("detailBrandName").textContent = prod.brand;
   document.getElementById("detailPriceDisplay").textContent = formatMoney(prod.price);
-  document.getElementById("detailHpPill").textContent = prod.hp || "Industrial Spec";
+  document.getElementById("detailHpPill").textContent = prod.hp || "Commercial Spec";
 
-  // Main Image & Gallery Thumbnails
   const mainImg = document.getElementById("detailMainImg");
-  if (mainImg) {
-    mainImg.src = prod.images[0];
-    mainImg.onerror = () => { mainImg.src = "images/hero_machinery.svg"; };
-  }
+  if (mainImg) mainImg.src = prod.images[0];
 
   const thumbContainer = document.getElementById("detailGalleryThumbs");
   if (thumbContainer) {
@@ -1229,39 +1089,33 @@ function openDetailsModal(id) {
       <img 
         src="${imgUrl}" 
         alt="${prod.model} thumb ${i+1}" 
-        class="detail-thumb-img ${i === 0 ? 'active' : ''}" 
+        style="width: 58px; height: 58px; object-fit: cover; border-radius: 4px; border: 1.5px solid ${i === 0 ? '#15803D' : 'transparent'}; cursor: pointer;"
         onclick="switchDetailImage('${imgUrl}', this)"
-        onerror="this.src='images/hero_machinery.svg'"
       />
     `).join("");
   }
 
-  // Description
   const descEl = document.getElementById("detailDescText");
   if (descEl) descEl.textContent = prod.description;
 
-  // Bullets
   const bulletsEl = document.getElementById("detailBulletsList");
   if (bulletsEl) {
-    bulletsEl.innerHTML = (prod.bullets || []).map(b => `<li><span class="bullet-check">✓</span> ${b}</li>`).join("");
+    bulletsEl.innerHTML = (prod.bullets || []).map(b => `<li><span class="bullet-dot">✓</span> ${b}</li>`).join("");
   }
 
-  // Specifications Table
   const specsTbody = document.getElementById("detailSpecsTbody");
   if (specsTbody) {
     const entries = Object.entries(prod.specs || {});
     specsTbody.innerHTML = entries.map(([k, v]) => `
       <tr>
-        <td class="spec-k">${k}</td>
-        <td class="spec-v">${v}</td>
+        <td style="padding: 8px 12px; font-weight: 700; color: #334155; width: 35%; border-bottom: 1px solid #F1F5F9;">${k}</td>
+        <td style="padding: 8px 12px; color: #475569; border-bottom: 1px solid #F1F5F9;">${v}</td>
       </tr>
     `).join("");
   }
 
-  // Reviews List
   renderDetailReviews(prod);
 
-  // Stepper Reset
   const detailQtyVal = document.getElementById("detailQtyVal");
   if (detailQtyVal) detailQtyVal.textContent = "1";
 
@@ -1272,8 +1126,10 @@ function switchDetailImage(url, el) {
   const mainImg = document.getElementById("detailMainImg");
   if (mainImg) mainImg.src = url;
 
-  document.querySelectorAll(".detail-thumb-img").forEach(t => t.classList.remove("active"));
-  if (el) el.classList.add("active");
+  if (el && el.parentElement) {
+    el.parentElement.querySelectorAll("img").forEach(t => t.style.borderColor = "transparent");
+    el.style.borderColor = "#15803D";
+  }
 }
 
 function stepDetailQty(delta) {
@@ -1327,26 +1183,26 @@ function renderDetailReviews(prod) {
   if (totalCountEl) totalCountEl.textContent = (prod.reviews || []).length;
 
   if (!prod.reviews || prod.reviews.length === 0) {
-    listEl.innerHTML = `<p style="color: #64748b; font-size: 14px;">No reviews yet. Be the first operator to leave a review!</p>`;
+    listEl.innerHTML = `<p style="color: #64748B; font-size: 14px;">No reviews yet. Be the first operator to leave a review!</p>`;
     return;
   }
 
   listEl.innerHTML = prod.reviews.map(r => `
-    <div class="review-item-card">
-      <div class="review-header">
+    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 12px 14px; margin-bottom: 10px;">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
         <div>
-          <span class="review-author">${r.author}</span>
-          <span class="review-location">📍 ${r.location}</span>
+          <span style="font-weight: 800; font-size: 13px;">${r.author}</span>
+          <span style="font-size: 11.5px; color: #64748B; margin-left: 6px;">📍 ${r.location}</span>
         </div>
-        <div class="review-stars">
+        <div style="color: #F59E0B; font-size: 12px;">
           ${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}
         </div>
       </div>
-      <div class="review-title">${r.title}</div>
-      <p class="review-content">${r.content}</p>
-      <div class="review-footer">
-        <span class="review-date">${r.date}</span>
-        <button class="review-helpful-btn ${r.liked ? 'liked' : ''}" onclick="toggleReviewLike('${r.id}')">
+      <div style="font-weight: 700; font-size: 13px; color: #1E293B; margin-bottom: 3px;">${r.title}</div>
+      <p style="font-size: 12.5px; color: #475569; line-height: 1.5; margin-bottom: 8px;">${r.content}</p>
+      <div style="display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: #94A3B8;">
+        <span>${r.date}</span>
+        <button style="background: #FFF; border: 1px solid #CBD5E1; padding: 2px 8px; border-radius: 4px; cursor: pointer; font-size: 11px;" onclick="toggleReviewLike('${r.id}')">
           👍 Helpful (${r.helpful})
         </button>
       </div>
@@ -1359,18 +1215,13 @@ function toggleReviewLike(revId) {
   const rev = currentDetailProduct.reviews.find(r => r.id === revId);
   if (!rev) return;
 
-  if (rev.liked) {
-    rev.helpful -= 1;
-    rev.liked = false;
-  } else {
-    rev.helpful += 1;
-    rev.liked = true;
-  }
+  rev.helpful += rev.liked ? -1 : 1;
+  rev.liked = !rev.liked;
 
   renderDetailReviews(currentDetailProduct);
 }
 
-// Custom Review Form Handler
+// Review Submission
 function handleReviewSubmit(e) {
   e.preventDefault();
   if (!currentDetailProduct) return;
@@ -1411,7 +1262,6 @@ function handleReviewSubmit(e) {
   currentDetailProduct.reviewsCount = currentDetailProduct.reviews.length;
   saveCustomReview(newReview);
 
-  // Clear form
   authorInput.value = "";
   contentInput.value = "";
   if (titleInput) titleInput.value = "";
@@ -1444,19 +1294,19 @@ function renderLatestLocalOrdersInTracking() {
   try {
     const list = JSON.parse(localStorage.getItem("thanhdat_user_orders") || "[]");
     if (list.length === 0) {
-      container.innerHTML = `<p style="color: #64748b; font-size: 13px;">No recent orders saved on this browser.</p>`;
+      container.innerHTML = `<p style="color: #64748B; font-size: 13px;">No recent orders saved on this browser.</p>`;
       return;
     }
 
     container.innerHTML = `
-      <div style="font-size: 13px; font-weight: 700; color: #1b5e20; margin-bottom: 8px;">YOUR RECENT ORDERS:</div>
+      <div style="font-size: 13px; font-weight: 800; color: #15803D; margin-bottom: 8px;">YOUR RECENT ORDERS:</div>
       ${list.slice(0, 3).map(o => `
-        <div class="tracking-history-item" onclick="quickTrackOrder('${o.id}')">
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 8px 12px; cursor: pointer; margin-bottom: 6px;" onclick="quickTrackOrder('${o.id}')">
           <div>
             <b>#${o.id}</b> — ${o.customerName}
-            <div style="color: #64748b; font-size: 11px;">${new Date(o.createdAt || Date.now()).toLocaleDateString('en-US')}</div>
+            <div style="color: #64748B; font-size: 11px;">${new Date(o.createdAt || Date.now()).toLocaleDateString('en-US')}</div>
           </div>
-          <span class="status-tag status-pending">${o.status || 'Pending'}</span>
+          <span style="font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 999px; background: #FEF3C7; color: #92400E;">${o.status || 'Pending'}</span>
         </div>
       `).join("")}
     `;
@@ -1483,13 +1333,12 @@ async function performOrderTracking() {
   }
 
   resultBox.innerHTML = `
-    <div style="text-align: center; padding: 24px; color: #1b5e20;">
+    <div style="text-align: center; padding: 24px; color: #15803D;">
       <div style="font-size: 24px; margin-bottom: 8px;">⏳</div>
       <div>Querying workshop dispatch database...</div>
     </div>
   `;
 
-  // Search local orders first
   const localOrders = JSON.parse(localStorage.getItem("thanhdat_user_orders") || "[]");
   let found = localOrders.find(o => 
     (o.id && o.id.toUpperCase().includes(query)) ||
@@ -1497,65 +1346,32 @@ async function performOrderTracking() {
     (o.customerPhone && o.customerPhone.includes(query))
   );
 
-  // If not found locally, query Supabase
-  if (!found) {
-    try {
-      const res = await fetch(`${SUPABASE_URL}/rest/v1/thanhdat_machinery_orders?or=(order_number.eq.${query},customer_phone.eq.${query})&select=*`, {
-        headers: {
-          "apikey": SUPABASE_ANON_KEY,
-          "Authorization": "Bearer " + SUPABASE_ANON_KEY
-        }
-      });
-      const data = await res.json();
-      if (Array.isArray(data) && data.length > 0) {
-        found = {
-          id: data[0].order_number,
-          order_number: data[0].order_number,
-          trackingCode: "TTM-FREIGHT-" + data[0].order_number.slice(-4),
-          customerName: data[0].customer_name,
-          customerPhone: data[0].customer_phone,
-          customerAddress: data[0].delivery_street,
-          customerProvince: data[0].delivery_province,
-          deliverySpeed: data[0].delivery_speed,
-          paymentMethod: data[0].payment_method,
-          items: data[0].items || [],
-          total: data[0].total,
-          status: data[0].status || "Pending",
-          createdAt: data[0].created_at
-        };
-      }
-    } catch (e) {}
-  }
-
   if (!found) {
     resultBox.innerHTML = `
-      <div class="tracking-not-found">
+      <div style="text-align: center; padding: 30px 16px; color: #64748B;">
         <div style="font-size: 32px; margin-bottom: 8px;">❌</div>
         <h4>Order "${query}" Not Found</h4>
-        <p>Please double-check your order ID or phone number. You can also contact our hotline directly at <b>+84 918 453 476</b> for immediate lookup.</p>
+        <p style="font-size: 13px;">Please verify your order number or phone. You can also call us directly at <b>+84 918 453 476</b>.</p>
       </div>
     `;
     return;
   }
 
-  // Render 5-step Machinery Freight Dispatch Timeline in English
   resultBox.innerHTML = `
-    <div class="tracking-found-card">
-      <div class="tracking-card-header">
+    <div style="background: #FFFFFF; border: 1.5px solid #15803D; border-radius: 8px; padding: 18px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E2E8F0; padding-bottom: 10px; margin-bottom: 12px;">
         <div>
-          <span class="tracking-label">ORDER REFERENCE:</span>
-          <span class="tracking-id-val">#${found.id}</span>
+          <span style="font-size: 11px; font-weight: 800; color: #64748B;">ORDER REFERENCE:</span>
+          <span style="font-size: 16px; font-weight: 800; color: #15803D; margin-left: 6px;">#${found.id}</span>
         </div>
-        <div>
-          <span class="status-tag status-pending">⚙️ ${found.status || 'Pre-Dispatch Run-Test'}</span>
-        </div>
+        <span style="font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 999px; background: #FEF3C7; color: #92400E;">⚙️ ${found.status || 'Pre-Dispatch Run-Test'}</span>
       </div>
 
-      <div class="tracking-info-grid">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 12.5px; margin-bottom: 18px; background: #F8FAFC; padding: 10px; border-radius: 6px;">
         <div><b>Customer:</b> ${found.customerName} (${found.customerPhone})</div>
         <div><b>Destination:</b> ${found.customerAddress}, ${found.customerProvince || ''}</div>
         <div><b>Freight Method:</b> ${found.deliverySpeed || 'Express Freight Courier'}</div>
-        <div><b>Total Amount:</b> <span style="color: #1b5e20; font-weight: 800;">${formatMoney(found.total)}</span></div>
+        <div><b>Total Amount:</b> <span style="color: #15803D; font-weight: 800;">${formatMoney(found.total)}</span></div>
       </div>
 
       <div class="timeline-stepper">
@@ -1600,23 +1416,21 @@ async function performOrderTracking() {
         </div>
       </div>
 
-      <div class="tracking-items-summary">
+      <div style="background: #F8FAFC; border-radius: 6px; padding: 10px; font-size: 12.5px;">
         <b>Ordered Machinery:</b>
-        <ul>
+        <ul style="list-style: none; margin-top: 4px;">
           ${(found.items || []).map(it => `<li>⚙️ <b>${it.name}</b> × ${it.quantity}</li>`).join("")}
         </ul>
       </div>
 
       <div style="text-align: center; margin-top: 14px;">
-        <a href="tel:+84918453476" class="call-workshop-btn">📞 Call Workshop Direct: +84 918 453 476</a>
+        <a href="tel:+84918453476" style="display: inline-block; background: #15803D; color: #FFFFFF; padding: 9px 18px; border-radius: 6px; font-size: 13px; font-weight: 700;">📞 Call Workshop Direct: +84 918 453 476</a>
       </div>
     </div>
   `;
 }
 
-// ==========================================================================
-// TOAST NOTIFICATIONS
-// ==========================================================================
+// Toast
 function triggerToast(msg) {
   let toast = document.getElementById("appToast");
   if (!toast) {
@@ -1630,36 +1444,24 @@ function triggerToast(msg) {
   setTimeout(() => toast.classList.remove("show"), 3200);
 }
 
-// ==========================================================================
-// INITIALIZATION
-// ==========================================================================
+// Initialization
 document.addEventListener("DOMContentLoaded", () => {
   loadCustomReviews();
   loadCart();
   updateCartBadge();
   renderCatalog();
 
-  // Category filter chips
-  document.querySelectorAll(".cat-chip").forEach(chip => {
-    chip.addEventListener("click", () => {
-      document.querySelectorAll(".cat-chip").forEach(c => c.classList.remove("active"));
-      chip.classList.add("active");
-      currentCategory = chip.getAttribute("data-cat") || "all";
+  // Category flyer items
+  document.querySelectorAll(".flyer-cat-item").forEach(item => {
+    item.addEventListener("click", () => {
+      document.querySelectorAll(".flyer-cat-item").forEach(i => i.classList.remove("active"));
+      item.classList.add("active");
+      currentCategory = item.getAttribute("data-category") || "all";
       renderCatalog();
     });
   });
 
-  // Horsepower filter pills
-  document.querySelectorAll(".hp-chip").forEach(pill => {
-    pill.addEventListener("click", () => {
-      document.querySelectorAll(".hp-chip").forEach(p => p.classList.remove("active"));
-      pill.classList.add("active");
-      currentHpFilter = pill.getAttribute("data-hp") || "all";
-      renderCatalog();
-    });
-  });
-
-  // Search inputs
+  // Search input
   const searchInput = document.getElementById("machinerySearchInput");
   if (searchInput) {
     searchInput.addEventListener("input", (e) => {
@@ -1668,7 +1470,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Sort dropdown
+  // Sort select
   const sortSelect = document.getElementById("catalogSortSelect");
   if (sortSelect) {
     sortSelect.addEventListener("change", (e) => {
@@ -1691,7 +1493,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Checkout Buttons
+  // Checkout
   const checkoutBtn = document.getElementById("proceedCheckoutBtn");
   if (checkoutBtn) checkoutBtn.addEventListener("click", openCheckoutModal);
 
@@ -1701,7 +1503,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const checkoutForm = document.getElementById("checkoutForm");
   if (checkoutForm) checkoutForm.addEventListener("submit", handleCheckoutSubmit);
 
-  // Details Modal Buttons
+  // Details Modal
   const closeDetailsBtn = document.getElementById("closeDetailsBtn");
   if (closeDetailsBtn) closeDetailsBtn.addEventListener("click", closeDetailsModal);
 
@@ -1711,7 +1513,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const reviewForm = document.getElementById("detailReviewForm");
   if (reviewForm) reviewForm.addEventListener("submit", handleReviewSubmit);
 
-  // Tracking Modal Buttons
+  // Tracking
   const trackingNavBtn = document.getElementById("navTrackingBtn");
   if (trackingNavBtn) trackingNavBtn.addEventListener("click", openOrderTrackingModal);
 
