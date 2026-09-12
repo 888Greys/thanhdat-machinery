@@ -2210,6 +2210,57 @@ button, input, select, textarea {
   }
 }
 
+/* Product detail refinement: make the small-screen page read like one item,
+   not a collection of competing marketplace widgets. */
+.product-page-main { max-width: 1180px; }
+.product-breadcrumbs-row { padding: 18px 0 14px; border-bottom: 1px solid var(--line); }
+.breadcrumbs-list { gap: 7px; font-size: 12px; }
+.btn-back-catalog { color: var(--forest); border-color: var(--line); background: #fff; border-radius: 3px; padding: 8px 11px; }
+.product-showcase-grid { grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 44px; padding: 0; border: 0; border-radius: 0; box-shadow: none; background: transparent; }
+.product-main-view-box { height: 420px; border-radius: 4px; background: #eff1ed; border-color: var(--line); padding: 0; }
+.product-main-img { width: 100%; height: 100%; max-width: none; max-height: none; object-fit: cover; }
+.product-main-view-box:hover .product-main-img { transform: none; }
+.product-thumbs-strip { gap: 8px; }
+.thumb-item { width: 58px; height: 58px; border-radius: 3px; border-width: 1px; }
+.product-proof-badges-grid { gap: 0; margin-top: 4px; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+.proof-badge-item { gap: 8px; min-height: 58px; padding: 9px 10px; border: 0; border-radius: 0; background: #fff; }
+.proof-badge-item:nth-child(odd) { border-right: 1px solid var(--line); }
+.proof-badge-item:nth-child(-n + 2) { border-bottom: 1px solid var(--line); }
+.proof-icon { font-size: 16px; }
+.proof-badge-item b { font-size: 11px; }
+.proof-badge-item small { display: block; font-size: 9.5px; line-height: 1.25; }
+.product-brand-tag-row { margin: 2px 0 12px; }
+.product-brand-pill, .product-hp-pill { border-radius: 2px; }
+.product-page-title { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(28px, 3vw, 40px); font-weight: 400; letter-spacing: -.025em; line-height: 1.1; }
+.product-rating-row { margin-bottom: 16px; }
+.product-price-panel { background: var(--sand); border: 0; border-left: 3px solid var(--forest); border-radius: 0; padding: 16px 18px; }
+.price-large { font-size: 28px; }
+.quick-specs-grid { gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+.qspec-card { border: 0; border-radius: 0; background: #fff; padding: 10px 12px; }
+
+@media (max-width: 768px) {
+  .product-page-main { padding-top: 0 !important; }
+  .product-page-main .product-breadcrumbs-row { justify-content: flex-start; padding: 12px 0; }
+  .product-page-main .breadcrumbs-list { display: none; }
+  .btn-back-catalog { font-size: 11px; padding: 7px 10px; }
+  .product-showcase-grid { display: flex; flex-direction: column; gap: 22px !important; }
+  .product-gallery-side { gap: 10px; }
+  .product-main-view-box { height: min(76vw, 360px) !important; border-radius: 3px; }
+  .product-thumbs-strip { display: none; }
+  .product-proof-badges-grid { display: none; }
+  .product-info-side { padding: 0 2px; }
+  .product-brand-tag-row { margin-bottom: 9px; }
+  .product-sku-pill { display: none; }
+  .product-page-title { font-size: 31px; margin-bottom: 10px; }
+  .product-rating-row { gap: 6px; font-size: 12px; margin-bottom: 14px; }
+  .rating-sep { display: none; }
+  .product-price-panel { margin-bottom: 16px; padding: 14px; }
+  .price-large { font-size: 25px; }
+  .price-tax-badge { font-size: 9px; }
+  .product-long-desc { font-size: 13px; margin-bottom: 16px; }
+  .quick-specs-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
 /* ========================================================================
    2026 SHOWROOM REFINEMENT
    A quieter visual system: product first, proof second, no visual theatre.

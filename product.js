@@ -135,6 +135,10 @@ function initProductPage() {
   if (mainImg) {
     mainImg.src = currentProduct.images[0];
     mainImg.alt = currentProduct.model;
+    mainImg.onerror = () => {
+      mainImg.onerror = null;
+      mainImg.src = "images/hero_banner.jpg";
+    };
   }
 
   const thumbsContainer = document.getElementById("productGalleryThumbs");
