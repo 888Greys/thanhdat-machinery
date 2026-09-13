@@ -747,7 +747,7 @@ async function performOrderTracking() {
         <span style="font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 999px; background: #FEF3C7; color: #92400E;">⚙️ ${found.status || 'Pre-Dispatch Run-Test'}</span>
       </div>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 12.5px; margin-bottom: 18px; background: #F8FAFC; padding: 10px; border-radius: 6px;">
+      <div class="tracking-meta-grid">
         <div><b>Customer:</b> ${found.customerName} (${found.customerPhone})</div>
         <div><b>Destination:</b> ${found.customerAddress}, ${found.customerProvince || ''}</div>
         <div><b>Freight Method:</b> ${found.deliverySpeed || 'Express Freight Courier'}</div>

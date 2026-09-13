@@ -2421,3 +2421,119 @@ body { color: var(--ink); background: var(--gray-bg); }
   .guarantee-section .flyer-container > div { grid-template-columns: 1fr 1fr !important; }
   .guarantee-section .flyer-container > div > div { padding: 14px !important; }
 }
+
+/* ==========================================================================
+   FLOATING WHATSAPP BUTTON
+   Sits below the modal layer (z-index 200) so dialogs always cover it.
+   ========================================================================== */
+.wa-float {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 150;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 18px 12px 14px;
+  border-radius: 999px;
+  background: #25d366;
+  color: #06331a;
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(6, 51, 26, 0.28);
+  transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.18s ease;
+}
+
+.wa-float:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(6, 51, 26, 0.34);
+}
+
+.wa-float:active { transform: translateY(0); }
+
+.wa-float:focus-visible {
+  outline: 3px solid #06331a;
+  outline-offset: 3px;
+}
+
+.wa-float svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.wa-float-label { white-space: nowrap; }
+
+@media (max-width: 768px) {
+  .wa-float {
+    right: 14px;
+    bottom: 14px;
+    padding: 14px;
+    gap: 0;
+  }
+  .wa-float-label { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-float { transition: none; }
+}
+
+/* ==========================================================================
+   RESPONSIVE FORM + PANEL LAYOUT
+   These live in CSS rather than inline styles so the mobile rules can win.
+   ========================================================================== */
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.tracking-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  font-size: 12.5px;
+  margin-bottom: 18px;
+  background: #f8fafc;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+@media (max-width: 620px) {
+  .form-row-2,
+  .tracking-meta-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-backdrop { padding: 10px; }
+
+  #checkoutModal .modal-window { max-height: 94vh !important; }
+
+  #checkoutModal .modal-scroll-body { padding: 16px !important; }
+
+  /* Form controls must stay at 16px or iOS Safari zooms the viewport on focus */
+  #checkoutModal input,
+  #checkoutModal select,
+  #checkoutModal textarea {
+    font-size: 16px !important;
+  }
+
+  #checkoutModal label { font-size: 12.5px !important; }
+}
+
+@media (max-width: 480px) {
+  .hero-banner-image-container { height: 380px; }
+  .hero-copy h1 { font-size: 30px; }
+  .hero-copy > p:not(.hero-eyebrow) { font-size: 13.5px; }
+  .featured-title { font-size: 26px; }
+  .flyer-cat-item { min-width: 134px; min-height: 62px; }
+  .flyer-card-media { height: 124px !important; }
+  .model-line { font-size: 11.5px !important; height: 34px !important; }
+  .price-main { font-size: 14px !important; }
+}
