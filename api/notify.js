@@ -140,7 +140,7 @@ export default async function handler(req, res) {
               <li><strong>24-Month Official Warranty:</strong> Guaranteed spare parts availability and direct video consultation with certified mechanics.</li>
             </ul>
             <div style="text-align: center; margin: 30px 0 20px 0;">
-              <a href="https://modernmachinery.vercel.app" style="background: #2e7d32; color: #ffffff; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-block;">Browse Machinery Catalog</a>
+              <a href="https://farmmachineries.org" style="background: #2e7d32; color: #ffffff; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-block;">Browse Machinery Catalog</a>
             </div>
             <div style="margin-top: 24px; padding: 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; text-align: center;">
               <span style="color: #64748b; font-size: 12px;">Need technical advice or wholesale pricing? Contact us directly: </span>

@@ -7,7 +7,7 @@ Specializing in JIADI walk-behind diesel tractors and maize harvesters, Astramil
 
 ## 🚀 Live Site & Repository
 
-- **Production URL**: [https://modernmachinery.vercel.app](https://modernmachinery.vercel.app)
+- **Production URL**: [https://farmmachineries.org](https://farmmachineries.org)
 - **GitHub Repository**: [https://github.com/888Greys/thanhdat-machinery](https://github.com/888Greys/thanhdat-machinery)
 
 ---
