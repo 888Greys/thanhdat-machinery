@@ -116,28 +116,28 @@ const PRODUCTS_DATA = [
   {
     id: 2,
     brand: "JIADI",
-    model: "JD10L Walking Diesel Tractor 10HP",
+    model: "JD14L Walking Diesel Tractor 14HP",
     category: "tractors",
     price: 245000,
     currency: "KES",
     badge: "COMPACT POWER",
     badgeType: "badge-blue-star",
-    sku: "FM-JD-JD10L",
+    sku: "FM-JD-JD14L",
     rating: 0,
     reviewsCount: 0,
-    hp: "10.0 HP",
+    hp: "14.0 HP",
     cooling: "Water-Cooled (Air-Cooled on Heavy-Duty Variants)",
     starter: "Manual Recoil Crank / Optional Electric Start",
     weight: "Approx. 200 - 300 kg",
     bullets: [
-      "10 HP horizontal diesel delivers the high torque for deep ploughing and tilling where petrol tillers stall",
+      "14 HP horizontal diesel delivers the high torque for deep ploughing and tilling where petrol tillers stall",
       "Gear-driven transmission with multiple forward speeds plus reverse",
       "Supplied with both rubber tyres and iron traction wheels for road and field work"
     ],
     specs: {
-      "Brand / Model": "JIADI JD10L",
+      "Brand / Model": "JIADI JD14L",
       "Engine Type": "Single-Cylinder, 4-Stroke, Horizontal Diesel Engine",
-      "Power Output": "10.0 HP",
+      "Power Output": "14.0 HP",
       "Cooling System": "Water-Cooled (Air-Cooled on Heavy-Duty Variants)",
       "Starting Method": "Manual Recoil Crank, or Electric Start on Some Variants",
       "Transmission": "Gear-Driven, Multiple Forward Speeds + Reverse",
@@ -145,9 +145,9 @@ const PRODUCTS_DATA = [
       "Weight": "Approx. 200 - 300 kg (varies by attachments)"
     },
     images: [
-      "images/jiadi-walking-tractor-10hp.jpg"
+      "images/jiadi-walking-tractor-14hp.jpg"
     ],
-    description: "The JIADI JD10L is a heavy-duty walking tractor, also known as a power tiller, designed for small to medium-scale farming. Its 10 HP diesel engine handles the tough soil conditions that petrol models struggle with, producing the high torque needed for deep ploughing and tilling. Gear-driven transmission with reverse, and it comes with both rubber tyres and iron traction wheels.",
+    description: "The JIADI JD14L is a heavy-duty walking tractor, also known as a power tiller, designed for small to medium-scale farming. Its 14 HP diesel engine handles the tough soil conditions that petrol models struggle with, producing the high torque needed for deep ploughing and tilling. Gear-driven transmission with reverse, and it comes with both rubber tyres and iron traction wheels.",
     reviews: []
   },
   {
